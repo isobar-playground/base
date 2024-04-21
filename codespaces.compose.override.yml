@@ -1,0 +1,20 @@
+services:
+  traefik:
+    profiles:
+      - dontstart
+
+  php:
+    environment:
+      DRUSH_OPTIONS_URI: "https://${PROJECT_BASE_URL}"
+
+  nginx:
+    ports:
+      - 80:80
+
+  storybook:
+    ports:
+      - 6006:6006
+
+  storybook_drupal:
+    environment:
+      DRUSH_OPTIONS_URI: "https://${PROJECT_BASE_URL}"

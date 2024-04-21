@@ -1,0 +1,42 @@
+name: Update .env file
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up curl
+        run: sudo apt-get install -y curl
+
+      - name: Run the update script
+        run: |
+          chmod +x scripts/wodby.sh
+          scripts/wodby.sh
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .env
+          git commit -m 'Update .env file' || echo "No changes to commit"
+
+      - name: Create or Update Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update .env file
+          branch: update-env-file
+          title: 'Update .env file'
+          body: 'Automated update of the .env file.'
+          labels: update-env-file
+          delete-branch: true

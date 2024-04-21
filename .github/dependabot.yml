@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /drupal
+    schedule:
+      interval: daily
+  - package-ecosystem: npm
+    directory: /drupal/web/themes/custom/base
+    schedule:
+      interval: daily
