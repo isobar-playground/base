@@ -1,0 +1,13 @@
+parameters:
+  twig.config:
+    debug: true
+    cache: true
+  storybook.development: true
+  cors.config:
+    enabled: true
+    allowedHeaders: ['*']
+    allowedMethods: ['*']
+    allowedOrigins: ['*']
+    exposedHeaders: false
+    maxAge: false
+    supportsCredentials: true
