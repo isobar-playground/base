@@ -1,0 +1,10 @@
+name: Base
+type: theme
+base theme: false
+description: Base theme
+package: Custom
+core_version_requirement: ^10
+libraries:
+  - base/global
+regions:
+  content: 'Content'

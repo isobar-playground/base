@@ -1,0 +1,5 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal",
+  "forwardPorts": [80, 8080],
+  "postCreateCommand": "sh ./.devcontainer/codespaces.sh"
+}
