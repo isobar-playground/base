@@ -1,0 +1,8 @@
+# IntelliJ IDE
+/.idea
+
+# Local Docker Compose overrides
+/compose.override.yml
+
+# Local ENV overrides
+/.env.local

@@ -1,0 +1,13 @@
+command:
+  sql:
+    dump:
+      options:
+        result-file: '../../database/dump.sql'
+        structure-tables-list:
+          - 'cache'
+          - 'cache_*'
+          - 'history'
+          - 'search_*'
+          - 'sessions'
+          - 'watchdog'
+        extra-dump: '--no-tablespaces'
