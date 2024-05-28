@@ -227,7 +227,7 @@ services:
     volumes:
     - ./html:/var/www/html
     tty: true
-    command: sh -c 'npm i && npm run watch'
+    command: sh -c 'npm ci && npm run watch'
 
   storybook:
     image: wodby/node:$NODE_TAG
@@ -236,7 +236,7 @@ services:
     volumes:
       - ./:/app
     tty: true
-    command: sh -c 'npm i && npm run storybook'
+    command: sh -c 'npm ci && npm run storybook'
     labels:
       - "traefik.http.services.${PROJECT_NAME}_storybook.loadbalancer.server.port=6006"
       - "traefik.http.routers.${PROJECT_NAME}_storybook.rule=Host(`storybook.${PROJECT_BASE_URL}`)"
