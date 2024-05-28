@@ -12,7 +12,7 @@
     "@storybook/addon-links": "^8.1.4",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
     "@storybook/blocks": "^8.1.4",
-    "@storybook/server": "^8.1.2",
+    "@storybook/server": "^8.1.4",
     "@storybook/server-webpack5": "^8.1.2",
     "@storybook/test": "^8.1.4",
     "storybook": "^8.1.4",
