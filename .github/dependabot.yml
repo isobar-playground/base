@@ -4,7 +4,9 @@ updates:
     directory: /html
     schedule:
       interval: daily
+    open-pull-requests-limit: 10
   - package-ecosystem: npm
     directory: /html/web/themes/custom/base
     schedule:
       interval: daily
+    open-pull-requests-limit: 10
