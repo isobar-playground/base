@@ -4,6 +4,13 @@ updates:
     directory: /html
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: "drupal/core*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      drupal-core:
+        patterns:
+          - "drupal/core*"
     open-pull-requests-limit: 10
   - package-ecosystem: npm
     directory: /html/web/themes/custom/base
