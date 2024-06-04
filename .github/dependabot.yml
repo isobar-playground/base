@@ -16,4 +16,8 @@ updates:
     directory: /html/web/themes/custom/base
     schedule:
       interval: daily
+    groups:
+      storybook:
+        patterns:
+          - "*storybook*"
     open-pull-requests-limit: 10
