@@ -1,0 +1,14 @@
+grumphp:
+  environment:
+    variables:
+      GRUMPHP_COMPOSER_DIR: /home/wodby/app/html
+  git_hook_variables:
+    EXEC_GRUMPHP_COMMAND: [ 'docker-compose', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
+  tasks:
+    composer:
+      file: /home/wodby/app/html/composer.json
+    phpcs: null
+    yamllint: null
+
+  fixer:
+    enabled: false
