@@ -2,7 +2,7 @@ name: Update .env file
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every day at midnight
+    - cron: '0 0 * * *' # Runs every day at midnight
   workflow_dispatch:
 
 permissions:
