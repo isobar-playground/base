@@ -2,7 +2,8 @@
 
 # URLs and files
 local_file=".env"
-remote_url="https://raw.githubusercontent.com/wodby/docker4drupal/master/.env"
+sha=$(curl -s https://api.github.com/repos/wodby/docker4drupal/releases/latest | jq -r '.target_commitish')
+remote_url="https://raw.githubusercontent.com/wodby/docker4drupal/$sha/.env"
 
 # Temporary files
 remote_temp=$(mktemp)
