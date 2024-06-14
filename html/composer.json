@@ -46,7 +46,7 @@
             "drupal/core-project-message": true,
             "ergebnis/composer-normalize": true,
             "php-http/discovery": true,
-            "phpro/grumphp": true,
+            "phpro/grumphp": false,
             "phpstan/extension-installer": true
         },
         "sort-packages": true
