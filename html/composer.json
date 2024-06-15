@@ -46,7 +46,7 @@
             "drupal/core-project-message": true,
             "ergebnis/composer-normalize": true,
             "php-http/discovery": true,
-            "phpro/grumphp": false,
+            "phpro/grumphp": true,
             "phpstan/extension-installer": true
         },
         "sort-packages": true
@@ -77,6 +77,10 @@
             "locations": {
                 "web-root": "web/"
             }
+        },
+        "grumphp": {
+            "config-default-path": "/home/wodby/app",
+            "project-path": "/home/wodby/app"
         },
         "installer-paths": {
             "web/core": [

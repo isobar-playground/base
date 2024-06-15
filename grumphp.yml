@@ -6,7 +6,7 @@ grumphp:
     EXEC_GRUMPHP_COMMAND: [ 'docker-compose', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
   tasks:
     composer:
-      file: /home/wodby/app/html/composer.json
+      file: html/composer.json
     phpcs: null
     yamllint: null
 

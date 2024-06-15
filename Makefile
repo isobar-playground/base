@@ -23,7 +23,7 @@ up:
 	@echo "Starting up containers for $(PROJECT_NAME) at $(PROJECT_BASE_URL)..."
 	@docker compose --env-file .env --env-file .env.local pull
 	@docker compose --env-file .env --env-file .env.local up -d --remove-orphans
-	@docker compose run --rm grumphp sh -c 'cd html && composer install && cd .. && grumphp git:init'
+	@docker compose run --rm grumphp sh -c 'cd html && composer install'
 
 .PHONY: mutagen
 mutagen:
