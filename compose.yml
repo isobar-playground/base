@@ -50,9 +50,9 @@ services:
 #      PHP_XDEBUG_CLIENT_HOST: 10.0.75.1 # Windows, Docker < 18.03
 #      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
 #      # PHPUnit Drupal testing configurations
-#      SIMPLETEST_BASE_URL: "http://nginx"
-#      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
-#      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+      SIMPLETEST_BASE_URL: "http://nginx"
+      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
+      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
     volumes:
     - ./html:/var/www/html
     - ./database:/var/www/database
@@ -294,18 +294,20 @@ services:
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_xhprof.rule=Host(`xhprof.${PROJECT_BASE_URL}`)"
 
-#  chrome:
-#    image: selenium/standalone-chrome:$SELENIUM_CHROME_TAG
-#    container_name: "${PROJECT_NAME}_chrome"
-#    volumes:
-#    - /dev/shm:/dev/shm
-#    entrypoint:
-#    - chromedriver
-#    - "--no-sandbox"
-#    - "--disable-dev-shm-usage"
-#    - "--log-path=/tmp/chromedriver.log"
-#    - "--verbose"
-#    - "--whitelisted-ips="
+  chrome:
+    image: selenium/standalone-chrome:$SELENIUM_CHROME_TAG
+    container_name: "${PROJECT_NAME}_chrome"
+    volumes:
+    - /dev/shm:/dev/shm
+    entrypoint:
+    - chromedriver
+    - "--no-sandbox"
+    - "--disable-dev-shm-usage"
+    - "--log-path=/tmp/chromedriver.log"
+    - "--verbose"
+    - "--whitelisted-ips="
+    ports:
+    - "9515:9515"
 
   grumphp:
     init: true
