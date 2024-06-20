@@ -90,12 +90,14 @@ services:
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
     labels:
+    - "traefik.enable=true"
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
   mailhog:
     image: mailhog/mailhog
     container_name: "${PROJECT_NAME}_mailhog"
     labels:
+    - "traefik.enable=true"
     - "traefik.http.services.${PROJECT_NAME}_mailhog.loadbalancer.server.port=8025"
     - "traefik.http.routers.${PROJECT_NAME}_mailhog.rule=Host(`mailhog.${PROJECT_BASE_URL}`)"
 
@@ -238,6 +240,7 @@ services:
     tty: true
     command: sh -c 'npm ci && npm run storybook'
     labels:
+      - "traefik.enable=true"
       - "traefik.http.services.${PROJECT_NAME}_storybook.loadbalancer.server.port=6006"
       - "traefik.http.routers.${PROJECT_NAME}_storybook.rule=Host(`storybook.${PROJECT_BASE_URL}`)"
 
@@ -246,7 +249,7 @@ services:
     container_name: "${PROJECT_NAME}_storybook_drupal"
     environment:
       DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
-    command: watch -n 10 drush generate-all-stories --force
+    command: watch -n 30 drush generate-all-stories --force
     restart: unless-stopped
     volumes:
       - ./html:/var/www/html
@@ -322,7 +325,7 @@ services:
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
-    command: --api.insecure=true --providers.docker
+    command: --api.insecure=true --providers.docker --providers.docker.exposedbydefault=false
     ports:
     - "${PROJECT_PORT}:80"
     - '8080:8080' # Dashboard
