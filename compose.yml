@@ -53,6 +53,7 @@ services:
       SIMPLETEST_BASE_URL: "http://nginx"
       SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
       MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+      SYMFONY_DEPRECATIONS_HELPER: 'weak'
     volumes:
     - ./html:/var/www/html
     - ./database:/var/www/database
@@ -321,6 +322,7 @@ services:
       - ./:/home/wodby/app
     environment:
       PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/wodby/.composer/vendor/bin:/var/www/html/vendor/bin:/var/www/html/bin:/home/wodby/app/html/vendor/bin
+      SYMFONY_DEPRECATIONS_HELPER: 'weak'
 
   traefik:
     image: traefik:v2.0
