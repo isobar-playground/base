@@ -7,7 +7,10 @@ grumphp:
   tasks:
     composer:
       file: html/composer.json
-    phpcs: null
+    phpcs:
+      standard:
+        - Drupal
+        - DrupalPractice
     yamllint: null
 
   fixer:
