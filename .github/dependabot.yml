@@ -1,6 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: composer
+    versioning-strategy: increase
     directory: /html
     schedule:
       interval: daily
@@ -10,6 +11,7 @@ updates:
           - "drupal/core*"
     open-pull-requests-limit: 10
   - package-ecosystem: npm
+    versioning-strategy: increase
     directory: /html/web/themes/custom/base
     schedule:
       interval: daily
