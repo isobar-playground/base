@@ -12,6 +12,11 @@ grumphp:
         - Drupal
         - DrupalPractice
     yamllint: null
+    phpunit:
+      config_file: html/web/core
+      group:
+        - base_test
+
 
   fixer:
     enabled: false
