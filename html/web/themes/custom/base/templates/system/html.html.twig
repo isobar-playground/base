@@ -35,7 +35,9 @@
   </head>
   <body{{ attributes }}>
     {% embed 'base:header' %}{% endembed %}
+    {{ page_top }}
     {{ page }}
+    {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
