@@ -1,3 +1,12 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
 name: Header
 description: The page Header component
+props:
+  type: object
+  required:
+    - items
+  properties:
+    items:
+      type: object
+      title: Items
+      description: Navigation menu items
