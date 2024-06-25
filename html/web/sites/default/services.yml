@@ -1,6 +1,7 @@
 parameters:
   twig.config:
     debug: true
+    auto_reload: true
     cache: true
   storybook.development: true
   cors.config:
@@ -11,3 +12,6 @@ parameters:
     exposedHeaders: false
     maxAge: false
     supportsCredentials: true
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory
