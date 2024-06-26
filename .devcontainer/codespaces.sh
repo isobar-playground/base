@@ -11,7 +11,6 @@ echo "PROJECT_PORT=443" >> .env.local
 
 # Spin-up environment, install dependencies
 make
-make composer install
 
 # Set ports public by default.
 
