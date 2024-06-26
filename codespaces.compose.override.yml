@@ -15,6 +15,10 @@ services:
     ports:
       - 6006:6006
 
+  pma:
+    ports:
+      - 3306:80
+
   storybook_drupal:
     environment:
       DRUSH_OPTIONS_URI: "https://${PROJECT_BASE_URL}"
