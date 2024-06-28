@@ -252,7 +252,6 @@ services:
     environment:
       DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
     command: watch -n 30 drush generate-all-stories --force
-    restart: unless-stopped
     volumes:
       - ./html:/var/www/html
 
