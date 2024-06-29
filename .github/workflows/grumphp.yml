@@ -1,0 +1,24 @@
+name: GrumPHP
+
+on: [ pull_request, workflow_dispatch, push ]
+
+jobs:
+  grumphp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update permissions
+        run: sudo chown 1000:1000 -R .
+
+      - name: Run GrumPHP
+        run: |
+          docker compose run --rm --no-deps grumphp sh -c 'cd html && composer install'
+          docker compose run --rm --no-deps grumphp html/vendor/bin/grumphp run --testsuite coding_standards
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker compose down
+          sudo chmod 777 -R .

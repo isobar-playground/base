@@ -17,6 +17,12 @@ grumphp:
       group:
         - base_test
 
+  testsuites:
+    coding_standards:
+      tasks:
+        - composer
+        - phpcs
+        - yamllint
 
   fixer:
     enabled: false
