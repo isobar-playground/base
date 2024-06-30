@@ -1,6 +1,11 @@
 name: PHPUnit
 
-on: [ pull_request, workflow_dispatch ]
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
   phpunit:
@@ -9,20 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 'Update permissions'
-        run: 'sudo chown 1000:1000 -R .'
+      - name: Update permissions
+        run: sudo chmod -R 777 .
 
-      - name: 'Spin up environment'
-        run: 'docker compose up -d'
+      - name: Spin up environment
+        run: make
 
-      - name: 'Install dependencies'
-        run: 'docker compose exec php composer install'
+      - name: Run PHPUnit
+        run: docker compose exec php phpunit -c web/core --group base_test
 
-      - name: 'Run PHPUnit'
-        run: 'docker compose exec php phpunit -c web/core --group base_test'
-
-      - name: 'Cleanup'
+      - name: Cleanup
         if: always()
         run: | 
           docker compose down
-          sudo chmod 777 -R .
