@@ -13,9 +13,9 @@
         "composer/composer": "^2.7",
         "composer/installers": "^2.3",
         "drupal/admin_login_path": "^2.0",
-        "drupal/core-composer-scaffold": "^10.2",
-        "drupal/core-project-message": "^10.2",
-        "drupal/core-recommended": "^10.2",
+        "drupal/core-composer-scaffold": "^10.3",
+        "drupal/core-project-message": "^10.3",
+        "drupal/core-recommended": "^10.3",
         "drupal/gin": "^3.0@RC",
         "drupal/pathauto": "^1.12",
         "drupal/storybook": "^1.0@beta",
@@ -23,7 +23,7 @@
         "drush/drush": "^12.5"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.2",
+        "drupal/core-dev": "^10.3",
         "drupal/devel": "^5.2",
         "ergebnis/composer-normalize": "^2.42",
         "phpro/grumphp": "^2.5"
