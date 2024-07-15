@@ -16,6 +16,6 @@
     "@storybook/server-webpack5": "^8.2.1",
     "@storybook/test": "^8.2.1",
     "storybook": "^8.1.11",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.5"
   }
 }
