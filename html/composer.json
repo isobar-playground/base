@@ -21,7 +21,7 @@
         "drupal/s3fs": "^3.5",
         "drupal/s3fs_cors": "^1.0@RC",
         "drupal/storybook": "^1.0@beta",
-        "drupal/twig_tweak": "^3.3",
+        "drupal/twig_tweak": "^3.4",
         "drush/drush": "^12.5"
     },
     "require-dev": {
