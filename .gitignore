@@ -6,3 +6,6 @@
 
 # Local ENV overrides
 /.env.local
+
+# Private file system
+/html/private
