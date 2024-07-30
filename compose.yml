@@ -10,11 +10,14 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
       MYSQL_TRANSACTION_ISOLATION: READ-COMMITTED
     volumes:
-      - ./database:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
-#      - /path/to/mariadb/data/on/host:/var/lib/mysql # Use bind mount
+      - ./docker/mariadb:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
-    image: wodby/drupal-php:$PHP_TAG
+    build:
+      dockerfile: docker/php/Dockerfile
+      args:
+        PHP_TAG: $PHP_TAG
+      context: .
     container_name: "${PROJECT_NAME}_php"
     environment:
       # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
@@ -22,12 +25,8 @@ services:
       PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
 #     # PHP 8.1 and previous version require dos2unix workaround.
 #      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/bin/msmtp -t"'
-      # Mailhog:
       MSMTP_HOST: mailhog
       MSMTP_PORT: 1025
-#      # OpenSMTPD:
-#      MSMTP_HOST: opensmtpd
-#      MSMTP_PORT: 25
       DB_HOST: $DB_HOST
       DB_PORT: $DB_PORT
       DB_USER: $DB_USER
@@ -50,49 +49,27 @@ services:
 #      PHP_XDEBUG_CLIENT_HOST: 10.0.75.1 # Windows, Docker < 18.03
 #      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
 #      # PHPUnit Drupal testing configurations
-      SIMPLETEST_BASE_URL: "http://nginx"
+      SIMPLETEST_BASE_URL: "http://apache"
       SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
       MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
       SYMFONY_DEPRECATIONS_HELPER: 'weak'
     volumes:
     - ./html:/var/www/html
-    - ./database:/var/www/database
-## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
-## For XHProf and Xdebug profiler traces
-#    - files:/mnt/files
+    - ./docker/mariadb:/var/www/database
 
   crond:
     init: true
-    image: wodby/drupal-php:$PHP_TAG
+    build:
+      dockerfile: docker/php/Dockerfile
+      args:
+        PHP_TAG: $PHP_TAG
+      context: .
     container_name: "${PROJECT_NAME}_crond"
     environment:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
     command: sudo -E crond -f -d 0
     volumes:
     - ./html:/var/www/html
-## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
-
-  nginx:
-    image: wodby/nginx:$NGINX_TAG
-    container_name: "${PROJECT_NAME}_nginx"
-    depends_on:
-    - php
-    environment:
-      NGINX_STATIC_OPEN_FILE_CACHE: "off"
-      NGINX_ERROR_LOG_LEVEL: debug
-      NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/web
-      NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
-    #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
-    volumes:
-    - ./html:/var/www/html
-## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
-    labels:
-    - "traefik.enable=true"
-    - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
   mailhog:
     image: mailhog/mailhog
@@ -102,67 +79,25 @@ services:
     - "traefik.http.services.${PROJECT_NAME}_mailhog.loadbalancer.server.port=8025"
     - "traefik.http.routers.${PROJECT_NAME}_mailhog.rule=Host(`mailhog.${PROJECT_BASE_URL}`)"
 
-#  postgres:
-#    image: wodby/postgres:$POSTGRES_TAG
-#    container_name: "${PROJECT_NAME}_postgres"
-#    stop_grace_period: 30s
-#    environment:
-#      POSTGRES_PASSWORD: $DB_PASSWORD
-#      POSTGRES_DB: $DB_NAME
-#      POSTGRES_USER: $DB_USER
-#      POSTGRES_DB_EXTENSIONS: pg_trgm
-#    volumes:
-#    - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
-#    - /path/to/postgres/data/on/host:/var/lib/postgresql/data # Use bind mount
-
-#  apache:
-#    image: wodby/apache:$APACHE_TAG
-#    container_name: "${PROJECT_NAME}_apache"
-#    depends_on:
-#    - php
-#    environment:
-#      APACHE_LOG_LEVEL: debug
-#      APACHE_BACKEND_HOST: php
-#      APACHE_VHOST_PRESET: php
-#      APACHE_DOCUMENT_ROOT: /var/www/html/web
-#    volumes:
-#    - ./:/var/www/html
-## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
-
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
-
-#  varnish:
-#    image: wodby/varnish:$VARNISH_TAG
-#    container_name: "${PROJECT_NAME}_varnish"
-#    depends_on:
-#    - nginx
-#    environment:
-#      VARNISH_SECRET: secret
-#      VARNISH_BACKEND_HOST: nginx
-#      VARNISH_BACKEND_PORT: 80
-#      VARNISH_CONFIG_PRESET: drupal
-#      VARNISH_ALLOW_UNRESTRICTED_PURGE: 1
-#    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_varnish.loadbalancer.server.port=6081"
-#    - "traefik.http.routers.${PROJECT_NAME}_varnish.rule=Host(`varnish.${PROJECT_BASE_URL}`)"
-
-#  redis:
-#    container_name: "${PROJECT_NAME}_redis"
-#    image: wodby/redis:$REDIS_TAG
-
-#  adminer:
-#    container_name: "${PROJECT_NAME}_adminer"
-#    init: true
-#    image: wodby/adminer:$ADMINER_TAG
-#    environment:
-#      # For PostgreSQL:
-#      #      ADMINER_DEFAULT_DB_DRIVER: pgsql
-#      ADMINER_DEFAULT_DB_HOST: $DB_HOST
-#      ADMINER_DEFAULT_DB_NAME: $DB_NAME
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_adminer.rule=Host(`adminer.${PROJECT_BASE_URL}`)"
+  apache:
+    build:
+      dockerfile: docker/apache/Dockerfile
+      args:
+        APACHE_TAG: $APACHE_TAG
+        PHP_IMAGE: "${PROJECT_NAME}-php"
+    container_name: "${PROJECT_NAME}_apache"
+    depends_on:
+    - php
+    environment:
+      APACHE_LOG_LEVEL: debug
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+    volumes:
+    - ./html:/var/www/html
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
   pma:
     image: phpmyadmin/phpmyadmin
@@ -176,56 +111,20 @@ services:
     - "traefik.enable=true"
     - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"
 
-#  solr:
-#    image: wodby/solr:$SOLR_TAG
-#    container_name: "${PROJECT_NAME}_solr"
-#    environment:
-##      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
-#      ZK_HOST: zookeeper:2181
-#      SOLR_HEAP: 1024m
-#    depends_on:
-#    - zookeeper
-#    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_solr.loadbalancer.server.port=8983"
-#    - "traefik.http.routers.${PROJECT_NAME}_solr.rule=Host(`solr.${PROJECT_BASE_URL}`)"
-
-#  zookeeper:
-#    image: zookeeper:$ZOOKEEPER_TAG
-#    container_name: "${PROJECT_NAME}_zookeeper"
-#    environment:
-#      ZOO_MY_ID: 1
-#      ZOO_SERVERS: server.1=zookeeper:2888:3888;2181
-#      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
-
-#  drupal-node:
-#    image: wodby/drupal-node:$DRUPAL_NODE_TAG
-#    container_name: "${PROJECT_NAME}_drupal_nodejs"
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_drupal_node.rule=Host(`drupal_node.${PROJECT_BASE_URL}`)"
-#    environment:
-#      NODE_SERVICE_KEY: node-service-key
+#  redis:
+#    container_name: "${PROJECT_NAME}_redis"
+#    image: wodby/redis:$REDIS_TAG
 
 #  memcached:
 #    container_name: "${PROJECT_NAME}_memcached"
 #    image: wodby/memcached:$MEMCACHED_TAG
 
-#  rsyslog:
-#    container_name: "${PROJECT_NAME}_rsyslog"
-#    image: wodby/rsyslog:$RSYSLOG_TAG
-
-#  athenapdf:
-#    image: arachnysdocker/athenapdf-service:$ATHENAPDF_TAG
-#    container_name: "${PROJECT_NAME}_athenapdf"
-#    environment:
-#      WEAVER_AUTH_KEY: weaver-auth-key
-#      WEAVER_ATHENA_CMD: "athenapdf -S"
-#      WEAVER_MAX_WORKERS: 10
-#      WEAVER_MAX_CONVERSION_QUEUE: 50
-#      WEAVER_WORKER_TIMEOUT: 90
-#      WEAVER_CONVERSION_FALLBACK: "false"
-
   node:
-    image: wodby/node:$NODE_TAG
+    build:
+      dockerfile: docker/node/Dockerfile
+      args:
+        NODE_TAG: $NODE_TAG
+      context: .
     container_name: "${PROJECT_NAME}_node"
     working_dir: /var/www/html/web/themes/custom/base
     volumes:
@@ -234,7 +133,11 @@ services:
     command: sh -c 'npm ci && npm run watch'
 
   storybook:
-    image: wodby/node:$NODE_TAG
+    build:
+      dockerfile: docker/node/Dockerfile
+      args:
+        NODE_TAG: $NODE_TAG
+      context: .
     container_name: "${PROJECT_NAME}_storybook"
     working_dir: /app/html/web/themes/custom/base
     volumes:
@@ -247,24 +150,17 @@ services:
       - "traefik.http.routers.${PROJECT_NAME}_storybook.rule=Host(`storybook.${PROJECT_BASE_URL}`)"
 
   storybook_drupal:
-    image: wodby/drupal-php:$PHP_TAG
+    build:
+      dockerfile: docker/php/Dockerfile
+      args:
+        PHP_TAG: $PHP_TAG
+      context: .
     container_name: "${PROJECT_NAME}_storybook_drupal"
     environment:
       DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
     command: watch -n 30 drush generate-all-stories --force
     volumes:
       - ./html:/var/www/html
-
-#  webgrind:
-#    image: wodby/webgrind:$WEBGRIND_TAG
-#    container_name: "${PROJECT_NAME}_webgrind"
-#    environment:
-#      WEBGRIND_PROFILER_DIR: /mnt/files/xdebug
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_webgrind.rule=Host(`webgrind.${PROJECT_BASE_URL}`)"
-#    volumes:
-#    - files:/mnt/files
-#    - ./:/mnt/codebase
 
 #  elasticsearch:
 #    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
@@ -275,28 +171,6 @@ services:
 #      memlock:
 #        soft: -1
 #        hard: -1
-
-#  kibana:
-#    image: wodby/kibana:$KIBANA_TAG
-#    container_name: "${PROJECT_NAME}_kibana"
-#    depends_on:
-#    - elasticsearch
-#    labels:
-#    - "traefik.http.services.${PROJECT_NAME}_kibana.loadbalancer.server.port=5601"
-#    - "traefik.http.routers.${PROJECT_NAME}_kibana.rule=Host(`kibana.${PROJECT_BASE_URL}`)"
-
-#  opensmtpd:
-#    container_name: "${PROJECT_NAME}_opensmtpd"
-#    image: wodby/opensmtpd:$OPENSMTPD_TAG
-
-#  xhprof:
-#    image: wodby/xhprof:$XHPROF_TAG
-#    container_name: "${PROJECT_NAME}_xhprof"
-#    restart: always
-#    volumes:
-#    - files:/mnt/files
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_xhprof.rule=Host(`xhprof.${PROJECT_BASE_URL}`)"
 
   chrome:
     image: selenium/standalone-chrome:$SELENIUM_CHROME_TAG
@@ -315,7 +189,11 @@ services:
 
   grumphp:
     init: true
-    image: wodby/drupal-php:$PHP_TAG
+    build:
+      dockerfile: docker/grumphp/Dockerfile
+      args:
+        PHP_TAG: $PHP_TAG
+      context: .
     container_name: "${PROJECT_NAME}_grumphp"
     working_dir: /home/wodby/app
     volumes:
@@ -333,29 +211,3 @@ services:
     - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-
-#x-mutagen:
-#  sync:
-#    defaults:
-#      ignore:
-#        vcs: true
-#        paths:
-#        - .DS_Store
-#        - .history
-#        - .idea
-#    drupal:
-#      alpha: "."
-#      beta: "volume://drupal"
-#      configurationBeta:
-#        permissions:
-#          defaultFileMode: 0644
-#          defaultDirectoryMode: 0755
-#          defaultOwner: "id:501"
-#          defaultGroup: "id:20"
-
-volumes:
-## For macOS users (Mutagen)
-#  drupal:
-# For Xdebug profiler
-  files:
-

@@ -1,0 +1,7 @@
+# Ignore vendor and Drupal core for PHP container
+/html/vendor
+/html/web/core
+/html/web/modules/contrib
+
+# Ignore node_modules for node container.
+/html/web/themes/custom/base/node_modules

@@ -5,6 +5,7 @@ default: up
 
 COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
+COMPOSE ?= docker compose --env-file .env --env-file .env.local
 
 ## help	:	Print commands help.
 .PHONY: help
@@ -21,13 +22,16 @@ endif
 up:
 	touch .env.local
 	@echo "Starting up containers for $(PROJECT_NAME) at $(PROJECT_BASE_URL)..."
-	@docker compose --env-file .env --env-file .env.local pull
-	@docker compose --env-file .env --env-file .env.local up -d --remove-orphans
-	@docker compose --env-file .env --env-file .env.local run --rm grumphp sh -c 'cd html && composer install'
-
-.PHONY: mutagen
-mutagen:
-	mutagen-compose up
+	@$(COMPOSE) pull
+	@$(COMPOSE) up -d --build --remove-orphans
+	@$(COMPOSE) run --rm grumphp sh -c 'cd html && composer install'
+	@echo -n "MySQL is initializing";
+	@until docker compose exec mariadb mariadb -s -u $(DB_USER) -p$(DB_PASSWORD) $(DB_NAME) -e "SELECT COUNT(*) FROM users" > /dev/null 2>&1; do \
+		echo -n "."; \
+		sleep 10; \
+	done
+	@echo ""
+	@echo "MySQL is ready to accept connections."
 
 ## down	:	Stop containers.
 .PHONY: down
@@ -37,13 +41,13 @@ down: stop
 .PHONY: start
 start:
 	@echo "Starting containers for $(PROJECT_NAME) from where you left off..."
-	@docker compose --env-file .env --env-file .env.local start
+	@$(COMPOSE) start
 
 ## stop	:	Stop containers.
 .PHONY: stop
 stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker compose --env-file .env --env-file .env.local stop
+	@$(COMPOSE) stop
 
 ## prune	:	Remove containers and their volumes.
 ##		You can optionally pass an argument with the service name to prune single container
@@ -52,7 +56,7 @@ stop:
 .PHONY: prune
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker compose --env-file .env --env-file .env.local down -v $(filter-out $@,$(MAKECMDGOALS))
+	@$(COMPOSE) rm -svf $(filter-out $@,$(MAKECMDGOALS))
 
 ## ps	:	List running containers.
 .PHONY: ps
@@ -85,7 +89,7 @@ drush:
 ##		logs nginx php	: View `nginx` and `php` containers logs.
 .PHONY: logs
 logs:
-	@docker compose logs -f $(filter-out $@,$(MAKECMDGOALS))
+	@$(COMPOSE) logs -f $(filter-out $@,$(MAKECMDGOALS))
 
 # https://stackoverflow.com/a/6273809/1826109
 %:

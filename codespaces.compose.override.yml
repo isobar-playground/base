@@ -7,7 +7,7 @@ services:
     environment:
       DRUSH_OPTIONS_URI: "https://${PROJECT_BASE_URL}"
 
-  nginx:
+  apache:
     ports:
       - 80:80
 
