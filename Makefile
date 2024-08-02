@@ -6,6 +6,7 @@ default: up
 COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
 COMPOSE ?= docker compose --env-file .env --env-file .env.local
+GIT_SHA := $(shell git rev-parse HEAD)
 
 ## help	:	Print commands help.
 .PHONY: help
@@ -90,6 +91,17 @@ drush:
 .PHONY: logs
 logs:
 	@$(COMPOSE) logs -f $(filter-out $@,$(MAKECMDGOALS))
+
+## build	:	Build containers for production.
+.PHONY: build
+build:
+	@docker image rm -f $(PROJECT_NAME)_node:$(GIT_SHA) > /dev/null 2>&1
+	@docker image rm -f $(PROJECT_NAME)_php:$(GIT_SHA) > /dev/null 2>&1
+	@docker image rm -f $(PROJECT_NAME)_apache:$(GIT_SHA) > /dev/null 2>&1
+
+	@docker build --progress=plain --no-cache --build-arg NODE_TAG=$(NODE_TAG) -f docker/node/Dockerfile . -t $(PROJECT_NAME)_node:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg PHP_TAG=$(PHP_TAG) --build-arg NODE_IMAGE=$(PROJECT_NAME)_node:$(GIT_SHA) -f docker/php/Dockerfile . -t $(PROJECT_NAME)_php:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg APACHE_TAG=$(APACHE_TAG) --build-arg PHP_IMAGE=$(PROJECT_NAME)_php:$(GIT_SHA) -f docker/apache/Dockerfile . -t $(PROJECT_NAME)_apache:$(GIT_SHA)
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
