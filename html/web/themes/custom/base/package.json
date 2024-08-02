@@ -2,7 +2,8 @@
   "name": "base",
   "version": "1.0.0",
   "scripts": {
-    "watch": "tailwindcss -o ./css/style.css --minify --watch",
+    "watch": "tailwindcss -o ./css/style.css --watch",
+    "build": "NODE_ENV=production tailwindcss -o ./css/style.css --minify",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
