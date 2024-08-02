@@ -20,6 +20,8 @@ services:
         NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_php"
+    depends_on:
+      - node
     environment:
       # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
       PHP_MAIL_MIXED_LF_AND_CRLF: On
@@ -67,6 +69,8 @@ services:
         NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_crond"
+    depends_on:
+      - node
     environment:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
     command: sudo -E crond -f -d 0
@@ -159,6 +163,8 @@ services:
         NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_storybook_drupal"
+    depends_on:
+      - node
     environment:
       DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
     command: watch -n 30 drush generate-all-stories --force
