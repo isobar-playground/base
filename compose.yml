@@ -17,6 +17,7 @@ services:
       dockerfile: docker/php/Dockerfile
       args:
         PHP_TAG: $PHP_TAG
+        NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_php"
     environment:
@@ -63,6 +64,7 @@ services:
       dockerfile: docker/php/Dockerfile
       args:
         PHP_TAG: $PHP_TAG
+        NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_crond"
     environment:
@@ -154,6 +156,7 @@ services:
       dockerfile: docker/php/Dockerfile
       args:
         PHP_TAG: $PHP_TAG
+        NODE_IMAGE: "${PROJECT_NAME}-node"
       context: .
     container_name: "${PROJECT_NAME}_storybook_drupal"
     environment:
