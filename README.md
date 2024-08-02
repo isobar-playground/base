@@ -1,5 +1,3 @@
-[![PHPUnit](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml) [![GrumPHP](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml)
-
 # Base Project 🚀
 
 This project is a base for web applications built with Drupal. It leverages Docker images `wodby/drupal-php` and `wodby/apache` for containerization. For local environments, it utilizes `docker-compose` along with `mariadb` and `wodby/node` images.
@@ -48,10 +46,32 @@ The `Makefile` includes several commands to manage the Docker environment:
 | `composer` | Executes `composer` commands in the specified `COMPOSER_ROOT` directory.                                             |
 | `drush`    | Executes `drush` commands in the specified `DRUPAL_ROOT` directory.                                                  |
 | `logs`     | Views container logs. Optionally, specify a service name to limit logs.                                              |
+| `build`    | Builds containers for production.                                                                                    |
 
 ## Docker Compose Configuration 🐳
 
 The project uses `docker-compose` for managing the local development environment. The `.env` and `.env.local` files are included to configure environment variables for Docker Compose.
+
+### Building Docker Images 🏗️
+
+#### Node Image
+
+The Node image is based on `wodby/node` and requires the `NODE_TAG` argument, which specifies the version of the image. This can be a development version with `-dev-` or a production version. The version information is located in the `.env` or `.env.local` file.
+
+#### PHP Image
+
+The PHP image is based on `wodby/drupal-php` and requires the `PHP_TAG` argument for the image version, which is specified in the `.env` or `.env.local` file. In the `.env` file, it will be a development version (e.g., `8.3-dev-4.60.1`), while in the `.env.local` file, after running the `./scripts/prod-env.bash` script, it will be a production version without the `-dev-` part. The image also requires the `NODE_IMAGE` argument, which copies built assets from the Node image.
+
+#### Apache Image
+
+The Apache image is based on `wodby/apache` and requires the built PHP image passed via the `PHP_IMAGE` argument. It also requires the `APACHE_TAG` argument. The versions for Apache images are specified in the `.env` file as they do not have development releases.
+
+### Build Order
+
+The images should be built in the following order:
+1. Node image
+2. PHP image
+3. Apache image
 
 ## Static Code Analysis and Coding Standards 🧹
 
