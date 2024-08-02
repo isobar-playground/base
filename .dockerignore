@@ -2,6 +2,8 @@
 /html/vendor
 /html/web/core
 /html/web/modules/contrib
+/html/web/themes/contrib
 
-# Ignore node_modules for node container.
+# Ignore node_modules and CSS for node container.
 /html/web/themes/custom/base/node_modules
+/html/web/themes/custom/base/css
