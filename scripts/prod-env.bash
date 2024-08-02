@@ -1,5 +1,7 @@
 #!/bin/bash
 
+touch .env.local
+
 while IFS= read -r line; do
     [[ $line == \#* ]] && continue
     if [[ $line == *"-dev-"* ]]; then
