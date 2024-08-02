@@ -1,3 +1,7 @@
+[![PHPUnit](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml)
+[![GrumPHP](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml)
+[![Docker Build](https://github.com/isobar-playground/base/actions/workflows/test_build.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/test_build.yml)
+
 # Base Project 🚀
 
 This project is a base for web applications built with Drupal. It leverages Docker images `wodby/drupal-php` and `wodby/apache` for containerization. For local environments, it utilizes `docker-compose` along with `mariadb` and `wodby/node` images.
