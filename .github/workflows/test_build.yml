@@ -14,5 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set production ENV
+        run:  ./scripts/prod-env.bash
+
       - name: Build images
         run: make build
