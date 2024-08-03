@@ -138,38 +138,38 @@ services:
     tty: true
     command: sh -c 'npm ci && npm run watch'
 
-  storybook:
-    build:
-      dockerfile: docker/node/Dockerfile
-      args:
-        NODE_TAG: $NODE_TAG
-      context: .
-    container_name: "${PROJECT_NAME}_storybook"
-    working_dir: /app/html/web/themes/custom/base
-    volumes:
-      - ./:/app
-    tty: true
-    command: sh -c 'npm ci && npm run storybook'
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.${PROJECT_NAME}_storybook.loadbalancer.server.port=6006"
-      - "traefik.http.routers.${PROJECT_NAME}_storybook.rule=Host(`storybook.${PROJECT_BASE_URL}`)"
-
-  storybook_drupal:
-    build:
-      dockerfile: docker/php/Dockerfile
-      args:
-        PHP_TAG: $PHP_TAG
-        NODE_IMAGE: "${PROJECT_NAME}-node"
-      context: .
-    container_name: "${PROJECT_NAME}_storybook_drupal"
-    depends_on:
-      - node
-    environment:
-      DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
-    command: watch -n 30 drush generate-all-stories --force
-    volumes:
-      - ./html:/var/www/html
+#  storybook:
+#    build:
+#      dockerfile: docker/node/Dockerfile
+#      args:
+#        NODE_TAG: $NODE_TAG
+#      context: .
+#    container_name: "${PROJECT_NAME}_storybook"
+#    working_dir: /app/html/web/themes/custom/base
+#    volumes:
+#      - ./:/app
+#    tty: true
+#    command: sh -c 'npm ci && npm run storybook'
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.services.${PROJECT_NAME}_storybook.loadbalancer.server.port=6006"
+#      - "traefik.http.routers.${PROJECT_NAME}_storybook.rule=Host(`storybook.${PROJECT_BASE_URL}`)"
+#
+#  storybook_drupal:
+#    build:
+#      dockerfile: docker/php/Dockerfile
+#      args:
+#        PHP_TAG: $PHP_TAG
+#        NODE_IMAGE: "${PROJECT_NAME}-node"
+#      context: .
+#    container_name: "${PROJECT_NAME}_storybook_drupal"
+#    depends_on:
+#      - node
+#    environment:
+#      DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
+#    command: watch -n 30 drush generate-all-stories --force
+#    volumes:
+#      - ./html:/var/www/html
 
 #  elasticsearch:
 #    image: wodby/elasticsearch:$ELASTICSEARCH_TAG
