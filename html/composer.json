@@ -20,6 +20,7 @@
         "drupal/pathauto": "^1.13",
         "drupal/storybook": "^1.0@beta",
         "drupal/twig_tweak": "^3.4",
+        "drupal/upgrade_status": "^4.3",
         "drush/drush": "^12.5"
     },
     "require-dev": {
