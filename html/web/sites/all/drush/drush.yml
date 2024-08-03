@@ -2,7 +2,7 @@ command:
   sql:
     dump:
       options:
-        result-file: '../../database/dump.sql'
+        result-file: '../../database/base.sql'
         structure-tables-list:
           - 'cache'
           - 'cache_*'

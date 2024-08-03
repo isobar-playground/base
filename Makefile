@@ -24,7 +24,7 @@ up:
 	touch .env.local
 	@echo "Starting up containers for $(PROJECT_NAME) at $(PROJECT_BASE_URL)..."
 	@$(COMPOSE) pull
-	@$(COMPOSE) up -d --build --remove-orphans
+	@$(COMPOSE) up -d --remove-orphans
 	@$(COMPOSE) run --rm grumphp sh -c 'cd html && composer install'
 	@echo -n "MySQL is initializing";
 	@until docker compose exec mariadb mariadb -s -u $(DB_USER) -p$(DB_PASSWORD) $(DB_NAME) -e "SELECT COUNT(*) FROM users" > /dev/null 2>&1; do \
