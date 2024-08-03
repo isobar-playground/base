@@ -12,13 +12,11 @@
         "php": "^8.3",
         "composer/composer": "^2.7",
         "composer/installers": "^2.3",
-        "drupal/admin_login_path": "^2.0",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
         "drupal/gin": "^3.0@RC",
         "drupal/pathauto": "^1.13",
-        "drupal/storybook": "^1.0@beta",
         "drupal/twig_tweak": "^3.4",
         "drupal/upgrade_status": "^4.3",
         "drush/drush": "^13.0"
