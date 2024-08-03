@@ -18,8 +18,6 @@
         "drupal/core-recommended": "^10.3",
         "drupal/gin": "^3.0@RC",
         "drupal/pathauto": "^1.13",
-        "drupal/s3fs": "^3.5",
-        "drupal/s3fs_cors": "^1.0@RC",
         "drupal/storybook": "^1.0@beta",
         "drupal/twig_tweak": "^3.4",
         "drush/drush": "^12.5"
