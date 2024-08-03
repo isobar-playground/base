@@ -18,7 +18,6 @@
         "drupal/gin": "^3.0@RC",
         "drupal/pathauto": "^1.13",
         "drupal/twig_tweak": "^3.4",
-        "drupal/upgrade_status": "^4.3",
         "drush/drush": "^13.0"
     },
     "require-dev": {
