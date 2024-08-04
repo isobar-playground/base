@@ -55,6 +55,7 @@ services:
       SIMPLETEST_BASE_URL: "http://apache"
       SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
       MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+      BROWSERTEST_OUTPUT_DIRECTORY: /var/www/html/private/phpunit
       SYMFONY_DEPRECATIONS_HELPER: 'weak'
     volumes:
     - ./html:/var/www/html
