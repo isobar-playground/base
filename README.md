@@ -32,6 +32,7 @@ To set up the local development environment, follow these steps:
    ```sh
    make
    ```
+4. Access the local environment at http://base.localhost
 
 ## Makefile Commands 📜
 
