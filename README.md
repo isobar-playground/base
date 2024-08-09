@@ -4,6 +4,8 @@
 
 # Base Project 🚀
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/isobar-playground/base?quickstart=1)
+
 This project is a base for web applications built with Drupal. It leverages Docker images `wodby/drupal-php` and `wodby/apache` for containerization. For local environments, it utilizes `docker-compose` along with `mariadb` and `wodby/node` images.
 
 ## Features ✨
