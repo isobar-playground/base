@@ -3,7 +3,7 @@ type: theme
 base theme: false
 description: Base theme
 package: Custom
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 libraries:
   - base/global
 regions:
