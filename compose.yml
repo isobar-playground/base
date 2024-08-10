@@ -218,6 +218,8 @@ services:
         PHP_IMAGE: "${PROJECT_NAME}-php"
       context: .
     container_name: "${PROJECT_NAME}_supervisor"
+    depends_on:
+      - php
     volumes:
       - ./html:/var/www/html
       - ./docker/supervisor/conf.d:/etc/supervisor/conf.d
