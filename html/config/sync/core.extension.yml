@@ -29,6 +29,8 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  queue_ui: 0
+  rabbitmq: 0
   serialization: 0
   storybook: 0
   system: 0

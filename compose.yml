@@ -211,6 +211,31 @@ services:
       PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/wodby/.composer/vendor/bin:/var/www/html/vendor/bin:/var/www/html/bin:/home/wodby/app/html/vendor/bin
       SYMFONY_DEPRECATIONS_HELPER: 'weak'
 
+  supervisor:
+    build:
+      dockerfile: docker/supervisor/Dockerfile
+      args:
+        PHP_IMAGE: "${PROJECT_NAME}-php"
+      context: .
+    container_name: "${PROJECT_NAME}_supervisor"
+    depends_on:
+      - php
+    volumes:
+      - ./html:/var/www/html
+      - ./docker/supervisor/conf.d:/etc/supervisor/conf.d
+
+  rabbitmq:
+    image: rabbitmq:$RABBITMQ_TAG
+    container_name: "${PROJECT_NAME}_rabbitmq"
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_rabbitmq.loadbalancer.server.port=15672"
+      - "traefik.http.routers.${PROJECT_NAME}_rabbitmq.rule=Host(`rabbitmq.${PROJECT_BASE_URL}`)"
+
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"

@@ -73,12 +73,17 @@ The PHP image is based on `wodby/drupal-php` and requires the `PHP_TAG` argument
 
 The Apache image is based on `wodby/apache` and requires the built PHP image passed via the `PHP_IMAGE` argument. It also requires the `APACHE_TAG` argument. The versions for Apache images are specified in the `.env` file as they do not have development releases.
 
+#### Supervisor Image
+
+The project also includes a Docker image with a Supervisor service based on `wodby/php` image. This service manages background processes, and currently, it is configured to run a rabbitmq-worker. The Supervisor configuration files are located in the `docker/supervisor/conf.d` directory.
+
 ### Build Order
 
 The images should be built in the following order:
 1. Node image
 2. PHP image
 3. Apache image
+4. Supervisor image
 
 ## Static Code Analysis and Coding Standards 🧹
 
@@ -91,6 +96,15 @@ Unit tests are written using PHPUnit. These tests are automatically run as part 
 ## Theme Development 🎨
 
 The base theme is developed using Single Directory Components and TailwindCSS, providing a modern and efficient approach to theming in Drupal.
+
+## RabbitMQ Integration 🐰
+
+The project integrates with a RabbitMQ service, which is available at http://rabbitmq.base.localhost. The default login credentials are:
+
+- Username: admin
+- Password: admin
+
+Drupal integrates its internal queues with this RabbitMQ service, allowing for efficient background processing and message handling.
 
 ## Contribution 🤝
 
