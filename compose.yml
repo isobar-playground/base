@@ -222,6 +222,18 @@ services:
       - ./html:/var/www/html
       - ./docker/supervisor/conf.d:/etc/supervisor/conf.d
 
+  rabbitmq:
+    image: rabbitmq:$RABBITMQ_TAG
+    container_name: "${PROJECT_NAME}_rabbitmq"
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_rabbitmq.loadbalancer.server.port=15672"
+      - "traefik.http.routers.${PROJECT_NAME}_rabbitmq.rule=Host(`rabbitmq.${PROJECT_BASE_URL}`)"
+
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
