@@ -225,7 +225,7 @@ services:
       - ./docker/supervisor/conf.d:/etc/supervisor/conf.d
 
   rabbitmq:
-    image: rabbitmq:$RABBITMQ_TAG
+    image: rabbitmq:3.13-management
     container_name: "${PROJECT_NAME}_rabbitmq"
     hostname: rabbitmq
     environment:
