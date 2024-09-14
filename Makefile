@@ -100,10 +100,10 @@ build:
 	@docker image rm -f $(PROJECT_NAME)_apache:$(GIT_SHA) > /dev/null 2>&1
 	@docker image rm -f $(PROJECT_NAME)_supervisor:$(GIT_SHA) > /dev/null 2>&1
 
-	@docker build --progress=plain --no-cache --build-arg NODE_TAG=$(NODE_TAG) -f docker/node/Dockerfile . -t $(PROJECT_NAME)_node:$(GIT_SHA)
-	@docker build --progress=plain --no-cache --build-arg PHP_TAG=$(PHP_TAG) --build-arg NODE_IMAGE=$(PROJECT_NAME)_node:$(GIT_SHA) -f docker/php/Dockerfile . -t $(PROJECT_NAME)_php:$(GIT_SHA)
-	@docker build --progress=plain --no-cache --build-arg APACHE_TAG=$(APACHE_TAG) --build-arg PHP_IMAGE=$(PROJECT_NAME)_php:$(GIT_SHA) -f docker/apache/Dockerfile . -t $(PROJECT_NAME)_apache:$(GIT_SHA)
-	@docker build --progress=plain --no-cache --build-arg PHP_IMAGE=$(PROJECT_NAME)_php:$(GIT_SHA) -f docker/supervisor/Dockerfile . -t $(PROJECT_NAME)_supervisor:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg NODE_TAG=$(NODE_TAG) -f docker/node/Dockerfile . -t $(PROJECT_NAME)-node:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg PHP_TAG=$(PHP_TAG) --build-arg NODE_IMAGE=$(PROJECT_NAME)-node:$(GIT_SHA) -f docker/php/Dockerfile . -t $(PROJECT_NAME)-php:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg APACHE_TAG=$(APACHE_TAG) --build-arg PHP_IMAGE=$(PROJECT_NAME)-php:$(GIT_SHA) -f docker/apache/Dockerfile . -t $(PROJECT_NAME)-apache:$(GIT_SHA)
+	@docker build --progress=plain --no-cache --build-arg PHP_IMAGE=$(PROJECT_NAME)-php:$(GIT_SHA) -f docker/supervisor/Dockerfile . -t $(PROJECT_NAME)-supervisor:$(GIT_SHA)
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
