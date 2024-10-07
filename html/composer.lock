@@ -2536,33 +2536,33 @@
         },
         {
             "name": "drupal/storybook",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/storybook.git",
-                "reference": "1.0.0-beta2"
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/storybook-1.0.0-beta2.zip",
-                "reference": "1.0.0-beta2",
-                "shasum": "a5759d634fef5854ac043af090da9917f0fccb6f"
+                "url": "https://ftp.drupal.org/files/projects/storybook-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "a6d951ba5246612b01244332222022e8a687c7a3"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
-                "e0ipso/twig-storybook": "^1.3",
+                "drupal/core": "^9 || ^10 || ^11",
+                "e0ipso/twig-storybook": "^1.4",
                 "ext-dom": "*",
-                "symfony/css-selector": "^4 || ^6",
-                "symfony/dom-crawler": "^4 || ^6"
+                "symfony/css-selector": "^4 || ^6 || ^7",
+                "symfony/dom-crawler": "^4 || ^6 || ^7"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-beta2",
-                    "datestamp": "1714062099",
+                    "version": "1.0.0",
+                    "datestamp": "1725919628",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -2575,9 +2575,13 @@
                     "name": "Mateu Aguiló Bosch (e0ipso)",
                     "homepage": "https://www.drupal.org/u/e0ipso",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Lullabot",
+                    "homepage": "https://www.drupal.org/user/3815489"
                 }
             ],
-            "description": "Storybook integration for Single Directory Components in Drupal",
+            "description": "Storybook integration for Drupal",
             "homepage": "https://www.drupal.org/project/storybook",
             "support": {
                 "source": "https://git.drupalcode.org/project/storybook"
@@ -2864,23 +2868,23 @@
         },
         {
             "name": "e0ipso/twig-storybook",
-            "version": "v1.3.2",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/e0ipso/twig-storybook.git",
-                "reference": "bbb86a26f4678c0a53501cea75dece06b66409ac"
+                "reference": "1968c0c55ebdc8876881575b83ebc752df753a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/e0ipso/twig-storybook/zipball/bbb86a26f4678c0a53501cea75dece06b66409ac",
-                "reference": "bbb86a26f4678c0a53501cea75dece06b66409ac",
+                "url": "https://api.github.com/repos/e0ipso/twig-storybook/zipball/1968c0c55ebdc8876881575b83ebc752df753a36",
+                "reference": "1968c0c55ebdc8876881575b83ebc752df753a36",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-mbstring": "*",
                 "php": ">=8.1",
-                "symfony/dom-crawler": "^4.4.45 || ^6",
+                "symfony/dom-crawler": "^4.4.45 || ^6 || ^7",
                 "twig/twig": "^2.15.4 || ^3"
             },
             "require-dev": {
@@ -2913,9 +2917,9 @@
             "description": "Extends Twig with new \"stories\" and \"story\" tags for easily writing Storybook stories using Twig templates.",
             "support": {
                 "issues": "https://github.com/e0ipso/twig-storybook/issues",
-                "source": "https://github.com/e0ipso/twig-storybook/tree/v1.3.2"
+                "source": "https://github.com/e0ipso/twig-storybook/tree/v1.4.1"
             },
-            "time": "2024-02-16T14:19:05+00:00"
+            "time": "2024-09-09T22:01:34+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -5841,16 +5845,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v6.4.8",
+            "version": "v6.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "105b56a0305d219349edeb60a800082eca864e4b"
+                "reference": "9d307ecbcb917001692be333cdc58f474fdb37f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/105b56a0305d219349edeb60a800082eca864e4b",
-                "reference": "105b56a0305d219349edeb60a800082eca864e4b",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/9d307ecbcb917001692be333cdc58f474fdb37f0",
+                "reference": "9d307ecbcb917001692be333cdc58f474fdb37f0",
                 "shasum": ""
             },
             "require": {
@@ -5888,7 +5892,7 @@
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v6.4.8"
+                "source": "https://github.com/symfony/dom-crawler/tree/v6.4.12"
             },
             "funding": [
                 {
@@ -5904,7 +5908,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-09-15T06:35:36+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -15401,8 +15405,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/gin": 5,
-        "drupal/storybook": 10
+        "drupal/gin": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,
