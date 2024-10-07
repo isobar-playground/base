@@ -2,4 +2,4 @@ name: 'Base Test'
 type: module
 description: 'Base Test module.'
 package: 'Base'
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
