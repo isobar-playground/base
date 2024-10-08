@@ -132,7 +132,7 @@ services:
         NODE_TAG: $NODE_TAG
       context: .
     container_name: "${PROJECT_NAME}_node"
-    working_dir: /var/www/html/web/themes/custom/base
+    working_dir: /var/www/html/web/themes/custom/base_starterkit
     volumes:
     - ./html:/var/www/html
     tty: true
@@ -145,7 +145,7 @@ services:
         NODE_TAG: $NODE_TAG
       context: .
     container_name: "${PROJECT_NAME}_storybook"
-    working_dir: /app/html/web/themes/custom/base
+    working_dir: /app/html/web/themes/custom/base_starterkit
     volumes:
       - ./:/app
     tty: true
