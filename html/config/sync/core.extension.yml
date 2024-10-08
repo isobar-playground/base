@@ -1,7 +1,6 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
-  admin_login_path: 0
   base_test: 0
   block: 0
   breakpoint: 0
@@ -30,7 +29,6 @@ module:
   path: 0
   path_alias: 0
   queue_ui: 0
-  rabbitmq: 0
   serialization: 0
   storybook: 0
   system: 0

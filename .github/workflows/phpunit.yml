@@ -21,7 +21,7 @@ jobs:
         run: make
 
       - name: Run PHPUnit
-        run: docker compose exec php phpunit -c web/core --group base_test
+        run: docker compose exec php phpunit -c web/core web/modules/custom/base_test
 
       - name: Cleanup
         if: always()
