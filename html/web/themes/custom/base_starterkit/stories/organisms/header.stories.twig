@@ -4,7 +4,7 @@
     name: 'Header',
   } %}
     {% set items = drupal_menu('main') %}
-    {% embed 'base:header' with { items: items['#items'] } %}{% endembed %}
+    {% embed 'base_starterkit:header' with { items: items['#items'] } %}{% endembed %}
   {% endstory %}
 
 {% endstories %}
