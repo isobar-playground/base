@@ -108,18 +108,7 @@ build:
 ## theme	:	Create theme from starterkit.
 .PHONY: theme
 theme:
-	@read -p "Enter theme name [$(PROJECT_NAME)]: " THEME_NAME; \
-	if [ -z "$$THEME_NAME" ]; then \
-		THEME_NAME=$(PROJECT_NAME); \
-	fi; \
-	echo "Using theme: $$THEME_NAME"; \
-	$(COMPOSE) run --rm php php web/core/scripts/drupal generate-theme $$THEME_NAME --path themes/custom --starterkit base_starterkit; \
-	sed -i "s|themes/custom/base_starterkit|themes/custom/$$THEME_NAME|g" docker/node/Dockerfile; \
-	sed -i "s|themes/custom/base_starterkit|themes/custom/$$THEME_NAME|g" compose.yml; \
-	sed -i "s|themes/custom/base_starterkit|themes/custom/$$THEME_NAME|g" docker/php/Dockerfile; \
-	sed -i "s|themes/custom/base_starterkit|themes/custom/$$THEME_NAME|g" .github/dependabot.yml \
-	$(COMPOSE) run --rm node npm i
-
+	@bash scripts/theme.bash $(PROJECT_NAME)
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
