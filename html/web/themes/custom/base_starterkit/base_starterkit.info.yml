@@ -4,6 +4,7 @@ starterkit: true
 description: Base starterkit theme
 package: Custom
 version: "1.0"
+base theme: false
 core_version_requirement: ^10 || ^11
 libraries:
   - base_starterkit/global
