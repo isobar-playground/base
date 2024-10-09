@@ -1,4 +1,4 @@
-uuid: f03e04d0-881b-4856-a781-6dba3c3086a8
+uuid: 2fe588c5-3fc2-4b41-b821-3ba67be63309
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,9 @@ dependencies:
   module:
     - system
   theme:
-    - base
-id: base_mainnavigation
-theme: base
+    - base_starterkit
+id: base_starterkit_mainnavigation
+theme: base_starterkit
 region: header
 weight: 0
 provider: null

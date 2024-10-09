@@ -1,13 +1,13 @@
-uuid: 12c2925a-5052-446a-86e0-f0b3a978ea6f
+uuid: 1e219b39-31f6-42c6-9055-effd46c6c218
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - base
-id: base_mainpagecontent
-theme: base
+    - base_starterkit
+id: base_starterkit_mainpagecontent
+theme: base_starterkit
 region: content
 weight: 0
 provider: null

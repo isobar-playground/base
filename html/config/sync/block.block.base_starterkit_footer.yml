@@ -1,4 +1,4 @@
-uuid: 25b083b6-de58-4517-920e-34a1485c130c
+uuid: 60fa0bd7-ffb7-407a-a0fe-5c0402a99596
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,9 @@ dependencies:
   module:
     - system
   theme:
-    - base
-id: base_footer
-theme: base
+    - base_starterkit
+id: base_starterkit_footer
+theme: base_starterkit
 region: footer
 weight: 0
 provider: null
