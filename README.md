@@ -102,7 +102,9 @@ The base starterkit theme is developed using Single Directory Components and Tai
 make theme
 ```
 
-You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file.
+You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file. 
+
+**Important: Once you have created a new theme from the starterkit, please apply the changes to the Docker configuration.**
 
 ## RabbitMQ Integration 🐰
 
