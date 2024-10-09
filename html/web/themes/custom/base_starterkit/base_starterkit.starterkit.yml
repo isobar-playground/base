@@ -1,6 +1,5 @@
 ignore:
   - '/base_starterkit.starterkit.yml'
-  - '/node_modules'
   - '/package-lock.json'
 no_edit: []
 no_rename: []
