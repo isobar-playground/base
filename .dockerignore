@@ -5,5 +5,5 @@
 /html/web/themes/contrib
 
 # Ignore node_modules and CSS for node container.
-/html/web/themes/custom/base/node_modules
-/html/web/themes/custom/base/css
+/html/web/themes/custom/**/node_modules
+/html/web/themes/custom/**/css

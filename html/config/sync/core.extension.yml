@@ -47,5 +47,5 @@ module:
 theme:
   claro: 0
   gin: 0
-  base: 0
+  base_starterkit: 0
 profile: minimal

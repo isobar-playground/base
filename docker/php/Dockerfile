@@ -9,4 +9,4 @@ COPY --chown=wodby html /var/www/html
 
 RUN composer install
 
-COPY --chown=wodby --from=node /var/www/html/web/themes/custom/base /var/www/html/web/themes/custom/base
+COPY --chown=wodby --from=node /var/www/html/web/themes/custom/base_starterkit /var/www/html/web/themes/custom/base_starterkit

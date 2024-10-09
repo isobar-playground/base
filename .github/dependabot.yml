@@ -12,7 +12,7 @@ updates:
     open-pull-requests-limit: 10
   - package-ecosystem: npm
     versioning-strategy: increase
-    directory: /html/web/themes/custom/base
+    directory: /html/web/themes/custom/base_starterkit
     schedule:
       interval: daily
     groups:

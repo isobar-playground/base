@@ -13,7 +13,7 @@ This project is a base for web applications built with Drupal. It leverages Dock
 - **Drupal Installation**: Drupal is installed using Composer.
 - **Dependency Management**: Dependencies are updated via Dependabot on GitHub.
 - **Coding Standards**: Code quality is enforced using `grumphp`.
-- **Base Theme**: A base theme is created using Single Directory Components and TailwindCSS.
+- **Starterkit Theme**: A starterkit theme is created using Single Directory Components and TailwindCSS.
 - **Static Code Analysis**: Automated code analysis to ensure code quality and standards.
 - **Unit Testing**: PHPUnit is used for running unit tests.
 - **GitHub Codespaces**: The project is configured to run in GitHub Codespaces.
@@ -54,6 +54,7 @@ The `Makefile` includes several commands to manage the Docker environment:
 | `drush`    | Executes `drush` commands in the specified `DRUPAL_ROOT` directory.                                                  |
 | `logs`     | Views container logs. Optionally, specify a service name to limit logs.                                              |
 | `build`    | Builds containers for production.                                                                                    |
+| `theme`    | Generate theme from custom theme starterkit.                                                                         |
 
 ## Docker Compose Configuration 🐳
 
@@ -95,7 +96,15 @@ Unit tests are written using PHPUnit. These tests are automatically run as part 
 
 ## Theme Development 🎨
 
-The base theme is developed using Single Directory Components and TailwindCSS, providing a modern and efficient approach to theming in Drupal.
+The base starterkit theme is developed using Single Directory Components and TailwindCSS, providing a modern and efficient approach to theming in Drupal. In order to use it run following command:
+
+```bash
+make theme
+```
+
+You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file. 
+
+**Important: Once you have created a new theme from the starterkit, please apply the changes to the Docker configuration.**
 
 ## RabbitMQ Integration 🐰
 

@@ -1,0 +1,25 @@
+uuid: 2fe588c5-3fc2-4b41-b821-3ba67be63309
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - base_starterkit
+id: base_starterkit_mainnavigation
+theme: base_starterkit
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

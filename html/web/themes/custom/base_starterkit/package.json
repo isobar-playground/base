@@ -1,0 +1,22 @@
+{
+  "name": "base_starterkit",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "tailwindcss -o ./css/style.css --watch",
+    "build": "NODE_ENV=production tailwindcss -o ./css/style.css --minify",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^2.0.2",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.1.4",
+    "@storybook/server": "^8.3.5",
+    "@storybook/server-webpack5": "^8.3.5",
+    "@storybook/test": "^8.3.5",
+    "storybook": "^8.1.11",
+    "tailwindcss": "^3.4.13"
+  }
+}

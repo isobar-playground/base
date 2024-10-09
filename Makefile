@@ -105,6 +105,11 @@ build:
 	@docker build --progress=plain --no-cache --build-arg APACHE_TAG=$(APACHE_TAG) --build-arg PHP_IMAGE=$(PROJECT_NAME)-php:$(GIT_SHA) -f docker/apache/Dockerfile . -t $(PROJECT_NAME)-apache:$(GIT_SHA)
 	@docker build --progress=plain --no-cache --build-arg PHP_IMAGE=$(PROJECT_NAME)-php:$(GIT_SHA) -f docker/supervisor/Dockerfile . -t $(PROJECT_NAME)-supervisor:$(GIT_SHA)
 
+## theme	:	Create theme from starterkit.
+.PHONY: theme
+theme:
+	@bash scripts/theme.bash $(PROJECT_NAME)
+
 # https://stackoverflow.com/a/6273809/1826109
 %:
 	@:
