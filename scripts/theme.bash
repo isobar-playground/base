@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Prompt for the theme name
 read -p "Enter theme name [${1}]: " THEME_NAME
 if [ -z "$THEME_NAME" ]; then
@@ -7,6 +9,9 @@ if [ -z "$THEME_NAME" ]; then
 fi
 
 echo "Using theme: $THEME_NAME"
+
+# Remove node_modules in base_starterkit
+rm -r html/web/themes/custom/base_starterkit/node_modules
 
 # Generate the theme using Drupal CLI
 docker compose --progress quiet --env-file .env --env-file .env.local run --rm php php web/core/scripts/drupal generate-theme "$THEME_NAME" --path themes/custom --starterkit base_starterkit
