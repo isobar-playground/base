@@ -119,6 +119,37 @@ Drupal integrates its internal queues with this RabbitMQ service, allowing for e
 
 Feel free to contribute to this project by creating issues or submitting pull requests. Ensure to follow the coding standards and guidelines provided.
 
+### Initial database dump update
+
+To update the initial database dump stored in `docker/mariadb/base.sql.gz`, use the following command:
+
+```bash
+make drush sql:dump -- --gzip
+```
+
+### Reverting project to initial stage
+
+To revert project to initial stage and purge all data stored in volumes, use the following command:
+```bash
+make prune
+```
+
+After pruning all data rebuild project with
+```bash
+make
+```
+
+Optionally, you can reset the current state of the Git repository with
+```bash
+git reset --hard
+git clean -fd
+```
+
+and then rebuild and lunch local images so that the environment is up to date with the HEAD state:
+```bash
+make build up
+```
+
 ## License 📄
 
 This project is licensed under the MIT License.
