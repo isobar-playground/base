@@ -6,3 +6,4 @@ services:
       PHP_IDE_CONFIG: serverName=${PROJECT_NAME}
       PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
       PHP_XDEBUG_START_WITH_REQUEST: "true"
+      PHP_EXTENSIONS_DISABLE: ""
