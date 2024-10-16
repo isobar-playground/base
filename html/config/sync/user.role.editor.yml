@@ -1,0 +1,14 @@
+uuid: 04e7a34d-eee1-4ecc-a5e7-8363942dd165
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - filter
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'use text format full_html'

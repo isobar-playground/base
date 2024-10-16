@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_metatags
+    - field.field.node.page.field_seo
     - node.type.page
   module:
+    - metatag
     - text
     - user
+    - yoast_seo
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -19,6 +23,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_seo:
+    type: yoastseo_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }
