@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_metatags
+    - field.field.node.page.field_seo
     - node.type.page
   module:
+    - metatag
     - path
     - text
+    - yoast_seo
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -29,6 +33,24 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_metatags:
+    type: metatag_firehose
+    weight: 123
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
+  field_seo:
+    type: yoast_seo_widget
+    weight: 122
+    region: content
+    settings:
+      edit_title: false
+      edit_description: false
+      render_theme: null
+      render_view_mode: default
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -48,6 +70,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -71,6 +98,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -80,5 +112,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

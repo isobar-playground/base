@@ -4,12 +4,18 @@ module:
   base_test: 0
   block: 0
   breakpoint: 0
+  ckeditor5: 0
+  config: 0
   config_translation: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
+  editor: 0
+  editoria11y: 0
+  entity_reference_revisions: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -22,6 +28,7 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  metatag: 0
   mysql: 0
   node: 0
   options: 0
@@ -29,7 +36,9 @@ module:
   path: 0
   path_alias: 0
   queue_ui: 0
+  redirect: 0
   serialization: 0
+  simple_sitemap: 0
   storybook: 0
   system: 0
   telephone: 0
@@ -40,9 +49,11 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  yoast_seo: 0
   pathauto: 1
   content_translation: 10
   views: 10
+  paragraphs: 11
   minimal: 1000
 theme:
   claro: 0
