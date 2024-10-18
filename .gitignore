@@ -9,3 +9,6 @@
 
 # Private file system
 /html/private
+
+# PHPUnit cache
+/html/.phpunit.cache

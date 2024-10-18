@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\base_test\Plugin\QueueWOrker;
+namespace Drupal\base_test\Plugin\QueueWorker;
 
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;

@@ -17,11 +17,38 @@ jobs:
       - name: Update permissions
         run: sudo chmod -R 777 .
 
+      - name: Copy PHPUnit docker compose override
+        run: cp phpunit.compose.override.yml compose.override.yml
+
       - name: Spin up environment
         run: make
 
-      - name: Run PHPUnit
-        run: docker compose exec php phpunit -c web/core web/modules/custom/base_test
+      - name: Run PHPUnit (text)
+        if: github.event_name == 'pull_request'
+        run: docker compose exec php phpunit --coverage-text
+
+      - name: Run PHPUnit (Clover)
+        if: github.ref == 'refs/heads/master'
+        id: phpunit
+        run: docker compose exec php phpunit --coverage-clover clover.xml
+
+      - name: Make code coverage badge
+        if: github.ref == 'refs/heads/master'
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          report: html/clover.xml
+          coverage_badge_path: output/coverage.svg
+          push_badge: false
+
+      - name: Push badge to image-data branch
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./output
+          publish_branch: badges
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Cleanup
         if: always()

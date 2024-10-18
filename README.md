@@ -1,4 +1,5 @@
 [![PHPUnit](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml)
+[![Coverage](https://raw.githubusercontent.com/isobar-playground/base/refs/heads/badges/coverage.svg)](https://github.com/isobar-playground/base/actions/workflows/phpunit.yml)
 [![GrumPHP](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/grumphp.yml)
 [![Docker Build](https://github.com/isobar-playground/base/actions/workflows/test_build.yml/badge.svg?branch=master)](https://github.com/isobar-playground/base/actions/workflows/test_build.yml)
 
@@ -92,7 +93,7 @@ Code quality and adherence to coding standards are ensured using `grumphp`. The 
 
 ## Unit Testing with PHPUnit 🧪
 
-Unit tests are written using PHPUnit. These tests are automatically run as part of the `grumphp` tasks to ensure that code changes do not break existing functionality.
+Unit tests are written using PHPUnit and run on every pull request and commit to the master branch.
 
 ## Theme Development 🎨
 
