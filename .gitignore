@@ -12,3 +12,6 @@
 
 # PHPUnit cache
 /html/.phpunit.cache
+
+# PHPUnit coverage report
+/html/clover.xml
