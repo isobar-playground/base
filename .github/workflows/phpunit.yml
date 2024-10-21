@@ -24,7 +24,7 @@ jobs:
         run: make
 
       - name: Run PHPUnit
-        run: docker compose exec php phpunit --coverage-clover clover.xml
+        run: docker compose exec php phpunit --coverage-clover clover.xml --coverage-text
 
       - name: Code Coverage Summary Report
         uses: saschanowak/CloverCodeCoverageSummary@1.0.1
