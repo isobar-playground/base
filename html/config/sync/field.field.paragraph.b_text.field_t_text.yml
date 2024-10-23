@@ -1,0 +1,26 @@
+uuid: 7a86b950-684a-4b25-b85c-afa19cff250c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_t_text
+    - filter.format.full_html
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.b_text
+  module:
+    - text
+id: paragraph.b_text.field_t_text
+field_name: field_t_text
+entity_type: paragraph
+bundle: b_text
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+    - plain_text
+field_type: text_long
