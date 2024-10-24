@@ -6,9 +6,13 @@ dependencies:
     - filter.format.full_html
   module:
     - filter
+    - frontend_editing
 id: editor
 label: Editor
 weight: 3
 is_admin: null
 permissions:
+  - 'access frontend editing'
+  - 'add paragraphs'
+  - 'move paragraphs'
   - 'use text format full_html'
