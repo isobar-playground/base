@@ -1,0 +1,8 @@
+name: Frontend Editing
+description: This module adds frontend editing functionality.
+package: Content
+type: module
+core_version_requirement: ^9.3 || ^10 || ^11
+configure: frontend_editing.settings_form
+dependencies:
+  - paragraphs_edit:paragraphs_edit

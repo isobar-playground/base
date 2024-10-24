@@ -1,0 +1,10 @@
+.common-actions-container.place-bottom {
+  top: auto;
+  bottom: 10px;
+}
+
+.common-actions-container.place-fixed {
+  position: fixed;
+  top: auto;
+  bottom: 10px;
+}
