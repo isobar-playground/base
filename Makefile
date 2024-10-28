@@ -23,7 +23,6 @@ endif
 up:
 	touch .env.local
 	@echo "Starting up containers for $(PROJECT_NAME) at $(PROJECT_BASE_URL)..."
-	@$(COMPOSE) pull
 	@$(COMPOSE) up -d --remove-orphans
 	@$(COMPOSE) run --rm grumphp sh -c 'cd html && composer install'
 	@echo -n "MySQL is initializing";
