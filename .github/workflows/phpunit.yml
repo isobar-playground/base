@@ -29,7 +29,7 @@ jobs:
       - name: Code Coverage Summary Report
         uses: saschanowak/CloverCodeCoverageSummary@1.0.1
         with:
-          filename: html/clover.xml
+          filename: html/web/clover.xml
 
       - name: 'Add Code Coverage to Job Summary'
         run: |
@@ -47,7 +47,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         uses: timkrase/phpunit-coverage-badge@v1.2.1
         with:
-          report: html/clover.xml
+          report: html/web/clover.xml
           coverage_badge_path: output/coverage.svg
           push_badge: false
 
