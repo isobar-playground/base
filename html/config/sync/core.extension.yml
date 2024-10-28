@@ -65,4 +65,5 @@ module:
 theme:
   claro: 0
   base_starterkit: 0
+  olivero: 0
 profile: minimal
