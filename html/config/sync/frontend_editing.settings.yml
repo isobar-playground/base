@@ -1,0 +1,22 @@
+_core:
+  default_config_hash: LaU_uIAcFcNxw0_7mOjuJYTUx5Nc0cL9ZQQ6pTVe1UE
+entity_types:
+  paragraph:
+    - b_text
+    - b_video
+sidebar_width: 30
+full_width: 70
+ajax_content_update: true
+hover_highlight: false
+exclude_fields: {  }
+automatic_preview: false
+primary_color: '#a9a9a9'
+ui_toggle: true
+ui_toggle_settings:
+  offset_top: ''
+  offset_bottom: 50
+  offset_right: 50
+  offset_left: ''
+action_links_in_viewport: _none
+duplicate_action_links:
+  height: 300
