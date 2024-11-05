@@ -107,6 +107,26 @@ You will be prompted for a new topic name. By default this will be the PROJECT_N
 
 **Important: Once you have created a new theme from the starterkit, please apply the changes to the Docker configuration.**
 
+### Creating new Single Directory Component
+
+To create a new Single Directory Component please follow steps below:
+1. Create a new Story file in the respective directory within the `stories` directory using the following template:
+   ```twig
+   {% stories accordion with { title: 'Organisms' } %}
+
+     {% story default with {
+       name: 'Accordion',
+     } %}
+       {% embed 'base_starterkit:accordion' %}{% endembed %}
+     {% endstory %}
+
+   {% endstories %}
+   ```
+
+2. Create a new Twig file in the respective directory within the `components` directory with the component template.
+3. Optionally, create a new `*.component.yml` file next to the Twig file to define component properties using the following guide: [Annotated Example Component YAML](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components/annotated-example-componentyml)
+4. Preview component in the Storybook on your browser at http://storybook.base.localhost.
+5. When developing a new component, remember to flush the Drupal cache with the `make drush cr` command if problems occur.
 ## RabbitMQ Integration 🐰
 
 The project integrates with a RabbitMQ service, which is available at http://rabbitmq.base.localhost. The default login credentials are:
