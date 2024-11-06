@@ -109,6 +109,11 @@ build:
 theme:
 	@bash scripts/theme.bash $(PROJECT_NAME)
 
+## mkdocs	:	Create Mkdocs doccumentation.
+.PHONY: mkdocs
+mkdocs:
+	@$(COMPOSE) run mkdocs mkdocs build
+
 # https://stackoverflow.com/a/6273809/1826109
 %:
 	@:
