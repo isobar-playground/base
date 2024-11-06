@@ -112,6 +112,7 @@ theme:
 ## mkdocs	:	Create Mkdocs doccumentation.
 .PHONY: mkdocs
 mkdocs:
+	touch .env.local
 	@$(COMPOSE) run mkdocs mkdocs build
 
 # https://stackoverflow.com/a/6273809/1826109

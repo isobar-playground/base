@@ -234,6 +234,18 @@ services:
       - "traefik.http.services.${PROJECT_NAME}_rabbitmq.loadbalancer.server.port=15672"
       - "traefik.http.routers.${PROJECT_NAME}_rabbitmq.rule=Host(`rabbitmq.${PROJECT_BASE_URL}`)"
 
+  mkdocs:
+    build:
+      dockerfile: docker/mkdocs/Dockerfile
+    container_name: "${PROJECT_NAME}_mkdocs"
+    init: true
+    volumes:
+      - ./:/docs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_mkdocs.loadbalancer.server.port=8000"
+      - "traefik.http.routers.${PROJECT_NAME}_mkdocs.rule=Host(`mkdocs.${PROJECT_BASE_URL}`)"
+
   traefik:
     image: traefik:v2.0
     container_name: "${PROJECT_NAME}_traefik"
