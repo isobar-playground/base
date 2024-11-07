@@ -1,17 +1,17 @@
-uuid: 9d5f537d-764a-4f66-8f4f-08ad8af047e6
+uuid: c9d04c10-5950-4335-a663-ce43bb2ed551
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - olivero
+    - gin
 _core:
-  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
-id: olivero_messages
-theme: olivero
+  default_config_hash: WvPhI8OwllG0gE69-F8qL3ai3nd5SbYD6JpmEuZcyok
+id: gin_messages
+theme: gin
 region: highlighted
-weight: -5
+weight: 0
 provider: null
 plugin: system_messages_block
 settings:
