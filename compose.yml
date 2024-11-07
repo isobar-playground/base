@@ -72,6 +72,12 @@ services:
       - node
     environment:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
     command: sudo -E crond -f -d 0
     volumes:
     - ./html:/var/www/html
