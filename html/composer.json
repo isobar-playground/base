@@ -22,6 +22,7 @@
         "drupal/field_group": "^4.0@alpha",
         "drupal/frontend_editing": "^1.8",
         "drupal/gin": "^3.0@RC",
+        "drupal/m4032404": "^1.0@alpha",
         "drupal/metatag": "^2.0",
         "drupal/paragraphs": "^1.18",
         "drupal/pathauto": "^1.13",

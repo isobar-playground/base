@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5425c015ed9c93a963615bde79f88603",
+    "content-hash": "ffb91d896f8d40a9fedd3abf3cbca1c4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2221,6 +2221,54 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
+        },
+        {
+            "name": "drupal/m4032404",
+            "version": "1.0.0-alpha6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/m4032404.git",
+                "reference": "8.x-1.0-alpha6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/m4032404-8.x-1.0-alpha6.zip",
+                "reference": "8.x-1.0-alpha6",
+                "shasum": "4d856b9c9e121e1966fa487bf6c18bbd07dbb21f"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha6",
+                    "datestamp": "1679918065",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "skwashd",
+                    "homepage": "https://www.drupal.org/user/116305"
+                },
+                {
+                    "name": "suzymasri",
+                    "homepage": "https://www.drupal.org/user/2428842"
+                }
+            ],
+            "description": "Emit a 404 response for access denied pages",
+            "homepage": "https://www.drupal.org/project/m4032404",
+            "support": {
+                "source": "https://git.drupalcode.org/project/m4032404"
+            }
         },
         {
             "name": "drupal/metatag",
@@ -16539,6 +16587,7 @@
         "drupal/all_entity_preview": 15,
         "drupal/field_group": 15,
         "drupal/gin": 5,
+        "drupal/m4032404": 15,
         "drupal/storybook": 10,
         "drupal/yoast_seo": 15
     },
