@@ -201,3 +201,8 @@ $settings['trusted_host_patterns'] = [
  * allow the container to be invalidated as soon as code is deployed.
  */
 $settings['deployment_identifier'] = time();
+
+/**
+ * Development Configuration Split settings.
+ */
+$config['config_split.config_split.development']['status'] = TRUE;
