@@ -5,6 +5,7 @@ services:
 
   php:
     environment:
+      ENVIRONMENT: codespaces
       DRUSH_OPTIONS_URI: "https://${PROJECT_BASE_URL}"
 
   apache:
