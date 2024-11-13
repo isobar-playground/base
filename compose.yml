@@ -255,7 +255,7 @@ services:
       - "traefik.http.routers.${PROJECT_NAME}_mkdocs.rule=Host(`mkdocs.${PROJECT_BASE_URL}`)"
 
   traefik:
-    image: traefik:v2.0
+    image: traefik:v3.0
     container_name: "${PROJECT_NAME}_traefik"
     command: --api.insecure=true --providers.docker --providers.docker.exposedbydefault=false
     ports:
