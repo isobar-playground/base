@@ -29,7 +29,7 @@ services:
       PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
 #     # PHP 8.1 and previous version require dos2unix workaround.
 #      PHP_SENDMAIL_PATH: '"/usr/bin/dos2unix -u | /usr/bin/msmtp -t"'
-      MSMTP_HOST: mailhog
+      MSMTP_HOST: mailpit
       MSMTP_PORT: 1025
       DB_HOST: $DB_HOST
       DB_PORT: $DB_PORT
@@ -84,13 +84,13 @@ services:
     volumes:
     - ./html:/var/www/html
 
-  mailhog:
-    image: mailhog/mailhog
-    container_name: "${PROJECT_NAME}_mailhog"
+  mailpit:
+    image: axllent/mailpit
+    container_name: "${PROJECT_NAME}_mailpit"
     labels:
-    - "traefik.enable=true"
-    - "traefik.http.services.${PROJECT_NAME}_mailhog.loadbalancer.server.port=8025"
-    - "traefik.http.routers.${PROJECT_NAME}_mailhog.rule=Host(`mailhog.${PROJECT_BASE_URL}`)"
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_mailpit.loadbalancer.server.port=8025"
+      - "traefik.http.routers.${PROJECT_NAME}_mailpit.rule=Host(`mailpit.${PROJECT_BASE_URL}`)"
 
   apache:
     build:
