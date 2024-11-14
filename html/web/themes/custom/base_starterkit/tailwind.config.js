@@ -7,8 +7,8 @@ module.exports = {
   ],
   watchOptions: {
     ignored: /node_modules/,
-    usePolling: true,  // Włącza polling, by monitorować zmiany
-    interval: 1000,    // Sprawdza zmiany co 1 sekundę
+    usePolling: true,  // Enables polling to monitor changes
+    interval: 1000,    // Checks for changes every 1 second
   },
   theme: {
     extend: {},

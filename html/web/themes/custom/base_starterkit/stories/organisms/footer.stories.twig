@@ -1,0 +1,10 @@
+{% stories homepage with { title: 'Organisms' } %}
+
+{% story default with {
+    name: 'Footer',
+  } %}
+{% set items = drupal_menu('footer') %}
+{% embed 'base_starterkit:footer' with { items: items['#items'] } %}{% endembed %}
+{% endstory %}
+
+{% endstories %}
