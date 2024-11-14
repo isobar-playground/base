@@ -17,8 +17,6 @@
                 {% for item in items %}
                     <div>
                         {{ link(item.title, item.url, {'class': 'mb-4 block text-sm font-semibold text-white/80 hover:text-white bg-transparent lg:hover:underline lg:hover:bg-white/10 transition-colors p-2 rounded-lg'}) }}
-
-
                         {% if item.below|length > 0 %}
                             <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                 {% for subitem in item.below %}
@@ -36,7 +34,8 @@
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-xs text-white/70 text-center">&copy;
                 {{ "now"|date("Y") }}
-                <a href="https://dentsu.com/" class="underline hover:text-white">Base by Dentsu</a>. All Rights Reserved.
+                <a href="https://dentsu.com/" class="underline hover:text-white">Base by Dentsu</a>.
+                {{"All Rights Reserved."|t}}
             </span>
         </div>
     </div>
