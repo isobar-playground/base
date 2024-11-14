@@ -3,40 +3,40 @@
 {% set submenu_link_classes = 'flex lg:text-black items-center justify-between w-full px-4 py-2 text-current hover:bg-black/10 rounded-lg' %}
 
 <footer class="bg-black tetx-white">
-    <div class="mx-auto w-full  p-4 py-6 lg:p-6">
-        <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
-                <div class="flex items-center flex-shrink-0 text-white gap-2">
-                    <svg class="fill-current h-10 w-10" viewbox="0 0 159 102" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.243 0H0v21.61h25.298c15.986 0 28.992 13.078 28.992 29.152S41.284 79.913 25.298 79.913H0v21.611h25.243c27.838 0 50.485-22.771 50.485-50.762C75.728 22.772 53.08 0 25.243 0ZM133.706 79.113c-15.546 0-28.196-12.716-28.196-28.348 0-15.63 12.647-28.35 28.196-28.35h25.295V0h-25.242c-27.838 0-50.486 22.771-50.486 50.762 0 27.99 22.648 50.762 50.486 50.762h25.242V79.11h-25.295v.003Z"></path>
-                    </svg>
-                    <span class="font-semibold text-xl tracking-tight">Base</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                {% for item in items %}
-                    <div>
-                        {{ link(item.title, item.url, {'class': 'mb-4 block text-sm font-semibold text-white/80 hover:text-white bg-transparent lg:hover:underline lg:hover:bg-white/10 transition-colors p-2 rounded-lg'}) }}
-                        {% if item.below|length > 0 %}
-                            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                                {% for subitem in item.below %}
-                                    <li>
-                                        {{ link(subitem.title, subitem.url, {'class': 'block text-xs text-white/75 hover:text-white lg:hover:underline transition-colors p-2'}) }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </div>
+  <div class="mx-auto w-full  p-4 py-6 lg:p-6">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <div class="flex items-center flex-shrink-0 text-white gap-2">
+          <svg class="fill-current h-10 w-10" viewbox="0 0 159 102" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.243 0H0v21.61h25.298c15.986 0 28.992 13.078 28.992 29.152S41.284 79.913 25.298 79.913H0v21.611h25.243c27.838 0 50.485-22.771 50.485-50.762C75.728 22.772 53.08 0 25.243 0ZM133.706 79.113c-15.546 0-28.196-12.716-28.196-28.348 0-15.63 12.647-28.35 28.196-28.35h25.295V0h-25.242c-27.838 0-50.486 22.771-50.486 50.762 0 27.99 22.648 50.762 50.486 50.762h25.242V79.11h-25.295v.003Z"></path>
+          </svg>
+          <span class="font-semibold text-xl tracking-tight">Base</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        {% for item in items %}
+          <div>
+            {{ link(item.title, item.url, {'class': 'mb-4 block text-sm font-semibold text-white/80 hover:text-white bg-transparent lg:hover:underline lg:hover:bg-white/10 transition-colors p-2 rounded-lg'}) }}
+            {% if item.below|length > 0 %}
+              <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                {% for subitem in item.below %}
+                  <li>
+                    {{ link(subitem.title, subitem.url, {'class': 'block text-xs text-white/75 hover:text-white lg:hover:underline transition-colors p-2'}) }}
+                  </li>
                 {% endfor %}
-            </div>
-        </div>
-        <hr class="my-4 border-gray-200 sm:mx-auto lg:my-6"/>
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-xs text-white/70 text-center">&copy;
-                {{ "now"|date("Y") }}
-                <a href="https://dentsu.com/" class="underline hover:text-white">Base by Dentsu</a>.
-                {{"All Rights Reserved."|t}}
-            </span>
-        </div>
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
+    <hr class="my-4 border-gray-200 sm:mx-auto lg:my-6"/>
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-xs text-white/70 text-center">&copy;
+        {{ "now"|date("Y") }}
+        <a href="https://dentsu.com/" class="underline hover:text-white">Base by Dentsu</a>.
+        {{"All Rights Reserved."|t}}
+      </span>
+    </div>
+  </div>
 </footer>
