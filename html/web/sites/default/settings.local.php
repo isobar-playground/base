@@ -206,3 +206,31 @@ $settings['deployment_identifier'] = time();
  * Development Configuration Split settings.
  */
 $config['config_split.config_split.development']['status'] = TRUE;
+
+/**
+ * Disable all caches.
+ */
+$cache_bins = [
+  'bootstrap',
+  'config',
+  'data',
+  'default',
+  'discovery',
+  'discovery_migration',
+  'dynamic_page_cache',
+  'entity',
+  'jsonapi_memory',
+  'jsonapi_normalizations',
+  'jsonapi_resource_types',
+  'menu',
+  'migrate',
+  'page',
+  'render',
+  'rest',
+  'static',
+  'toolbar'
+];
+
+foreach ($cache_bins as $bin) {
+  $settings['cache']['bins'][$bin] = 'cache.backend.null';
+}
