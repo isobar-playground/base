@@ -1,13 +1,63 @@
-<nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-    <span class="font-semibold text-xl tracking-tight">Base</span>
-  </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      {% for item in items %}
-        {{ link(item.title, item.url, {'class': ['block mt-4 lg:inline-block lg:mt-1 text-blue-200 hover:text-white mr-5']}) }}
-      {% endfor %}
-    </div>
-  </div>
+{% set menu_link_classes = 'flex items-center text-white/80 hover:text-white bg-transparent hover:bg-white/10 transition-colors p-2 rounded-lg' %}
+{% set submenu_classes = 'transition-all z-10 hidden bg-white text-black border border-black divide-y divide-black rounded-lg shadow w-44' %}
+{% set submenu_link_classes = 'flex items-center justify-between w-full px-4 py-2 text-black hover:bg-black/10 rounded-lg' %}
+
+<nav class="flex items-center flex-wrap bg-black p-6 gap-6 justify-center lg:justify-start">
+	<div class="flex items-center flex-shrink-0 text-white gap-2">
+		<svg class="fill-current h-8 w-8" viewbox="0 0 159 102" xmlns="http://www.w3.org/2000/svg">
+			<path d="M25.243 0H0v21.61h25.298c15.986 0 28.992 13.078 28.992 29.152S41.284 79.913 25.298 79.913H0v21.611h25.243c27.838 0 50.485-22.771 50.485-50.762C75.728 22.772 53.08 0 25.243 0ZM133.706 79.113c-15.546 0-28.196-12.716-28.196-28.348 0-15.63 12.647-28.35 28.196-28.35h25.295V0h-25.242c-27.838 0-50.486 22.771-50.486 50.762 0 27.99 22.648 50.762 50.486 50.762h25.242V79.11h-25.295v.003Z"></path>
+		</svg>
+		<span class="font-semibold text-xl tracking-tight">Base</span>
+	</div>
+	<!-- Menu (1st level) -->
+	<ul class="text-sm items-center w-auto gap-x-4 ml-auto hidden lg:flex">
+		{% for item in items %}
+			<li class="relative">
+				{% if item.below|length > 0 %}
+					<!-- Menu (2nd level) trigger button -->
+					<button id="menuButton-{{ loop.index }}" data-dropdown-toggle="menu-{{ loop.index }}" data-dropdown-placement="bottom-start" class="{{ menu_link_classes }}">
+						{{ item.title }}
+						<svg class="w-4 h-4 ml-1" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</button>
+					<!-- Menu (2nd level) -->
+					<div id="menu-{{ loop.index }}" class="{{ submenu_classes }}">
+						<ul class="text-sm text-white" aria-labelledby="menuButton-{{ loop.index }}">
+							{% for subitem in item.below %}
+								<li class="relative">
+									{% if subitem.below|length > 0 %}
+										<!-- Menu (3rd level) trigger button -->
+										<button id="submenuButton-{{ loop.index }}" data-dropdown-toggle="submenu-{{ loop.index }}" data-dropdown-placement="right-start" type="button" class="{{ submenu_link_classes }}">
+											{{ subitem.title }}
+											<svg class="w-4 h-4 ml-1" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+											</svg>
+										</button>
+										<!-- Menu (3rd level) -->
+										<div id="submenu-{{ loop.index }}" class="{{ submenu_classes }}">
+											<ul class="text-sm text-white" aria-labelledby="submenuButton-{{ loop.index }}">
+												{% for subsubitem in subitem.below %}
+													<li>
+														<!-- Menu (3rd level) link -->
+														{{ link(subsubitem.title, subsubitem.url, {'class': submenu_link_classes}) }}
+													</li>
+												{% endfor %}
+											</ul>
+										</div>
+									{% else %}
+										<!-- Menu (2nd level) link -->
+										{{ link(subitem.title, subitem.url, {'class': submenu_link_classes}) }}
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% else %}
+					<!-- Menu (1st level) link -->
+					{{ link(item.title, item.url, {'class': menu_link_classes}) }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
 </nav>
