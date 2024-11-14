@@ -2,12 +2,14 @@
   "name": "base_starterkit",
   "version": "1.0.0",
   "scripts": {
-    "watch": "tailwindcss -o ./css/style.css --watch",
-    "build": "NODE_ENV=production tailwindcss -o ./css/style.css --minify",
+    "watch": "concurrently \"tailwindcss -i ./src/main.css -o ./dist/css/styles.css --watch\" \"npx webpack --config webpack.config.js --watch\"",    
+    "build": "NODE_ENV=production tailwindcss -i ./src/main.css -o ./dist/css/styles.css --minify && npx webpack --config webpack.config.js --mode production",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "@chromatic-com/storybook": "^3.2.2",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-links": "^8.4.2",
@@ -16,7 +18,14 @@
     "@storybook/server": "^8.4.2",
     "@storybook/server-webpack5": "^8.4.2",
     "@storybook/test": "^8.4.2",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^9.1.0",
     "storybook": "^8.1.11",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.2"
   }
 }
