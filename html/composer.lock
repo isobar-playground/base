@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfbb3d0df0bf07cafd0a70ed364651d9",
+    "content-hash": "4351b33f9a16ab9869579289c85d8a7f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1816,6 +1816,245 @@
             }
         },
         {
+            "name": "drupal/embed",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/embed.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/embed-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "e6b4875e2b245ddf1a68a8615cbb4c5a378a0e9f"
+            },
+            "require": {
+                "drupal/core": "^9.5 | ^10"
+            },
+            "require-dev": {
+                "drupal/ckeditor": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1723283819",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cs_shadow",
+                    "homepage": "https://www.drupal.org/user/2828287"
+                },
+                {
+                    "name": "dave reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "Devin Carlson",
+                    "homepage": "https://www.drupal.org/user/290182"
+                },
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "Provides a framework for different types of embeds in text editors.",
+            "homepage": "https://www.drupal.org/project/embed",
+            "support": {
+                "source": "https://git.drupalcode.org/project/embed"
+            }
+        },
+        {
+            "name": "drupal/entity_browser",
+            "version": "2.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity_browser.git",
+                "reference": "8.x-2.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.12.zip",
+                "reference": "8.x-2.12",
+                "shasum": "eeafb55f02317c63b17d71913cb918e6341b7c0d"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11"
+            },
+            "conflict": {
+                "drupal/media_entity": "1.*"
+            },
+            "require-dev": {
+                "drupal/ckeditor": "^1.0",
+                "drupal/embed": "^1.0",
+                "drupal/entity_embed": "^1.0",
+                "drupal/entity_reference_revisions": "^1.0",
+                "drupal/entityqueue": "^1.0",
+                "drupal/inline_entity_form": "^1.0@rc",
+                "drupal/paragraphs": "^1.0",
+                "drupal/search_api": "^1.0",
+                "drupal/token": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.12",
+                    "datestamp": "1730631838",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Janez Urevc",
+                    "homepage": "https://github.com/slashrsm",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Primoz Hmeljak",
+                    "homepage": "https://github.com/primsi",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/1943336/committers",
+                    "role": "contributor"
+                },
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "marcingy",
+                    "homepage": "https://www.drupal.org/user/77320"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
+                },
+                {
+                    "name": "primsi",
+                    "homepage": "https://www.drupal.org/user/282629"
+                },
+                {
+                    "name": "samuel.mortenson",
+                    "homepage": "https://www.drupal.org/user/2582268"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "Entity browsing and selecting component.",
+            "homepage": "https://drupal.org/project/entity_browser",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entity_browser",
+                "issues": "https://www.drupal.org/project/issues/entity_browser",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/entity_embed",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity_embed.git",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_embed-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "9c65a87f4285dc47303783db2e3af5825164d1dc"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10",
+                "drupal/embed": "^1.7"
+            },
+            "require-dev": {
+                "drupal/ckeditor": "^1",
+                "drupal/entity_browser": "^2.2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1712587671",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "cs_shadow",
+                    "homepage": "https://www.drupal.org/user/2828287"
+                },
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "Devin Carlson",
+                    "homepage": "https://www.drupal.org/user/290182"
+                },
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "oknate",
+                    "homepage": "https://www.drupal.org/user/471638"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
+                }
+            ],
+            "description": "Allows any entity to be embedded within a text area using a WYSIWYG editor.",
+            "homepage": "https://www.drupal.org/project/entity_embed",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entity_embed"
+            }
+        },
+        {
             "name": "drupal/entity_reference_revisions",
             "version": "1.12.0",
             "source": {
@@ -2223,6 +2462,65 @@
             ]
         },
         {
+            "name": "drupal/linkit",
+            "version": "6.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/linkit.git",
+                "reference": "6.1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/linkit-6.1.6.zip",
+                "reference": "6.1.6",
+                "shasum": "113d8e569cfb92f8d7feb0a2f7713953c0715e92"
+            },
+            "require": {
+                "drupal/core": "^10.1"
+            },
+            "require-dev": {
+                "drupal/ckeditor": "*",
+                "drupal/imce": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "6.1.6",
+                    "datestamp": "1729189029",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Emil Stjerneman",
+                    "homepage": "https://stjerneman.com",
+                    "email": "emil@stjerneman.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "johnwebdev",
+                    "homepage": "https://www.drupal.org/user/3331569"
+                },
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
+                }
+            ],
+            "description": "Linkit - Enriched linking experience",
+            "homepage": "http://drupal.org/project/linkit",
+            "support": {
+                "source": "http://cgit.drupalcode.org/linkit",
+                "issues": "http://drupal.org/project/linkit"
+            }
+        },
+        {
             "name": "drupal/m4032404",
             "version": "1.0.0-alpha6",
             "source": {
@@ -2268,6 +2566,172 @@
             "homepage": "https://www.drupal.org/project/m4032404",
             "support": {
                 "source": "https://git.drupalcode.org/project/m4032404"
+            }
+        },
+        {
+            "name": "drupal/media_directories",
+            "version": "2.1.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_directories.git",
+                "reference": "2.1.0-beta4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_directories-2.1.0-beta4.zip",
+                "reference": "2.1.0-beta4",
+                "shasum": "201468b4287bb32e9f2d758fff9e1e177316d7a7"
+            },
+            "require": {
+                "drupal/core": ">=9.5",
+                "drupal/embed": ">=1.6",
+                "drupal/entity_browser": ">=2.8",
+                "drupal/entity_embed": ">=1.3"
+            },
+            "require-dev": {
+                "drupal/embed": "^1.6",
+                "drupal/entity_browser": "*",
+                "drupal/entity_embed": "*",
+                "drupal/media_directories_ui": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0-beta4",
+                    "datestamp": "1709851358",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "rang501",
+                    "homepage": "https://www.drupal.org/user/235669"
+                },
+                {
+                    "name": "ytsurk",
+                    "homepage": "https://www.drupal.org/user/1153644"
+                }
+            ],
+            "description": "Adds a directory structure to Media entities, provides a nice UI and editor integration.",
+            "homepage": "https://www.drupal.org/project/media_directories",
+            "support": {
+                "source": "https://git.drupalcode.org/project/media_directories"
+            }
+        },
+        {
+            "name": "drupal/media_entity_download",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_entity_download.git",
+                "reference": "8.x-2.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_entity_download-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "0851da63a679cc1b0106088b8809857650bc484c"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "conflict": {
+                "drupal/linkit": "<6.0.1"
+            },
+            "require-dev": {
+                "drupal/linkit": "^6 || ^7"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.4",
+                    "datestamp": "1731513891",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "kevinquillen",
+                    "homepage": "https://www.drupal.org/user/317279"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "This module provides a route for linking to media assets by URI for users to download without worrying about the actual file path.",
+            "homepage": "https://www.drupal.org/project/media_entity_download",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/media_entity_download",
+                "issues": "https://www.drupal.org/project/issues/media_entity_download"
+            }
+        },
+        {
+            "name": "drupal/media_file_delete",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_file_delete.git",
+                "reference": "1.3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_file_delete-1.3.1.zip",
+                "reference": "1.3.1",
+                "shasum": "5d715425c65e97343665eb23a055ab4aca45fe47"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ~9.0 || ~10.0 || ^11"
+            },
+            "require-dev": {
+                "drupal/entity_usage": "^2@beta"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.1",
+                    "datestamp": "1721367494",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Provides content editors the ability to delete associated files when deleting media items",
+            "homepage": "https://www.drupal.org/project/media_file_delete",
+            "support": {
+                "source": "https://git.drupalcode.org/project/media_file_delete"
             }
         },
         {
@@ -2631,6 +3095,65 @@
             }
         },
         {
+            "name": "drupal/quick_node_clone",
+            "version": "1.19.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/quick_node_clone.git",
+                "reference": "8.x-1.19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/quick_node_clone-8.x-1.19.zip",
+                "reference": "8.x-1.19",
+                "shasum": "b9a632bdca772f800a179aa7fbefc7f97aa50f80"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/group": "^1 || ^2 || ^3",
+                "drupal/paragraphs": "1.x-dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.19",
+                    "datestamp": "1730993373",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "vilepickle",
+                    "homepage": "https://www.drupal.org/u/vilepickle",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "neslee canil pinto",
+                    "homepage": "https://www.drupal.org/user/3580850"
+                }
+            ],
+            "description": "Quickly clone a node with regular fields.",
+            "homepage": "https://www.drupal.org/project/quick_node_clone",
+            "support": {
+                "source": "https://git.drupalcode.org/project/quick_node_clone",
+                "issues": "https://www.drupal.org/project/issues/quick_node_clone"
+            }
+        },
+        {
             "name": "drupal/redirect",
             "version": "1.10.0",
             "source": {
@@ -2926,6 +3449,68 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/videojs",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/videojs.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/videojs-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "4417d22d349e3203fdca534083c9b3cb5cd1a1ef"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1700918360",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Your name here",
+                    "homepage": "https://www.drupal.org/u/your_name_here",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/NID/committers",
+                    "role": "Contributors"
+                },
+                {
+                    "name": "Jorrit",
+                    "homepage": "https://www.drupal.org/user/161217"
+                },
+                {
+                    "name": "_shY",
+                    "homepage": "https://www.drupal.org/user/3672933"
+                }
+            ],
+            "description": "Video.js is a HTML5-based video player with a built-in Flash fallback for older browsers.",
+            "homepage": "https://www.drupal.org/project/videojs",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/videojs",
+                "issues": "https://www.drupal.org/project/issues/videojs"
             }
         },
         {
@@ -16589,6 +17174,7 @@
         "drupal/field_group": 15,
         "drupal/gin": 5,
         "drupal/m4032404": 15,
+        "drupal/media_directories": 10,
         "drupal/storybook": 10,
         "drupal/yoast_seo": 15
     },
@@ -16597,6 +17183,6 @@
     "platform": {
         "php": "^8.3"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
