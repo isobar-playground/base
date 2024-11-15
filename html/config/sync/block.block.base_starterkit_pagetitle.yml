@@ -1,0 +1,18 @@
+uuid: 4ab50b6a-a34e-4e99-971f-dce8a7192490
+langcode: en
+status: true
+dependencies:
+  theme:
+    - base_starterkit
+id: base_starterkit_pagetitle
+theme: base_starterkit
+region: content
+weight: -1
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.full
     - entity_browser.browser.media_directories_editor_browser
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
   module:
     - entity_embed
     - media
@@ -18,9 +22,10 @@ type_settings:
   bundles:
     - image
     - remote_video
+    - video
   display_plugins:
-    - 'entity_reference:media_directories_image_dimensions'
     - 'view_mode:media.full'
+    - 'entity_reference:media_directories_image_dimensions'
   entity_browser: media_directories_editor_browser
   entity_browser_settings:
     display_review: false
