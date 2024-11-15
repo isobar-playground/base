@@ -208,6 +208,6 @@ $settings['deployment_identifier'] = time();
 $config['config_split.config_split.development']['status'] = TRUE;
 
 // S3.
-$settings['s3fs.access_key'] = 'AKIAVZRP7KC74W6TS55T';
-$settings['s3fs.secret_key'] = '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';
+$settings['s3fs.access_key'] = '';
+$settings['s3fs.secret_key'] = '';
 $config['s3fs.settings']['region'] = 'eu-west-2';
