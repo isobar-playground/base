@@ -1,3 +1,5 @@
+name: ${PROJECT_NAME}
+
 services:
   mariadb:
     image: wodby/mariadb:$MARIADB_TAG
