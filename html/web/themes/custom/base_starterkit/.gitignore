@@ -1,8 +1,8 @@
 # npm dependencies
 /node_modules
 
-# Generated styles
-css/style.css
+# Generated styles and scripts
+dist/*
 
 # Generated stories files
 stories/**/*.json

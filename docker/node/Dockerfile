@@ -1,6 +1,6 @@
 ARG NODE_TAG
 
-FROM wodby/node:$NODE_TAG
+FROM wodby/node:${NODE_TAG:-latest}
 
 COPY --chown=node html /var/www/html
 

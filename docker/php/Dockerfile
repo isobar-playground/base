@@ -1,9 +1,9 @@
 ARG PHP_TAG
 ARG NODE_IMAGE
 
-FROM $NODE_IMAGE as node
+FROM ${NODE_IMAGE:-latest} AS node
 
-FROM wodby/drupal-php:$PHP_TAG
+FROM wodby/drupal-php:${PHP_TAG:-latest}
 
 COPY --chown=wodby html /var/www/html
 

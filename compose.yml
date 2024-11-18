@@ -1,3 +1,5 @@
+name: ${PROJECT_NAME}
+
 services:
   mariadb:
     image: wodby/mariadb:$MARIADB_TAG
@@ -174,6 +176,12 @@ services:
       - node
     environment:
       DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
     command: watch -n 30 drush generate-all-stories --force
     volumes:
       - ./html:/var/www/html

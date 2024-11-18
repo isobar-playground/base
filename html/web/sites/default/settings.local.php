@@ -207,7 +207,30 @@ $settings['deployment_identifier'] = time();
  */
 $config['config_split.config_split.development']['status'] = TRUE;
 
-// S3.
-$settings['s3fs.access_key'] = '';
-$settings['s3fs.secret_key'] = '';
-$config['s3fs.settings']['region'] = 'eu-west-2';
+/**
+ * Disable all caches.
+ */
+$cache_bins = [
+  'bootstrap',
+  'config',
+  'data',
+  'default',
+  'discovery',
+  'discovery_migration',
+  'dynamic_page_cache',
+  'entity',
+  'jsonapi_memory',
+  'jsonapi_normalizations',
+  'jsonapi_resource_types',
+  'menu',
+  'migrate',
+  'page',
+  'render',
+  'rest',
+  'static',
+  'toolbar'
+];
+
+foreach ($cache_bins as $bin) {
+  $settings['cache']['bins'][$bin] = 'cache.backend.null';
+}
