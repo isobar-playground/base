@@ -234,3 +234,8 @@ $cache_bins = [
 foreach ($cache_bins as $bin) {
   $settings['cache']['bins'][$bin] = 'cache.backend.null';
 }
+
+// S3.
+$settings['s3fs.access_key'] = '${{ secrets.S3_ACCESS_KEY }}';
+$settings['s3fs.secret_key'] = '${{ secrets.S3_SECRET_KEY }}';
+$config['s3fs.settings']['region'] = 'eu-west-2';
