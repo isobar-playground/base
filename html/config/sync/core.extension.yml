@@ -15,6 +15,9 @@ module:
   dynamic_page_cache: 0
   editor: 0
   editoria11y: 0
+  embed: 0
+  entity_browser: 0
+  entity_embed: 0
   entity_reference_revisions: 0
   field: 0
   field_group: 0
@@ -26,9 +29,15 @@ module:
   image: 0
   language: 0
   link: 0
+  linkit: 0
   locale: 0
   m4032404: 0
   media: 0
+  media_directories: 0
+  media_directories_editor: 0
+  media_directories_ui: 0
+  media_entity_download: 0
+  media_file_delete: 0
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
@@ -40,13 +49,17 @@ module:
   paragraphs_edit: 0
   path: 0
   path_alias: 0
+  plyr: 0
   preview: 0
   queue_ui: 0
+  quick_node_clone: 0
   redirect: 0
+  s3fs: 0
   serialization: 0
   simple_sitemap: 0
   storybook: 0
   system: 0
+  taxonomy: 0
   telephone: 0
   text: 0
   token: 0
