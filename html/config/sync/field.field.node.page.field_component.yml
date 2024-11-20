@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_component
     - node.type.page
+    - paragraphs.paragraphs_type.b_slider
     - paragraphs.paragraphs_type.b_text
     - paragraphs.paragraphs_type.b_video
   module:
@@ -25,12 +26,19 @@ settings:
     target_bundles:
       b_video: b_video
       b_text: b_text
+      b_slider: b_slider
     negate: 0
     target_bundles_drag_drop:
+      b_slider:
+        weight: 5
+        enabled: true
       b_text:
         weight: 3
         enabled: true
       b_video:
         weight: 2
         enabled: true
+      i_slide:
+        weight: 8
+        enabled: false
 field_type: entity_reference_revisions
