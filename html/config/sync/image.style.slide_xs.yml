@@ -1,0 +1,21 @@
+uuid: a1df221d-9bfc-4418-8d71-6328e17c17c4
+langcode: en
+status: true
+dependencies: {  }
+name: slide_xs
+label: 'Slide XS'
+effects:
+  33d870da-8a63-4816-8a91-7da461cba0d0:
+    uuid: 33d870da-8a63-4816-8a91-7da461cba0d0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 575
+      height: 768
+      anchor: center-center
+  da49e410-da27-4d1c-a5ff-47cc9942736b:
+    uuid: da49e410-da27-4d1c-a5ff-47cc9942736b
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

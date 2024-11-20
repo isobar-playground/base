@@ -1,0 +1,21 @@
+uuid: 2a5e4735-2cee-4314-b767-f572cdd53795
+langcode: en
+status: true
+dependencies: {  }
+name: slide_s
+label: 'Slide S'
+effects:
+  63854fbb-85a2-4db7-ace2-17c7039b26ae:
+    uuid: 63854fbb-85a2-4db7-ace2-17c7039b26ae
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 767
+      height: 700
+      anchor: center-center
+  8bbf7ea9-f2ed-400a-a25c-d03f31cba2b2:
+    uuid: 8bbf7ea9-f2ed-400a-a25c-d03f31cba2b2
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

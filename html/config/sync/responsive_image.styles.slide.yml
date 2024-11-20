@@ -1,0 +1,19 @@
+uuid: 862fa138-3400-4608-8157-6312319f3a0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.slide_s
+    - image.style.slide_xs
+  theme:
+    - base_starterkit
+id: slide
+label: Slide
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: slide_s
+    breakpoint_id: base_starterkit.small
+    multiplier: 1x
+breakpoint_group: base_starterkit
+fallback_image_style: slide_xs
