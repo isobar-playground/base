@@ -189,7 +189,9 @@ $settings['skip_permissions_hardening'] = TRUE;
  * @see https://www.drupal.org/docs/installing-drupal/trusted-host-settings
  */
 $settings['trusted_host_patterns'] = [
+  '^localhost$',
   '^base\.localhost$',
+  '.+\.app\.github\.dev$',
 ];
 
 /**
