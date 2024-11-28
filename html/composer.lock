@@ -1905,17 +1905,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.1.20",
+            "version": "2.1.21",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.1.20"
+                "reference": "2.1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.1.20.zip",
-                "reference": "2.1.20",
-                "shasum": "67f8e2eb17ed3d3db6cd93782ed1faa88c206640"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.1.21.zip",
+                "reference": "2.1.21",
+                "shasum": "6ec1bb5cfa15408e3372d7e0d0a1355030a9f20b"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -1926,8 +1926,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.20",
-                    "datestamp": "1731097435",
+                    "version": "2.1.21",
+                    "datestamp": "1731602531",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -17462,10 +17462,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/all_entity_preview": 15,
         "drupal/field_group": 15,
         "drupal/gin": 5,
         "drupal/m4032404": 15,
         "drupal/media_directories": 10,
+        "drupal/plyr": 15,
         "drupal/storybook": 10,
         "drupal/yoast_seo": 15
     },
