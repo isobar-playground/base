@@ -32,6 +32,7 @@ module:
   linkit: 0
   locale: 0
   m4032404: 0
+  mailsystem: 0
   media: 0
   media_directories: 0
   media_directories_editor: 0
@@ -44,6 +45,7 @@ module:
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
+  mimemail: 0
   mysql: 0
   node: 0
   options: 0
@@ -53,6 +55,7 @@ module:
   path_alias: 0
   plyr: 0
   preview: 0
+  queue_mail: 0
   queue_ui: 0
   quick_node_clone: 0
   redirect: 0
@@ -60,6 +63,7 @@ module:
   s3fs: 0
   serialization: 0
   simple_sitemap: 0
+  smtp: 0
   storybook: 0
   system: 0
   taxonomy: 0

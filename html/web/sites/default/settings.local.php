@@ -251,3 +251,9 @@ $settings['memcache']['servers'] = ['memcached:11211' => 'default'];
 $settings['memcache']['bins'] = ['default' => 'default'];
 $settings['memcache']['key_prefix'] = '';
 $settings['cache']['default'] = 'cache.backend.memcache';
+
+/**
+ * SMTP configuration.
+ */
+$config['smtp.settings']['smtp_host'] = 'mailpit';
+$config['smtp.settings']['smtp_port'] = '1025';
