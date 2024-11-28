@@ -134,9 +134,9 @@ services:
 #    container_name: "${PROJECT_NAME}_redis"
 #    image: wodby/redis:$REDIS_TAG
 
-#  memcached:
-#    container_name: "${PROJECT_NAME}_memcached"
-#    image: wodby/memcached:$MEMCACHED_TAG
+  memcached:
+    container_name: "${PROJECT_NAME}_memcached"
+    image: wodby/memcached:$MEMCACHED_TAG
 
   node:
     build:

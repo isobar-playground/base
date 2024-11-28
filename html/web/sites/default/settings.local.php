@@ -243,3 +243,11 @@ foreach ($cache_bins as $bin) {
 $settings['s3fs.access_key'] = getenv('S3_ACCESS_KEY');
 $settings['s3fs.secret_key'] = getenv('S3_SECRET_KEY');
 $config['s3fs.settings']['region'] = 'eu-west-2';
+
+/**
+ * Memcache configuration.
+ */
+$settings['memcache']['servers'] = ['memcached:11211' => 'default'];
+$settings['memcache']['bins'] = ['default' => 'default'];
+$settings['memcache']['key_prefix'] = '';
+$settings['cache']['default'] = 'cache.backend.memcache';
