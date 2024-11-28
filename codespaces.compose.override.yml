@@ -16,9 +16,16 @@ services:
     ports:
       - 6006:6006
 
+  mailpit:
+    ports:
+      - 8025:8025
+
   pma:
     ports:
       - 3306:80
+
+  supervisor:
+    restart: always
 
   storybook_drupal:
     environment:
