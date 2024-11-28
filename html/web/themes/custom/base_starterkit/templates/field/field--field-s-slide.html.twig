@@ -53,16 +53,12 @@
       {% if multiple %}
         <div{{ attributes }}>
           {% for item in items %}
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-              <div{{ item.attributes }}>{{ item.content }}</div>
-            </div>
+            <div{{ item.attributes.addClass('hidden', 'duration-700', 'ease-in-out').setAttribute('data-carousel-item', '') }}>{{ item.content }}</div>
           {% endfor %}
         </div>
       {% else %}
         {% for item in items %}
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <div{{ attributes }}>{{ item.content }}</div>
-          </div>
+          <div{{ attributes.addClass('hidden', 'duration-700', 'ease-in-out').setAttribute('data-carousel-item', '') }}>{{ item.content }}</div>
         {% endfor %}
       {% endif %}
     {% else %}
