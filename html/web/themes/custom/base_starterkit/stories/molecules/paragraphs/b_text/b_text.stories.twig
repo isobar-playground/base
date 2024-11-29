@@ -1,0 +1,16 @@
+{% stories homepage with { title: 'Molecules/Paragraphs' } %}
+
+  {% story default with {
+    name: 'Text',
+  } %}
+
+    {% set content = {
+      '#type': 'processed_text',
+      '#text': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hend</p>',
+      '#format': 'full_html',
+    } %}
+    {% embed 'base_starterkit:b_text' with { content: content } %}{% endembed %}
+
+  {% endstory %}
+
+{% endstories %}
