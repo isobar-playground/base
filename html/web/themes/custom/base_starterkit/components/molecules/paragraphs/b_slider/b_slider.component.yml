@@ -1,0 +1,12 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Text
+description: The Slider (b_slider) paragraph
+props:
+  type: object
+  required:
+    - slides
+  properties:
+    slides:
+      type: array
+      title: Slides
+      description: Slides in the slider

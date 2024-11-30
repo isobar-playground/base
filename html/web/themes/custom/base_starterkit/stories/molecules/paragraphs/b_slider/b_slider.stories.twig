@@ -1,0 +1,17 @@
+{% stories homepage with { title: 'Organisms' } %}
+
+  {% story default with {
+    name: 'Slider',
+  } %}
+
+    {% set slides = {
+      0: {'#markup': include('base_starterkit:i_slide', { image: {'#markup': '<img src="https://place-hold.it/1920x1080?text=Slide%201&fontsize=96" />'}})},
+      1: {'#markup': include('base_starterkit:i_slide', { image: {'#markup': '<img src="https://place-hold.it/1920x1080?text=Slide%202&fontsize=96" />'}})},
+      2: {'#markup': include('base_starterkit:i_slide', { image: {'#markup': '<img src="https://place-hold.it/1920x1080?text=Slide%203&fontsize=96" />'}})}
+    } %}
+
+    {{ include('base_starterkit:b_slider', {slides}) }}
+
+  {% endstory %}
+
+{% endstories %}
