@@ -1,0 +1,12 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Video
+description: The Video (b_video) paragraph
+props:
+  type: object
+  required:
+    - video
+  properties:
+    video:
+      type: string
+      title: Video
+      description: Video Media
