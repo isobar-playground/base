@@ -1,0 +1,18 @@
+parameters:
+    level: 1
+
+    paths:
+        - html/web/modules/custom
+
+    excludePaths:
+        # Skip sites directory.
+        - html/web/sites
+
+    ignoreErrors:
+     # new static() is a best practice in Drupal, so we cannot fix that.
+     - "#^Unsafe usage of new static#"
+
+     # Ignore common errors for now.
+     - "#Drupal calls should be avoided in classes, use dependency injection instead#"
+     - "#^Plugin definitions cannot be altered.#"
+     - "#^Class .* extends @internal class#"
