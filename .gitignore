@@ -1,6 +1,9 @@
 # IntelliJ IDE
 /.idea
 
+#System
+.DS_Store
+
 # Local Docker Compose overrides
 /compose.override.yml
 

@@ -3,6 +3,79 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {}
-@layer components {}
-@layer utilities {}
+@layer base {
+  body {
+    @apply selection:bg-black selection:text-white;
+  }
+}
+@layer components {
+  .main-container {
+    @apply container mx-auto p-4 lg:py-6;
+  }
+  .text-render h1 {
+    @apply font-semibold text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  .text-render h2 {
+    @apply font-semibold text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .text-render h3 {
+    @apply font-semibold text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .text-render h4 {
+    @apply font-semibold text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .text-render h5 {
+    @apply font-semibold text-lg md:text-xl lg:text-2xl;
+  }
+
+  .text-render h6 {
+    @apply font-semibold text-base md:text-lg lg:text-xl;
+  }
+
+  .text-render ul {
+    @apply list-disc pl-6 leading-tight;
+  }
+
+  .text-render ol {
+    @apply list-decimal pl-6 leading-tight;
+  }
+
+  .text-render ul li,
+  .text-render ol li {
+    @apply pl-2;
+  }
+
+  .text-render blockquote {
+    @apply border-l-2 border-black pl-4 py-4 italic !text-lg flex flex-col gap-6;
+  }
+
+  .text-render code {
+    @apply text-sm bg-gray-100 p-1 rounded-sm;
+  }
+
+  .text-render table thead th {
+    @apply text-sm font-semibold bg-black text-white p-2 border border-white;
+  }
+
+  .text-render table tbody tr:nth-child(2n) {
+    @apply bg-gray-50;
+  }
+
+  .text-render table tbody tr:hover {
+    @apply hover:bg-gray-100;
+  }
+
+  .text-render table tbody td {
+    @apply text-sm text-black/75 px-2 py-2 border border-gray-50;
+  }
+  .text-render figure figcaption,
+  .text-render table caption {
+    @apply text-xs italic text-black/50 py-2;
+  }
+}
+@layer utilities {
+}
