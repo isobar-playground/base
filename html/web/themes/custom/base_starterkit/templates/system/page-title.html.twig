@@ -14,8 +14,15 @@
  * @ingroup themeable
  */
 #}
+{%
+  set classes = [
+    'main-container font-semibold text-4xl md:text-xl lg:text-6xl border-b-4 border-black'
+  ]
+%}
+
+
 {{ title_prefix }}
 {% if title %}
-  <h1{{ title_attributes }} class="main-container font-semibold text-4xl md:text-xl lg:text-6xl border-b-4 border-black">{{ title }}</h1>
+  <h1{{ title_attributes.addClass(classes) }} class="">{{ title }}</h1>
 {% endif %}
 {{ title_suffix }}
