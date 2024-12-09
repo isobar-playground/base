@@ -1,16 +1,14 @@
 <div class="relative w-full" data-carousel="slide">
 
   <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-    {% for slide in slides | children(true) %}
-
-      {{ slide.content }}
-
+    {% for slide in slides %}
+      {{ drupal_entity('paragraph', slide.target_id) }}
     {% endfor %}
   </div>
 
   <!-- Slider indicators -->
   <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-    {% for slide in slides | children(true) %}
+    {% for slide in slides %}
       <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide {{ loop.index0 }}" data-carousel-slide-to="{{ loop.index0 }}"></button>
     {% endfor %}
   </div>
