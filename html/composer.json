@@ -24,7 +24,7 @@
         "drupal/frontend_editing": "^1.8",
         "drupal/gin": "^3.0@RC",
         "drupal/gin_login": "^2.1",
-        "drupal/linkit": "^6.1",
+        "drupal/linkit": "^7.0",
         "drupal/m4032404": "^1.0@alpha",
         "drupal/mailsystem": "^4.5",
         "drupal/media_directories": "^2.1@beta",
