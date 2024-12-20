@@ -22,7 +22,7 @@
         "drupal/field_group": "^4.0@alpha",
         "drupal/focal_point": "^2.1",
         "drupal/frontend_editing": "^1.8",
-        "drupal/gin": "^3.0@RC",
+        "drupal/gin": "^4.0@RC",
         "drupal/gin_login": "^2.1",
         "drupal/linkit": "^6.1",
         "drupal/m4032404": "^1.0@alpha",
