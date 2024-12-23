@@ -5,23 +5,19 @@ dependencies:
   config:
     - field.field.paragraph.b_slider.field_s_slide
     - paragraphs.paragraphs_type.b_slider
-    - swiper_formatter.swiper_formatter.default
   module:
-    - swiper_formatter
+    - entity_reference_revisions
 id: paragraph.b_slider.default
 targetEntityType: paragraph
 bundle: b_slider
 mode: default
 content:
   field_s_slide:
-    type: swiper_formatter_paragraphs
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: default
-      template: default
-      caption: ''
-      custom_link: null
-      link: false
+      link: ''
     third_party_settings: {  }
     weight: 0
     region: content

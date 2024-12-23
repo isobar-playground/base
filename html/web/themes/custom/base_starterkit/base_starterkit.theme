@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+/**
+* Implements hook_preprocess_paragraph().
+*/
+function base_starterkit_preprocess_paragraph(&$variables) {
+  // Add swiper library.
+  if ($variables['elements']['#paragraph']->hasField('field_s_slide')) {
+    $variables['#attached']['library'][] = 'base_starterkit/slider';
+  }
+}
