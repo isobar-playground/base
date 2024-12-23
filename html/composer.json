@@ -10,6 +10,7 @@
     },
     "require": {
         "php": "^8.3",
+        "bower-asset/swiper": "^11.1",
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "~1.0",
         "drupal/all_entity_preview": "^1.0@alpha",
@@ -50,7 +51,8 @@
         "drupal/twigsuggest": "^2.0@RC",
         "drupal/ultimate_cron": "^2.0@beta",
         "drupal/yoast_seo": "^2.0@alpha",
-        "drush/drush": "^13.3"
+        "drush/drush": "^13.3",
+        "oomphinc/composer-installers-extender": "^2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3",
@@ -69,6 +71,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "minimum-stability": "dev",
@@ -84,7 +90,8 @@
             "php-http/discovery": true,
             "phpro/grumphp": true,
             "phpstan/extension-installer": true,
-            "tbachert/spi": true
+            "tbachert/spi": true,
+            "oomphinc/composer-installers-extender": true
         },
         "sort-packages": true
     },
@@ -119,12 +126,15 @@
             "config-default-path": "/home/wodby/app",
             "project-path": "/home/wodby/app"
         },
+        "installer-types": ["bower-asset", "npm-asset"],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
             ],
             "web/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "vendor:npm-asset",
+                "vendor:bower-asset"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
