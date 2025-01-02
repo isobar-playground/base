@@ -1,0 +1,32 @@
+Subject: [PATCH] Handle PHP errors when breadcrumb links cannot be generated.
+---
+Index: src/GinNavigation.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GinNavigation.php b/src/GinNavigation.php
+--- a/src/GinNavigation.php	(revision 549780b2e0c8b4dbae0b8430b788e3da5d65bd7f)
++++ b/src/GinNavigation.php	(date 1735828161815)
+@@ -313,11 +313,18 @@
+    */
+   public function getNavigationActiveTrail() {
+     // Get the breadcrumb paths to maintain active trail in the toolbar.
+-    $links = \Drupal::service('breadcrumb')->build(\Drupal::routeMatch())->getLinks();
+     $paths = [];
+-    foreach ($links as $link) {
+-      $paths[] = $link->getUrl()->getInternalPath();
++    try {
++      $links = \Drupal::service('breadcrumb')->build(\Drupal::routeMatch())->getLinks();
++      foreach ($links as $link) {
++        $paths[] = $link->getUrl()->getInternalPath();
++      }
+     }
++    catch (\Throwable $t) {
++      \Drupal::logger('gin_theme')->error('Failed to generate active trail: @error', [
++        '@error' => $t->getMessage(),
++      ]);
++    }
+ 
+     return $paths;
+   }

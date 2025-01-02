@@ -147,6 +147,11 @@
             "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
+        },
+        "patches": {
+            "drupal/gin": {
+                "Fix breadcrumb issue": "patches/gin/handle_php_errors_on_breadcrumbs.patch"
+            }
         }
     }
 }
