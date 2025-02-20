@@ -49,7 +49,7 @@
         "drupal/twig_tweak": "^3.4",
         "drupal/twigsuggest": "^2.0@RC",
         "drupal/ultimate_cron": "^2.0@beta",
-        "drupal/yoast_seo": "^2.0@alpha",
+        "drupal/yoast_seo": "^2.1",
         "drush/drush": "^13.3"
     },
     "require-dev": {
