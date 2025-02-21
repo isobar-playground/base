@@ -5,7 +5,7 @@ default: up
 
 COMPOSER_ROOT ?= /var/www/html
 DRUPAL_ROOT ?= /var/www/html/web
-COMPOSE ?= docker compose --env-file .env --env-file .env.local
+COMPOSE ?= docker compose --env-file .env --env-file .env.local --progress quiet
 GIT_SHA := $(shell git rev-parse HEAD)
 
 ## help	:	Print commands help.
@@ -21,17 +21,20 @@ endif
 ## up	:	Start up containers.
 .PHONY: up
 up:
-	touch .env.local
-	@echo "Starting up containers for $(PROJECT_NAME) at $(PROJECT_BASE_URL)..."
+	@touch .env.local
+	@touch html/.env
+	@echo "Starting up containers for $(PROJECT_NAME) at http://$(PROJECT_BASE_URL)..."
 	@$(COMPOSE) up -d --remove-orphans
 	@$(COMPOSE) run --rm grumphp sh -c 'cd html && composer install'
 	@echo -n "MySQL is initializing";
-	@until docker compose exec mariadb mariadb -s -u $(DB_USER) -p$(DB_PASSWORD) $(DB_NAME) -e "SELECT COUNT(*) FROM users" > /dev/null 2>&1; do \
+	@until $(COMPOSE) exec mariadb mariadb -s -u $(DB_USER) -p$(DB_PASSWORD) $(DB_NAME) -e "SELECT COUNT(*) FROM watchdog" > /dev/null 2>&1; do \
 		echo -n "."; \
 		sleep 10; \
 	done
 	@echo ""
+	@sleep 5;
 	@echo "MySQL is ready to accept connections."
+	@echo "Access the site at http://$(PROJECT_BASE_URL)"
 
 ## down	:	Stop containers.
 .PHONY: down
@@ -114,6 +117,14 @@ theme:
 mkdocs:
 	touch .env.local
 	@$(COMPOSE) run mkdocs mkdocs build
+
+## yolo	:	Recreate environment.
+.PHONY: yolo
+yolo:
+	@make prune --no-print-directory
+	@make up --no-print-directory
+	@make drush deploy --no-print-directory
+	@make drush if --no-print-directory
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
