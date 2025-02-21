@@ -2523,17 +2523,17 @@
         },
         {
             "name": "drupal/frontend_editing",
-            "version": "1.8.4",
+            "version": "1.8.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/frontend_editing.git",
-                "reference": "1.8.4"
+                "reference": "1.8.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/frontend_editing-1.8.4.zip",
-                "reference": "1.8.4",
-                "shasum": "f862a83cf76bb74e79b14cbffdc13c16e91a5c0e"
+                "url": "https://ftp.drupal.org/files/projects/frontend_editing-1.8.10.zip",
+                "reference": "1.8.10",
+                "shasum": "04307910b8d75910edab4a15aba64a25a705d2dd"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11",
@@ -2548,8 +2548,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.8.4",
-                    "datestamp": "1730361515",
+                    "version": "1.8.10",
+                    "datestamp": "1738747222",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2578,7 +2578,7 @@
                     "homepage": "https://www.drupal.org/user/2901211"
                 },
                 {
-                    "name": "leymannx",
+                    "name": "norman.lol",
                     "homepage": "https://www.drupal.org/user/2482808"
                 }
             ],
