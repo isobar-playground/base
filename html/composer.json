@@ -17,7 +17,7 @@
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
-        "drupal/editoria11y": "^2.1",
+        "drupal/editoria11y": "^2.2",
         "drupal/embed": "^1.10",
         "drupal/events_log_track": "^4.0",
         "drupal/field_group": "^4.0@alpha",
@@ -54,7 +54,7 @@
         "drush/drush": "^13.3"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.3",
+        "drupal/core-dev": "~10.3.0",
         "drupal/devel": "^5.3",
         "ergebnis/composer-normalize": "^2.42",
         "mglaman/phpstan-drupal": "^1.3",
