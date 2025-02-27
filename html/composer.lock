@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8daec81db2052415fab589e986aa8dcc",
+    "content-hash": "d65ad1ce401e37f7b8e4e8b7d81760c1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2928,23 +2928,23 @@
         },
         {
             "name": "drupal/media_directories",
-            "version": "2.1.0-beta5",
+            "version": "2.2.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_directories.git",
-                "reference": "2.1.0-beta5"
+                "reference": "2.2.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_directories-2.1.0-beta5.zip",
-                "reference": "2.1.0-beta5",
-                "shasum": "3a6fc914025a5b61ae862d1b68d26eb11e2f8989"
+                "url": "https://ftp.drupal.org/files/projects/media_directories-2.2.0-beta1.zip",
+                "reference": "2.2.0-beta1",
+                "shasum": "64839dae87b786d8933a86b680f0fd702b830076"
             },
             "require": {
-                "drupal/core": ">=9.5",
-                "drupal/embed": ">=1.6",
-                "drupal/entity_browser": ">=2.8",
-                "drupal/entity_embed": ">=1.3"
+                "drupal/core": ">=10.2",
+                "drupal/embed": ">=1.10",
+                "drupal/entity_browser": ">=2.12",
+                "drupal/entity_embed": ">=1.7"
             },
             "require-dev": {
                 "drupal/embed": "^1.6",
@@ -2955,8 +2955,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0-beta5",
-                    "datestamp": "1738804286",
+                    "version": "2.2.0-beta1",
+                    "datestamp": "1740437432",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -18544,7 +18544,6 @@
         "drupal/all_entity_preview": 15,
         "drupal/field_group": 15,
         "drupal/m4032404": 15,
-        "drupal/media_directories": 10,
         "drupal/mimemail": 15,
         "drupal/plyr": 15,
         "drupal/storybook": 10,
