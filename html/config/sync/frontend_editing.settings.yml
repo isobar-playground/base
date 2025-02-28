@@ -5,6 +5,7 @@ entity_types:
     - page
   paragraph:
     - b_accordion
+    - b_form
     - b_slider
     - b_text
     - b_video
