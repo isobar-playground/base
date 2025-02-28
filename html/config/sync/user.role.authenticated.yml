@@ -2,7 +2,10 @@ uuid: 205f7fa1-e110-4075-9d36-f9a3a07fb979
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.webform_default
   module:
+    - filter
     - media
     - system
 _core:
@@ -13,5 +16,6 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format webform_default'
   - 'view media'
   - 'view the administration theme'

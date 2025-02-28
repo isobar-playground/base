@@ -13,6 +13,7 @@
         "composer/installers": "^2.3",
         "cweagans/composer-patches": "~1.0",
         "drupal/all_entity_preview": "^1.0@alpha",
+        "drupal/block_field": "^1.0@RC",
         "drupal/config_split": "^2.0",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-recommended": "^10.3",
@@ -49,6 +50,8 @@
         "drupal/twig_tweak": "^3.4",
         "drupal/twigsuggest": "^2.0@RC",
         "drupal/ultimate_cron": "^2.0@beta",
+        "drupal/webform": "^6.2",
+        "drupal/webform_extra_field": "^2.0@RC",
         "drupal/yoast_seo": "^2.1",
         "drush/drush": "^13.3"
     },

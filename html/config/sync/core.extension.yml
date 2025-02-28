@@ -20,6 +20,8 @@ module:
   entity_browser: 0
   entity_embed: 0
   entity_reference_revisions: 0
+  extra_field: 0
+  extra_field_plus: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -82,6 +84,10 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_attachment: 0
+  webform_extra_field: 0
+  webform_ui: 0
   yoast_seo: 0
   pathauto: 1
   content_translation: 10
