@@ -1,18 +1,18 @@
-uuid: 9c753357-a112-4535-b8ed-acc4e1fbed46
+uuid: 76d68626-88c4-4482-9330-85b2a24991d4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.b_slider.field_s_slide
-    - paragraphs.paragraphs_type.b_slider
+    - field.field.paragraph.b_accordion.field_a_accordion
+    - paragraphs.paragraphs_type.b_accordion
   module:
     - entity_reference_revisions
-id: paragraph.b_slider.default
+id: paragraph.b_accordion.default
 targetEntityType: paragraph
-bundle: b_slider
+bundle: b_accordion
 mode: default
 content:
-  field_s_slide:
+  field_a_accordion:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:

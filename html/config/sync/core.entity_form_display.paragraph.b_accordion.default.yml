@@ -1,18 +1,18 @@
-uuid: 5d347006-eadb-441e-95a4-5e61f7cc0947
+uuid: c74a36e3-6c10-4895-95c4-16b95fbb2db0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.b_slider.field_s_slide
-    - paragraphs.paragraphs_type.b_slider
+    - field.field.paragraph.b_accordion.field_a_accordion
+    - paragraphs.paragraphs_type.b_accordion
   module:
     - paragraphs
-id: paragraph.b_slider.default
+id: paragraph.b_accordion.default
 targetEntityType: paragraph
-bundle: b_slider
+bundle: b_accordion
 mode: default
 content:
-  field_s_slide:
+  field_a_accordion:
     type: paragraphs
     weight: 0
     region: content
@@ -25,7 +25,7 @@ content:
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: i_slide
+      default_paragraph_type: i_accordion
       features:
         add_above: '0'
         collapse_edit_all: collapse_edit_all

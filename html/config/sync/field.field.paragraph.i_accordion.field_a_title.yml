@@ -1,0 +1,24 @@
+uuid: 2aa35eb7-3e58-45ca-934c-e47069049e9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_a_title
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.i_accordion
+  module:
+    - text
+id: paragraph.i_accordion.field_a_title
+field_name: field_a_title
+entity_type: paragraph
+bundle: i_accordion
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

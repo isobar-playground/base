@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Text
+description: The Accordion (i_accordion) paragraph
+props:
+  type: object
+  required:
+    - title
+    - description
+  properties:
+    title:
+      type: string
+      title: Title
+      description: Paragraph content
+    description:
+     type: string
+     title: Description
+     description: Paragraph content
