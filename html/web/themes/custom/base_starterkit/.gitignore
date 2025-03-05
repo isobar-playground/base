@@ -4,6 +4,15 @@
 # Generated styles and scripts
 dist/*
 
+# Exclude all compiled .js and .css files in the templates directory
+/components/**/*.js
+/components/**/*.css
+
+# Allow .source.js files in templates (override the previous rule)
+!/components/**/*.source.js
+!/components/**/*.source.css
+
+
 # Generated stories files
 stories/**/*.json
 

@@ -2,8 +2,8 @@
   "name": "base_starterkit",
   "version": "1.0.0",
   "scripts": {
-    "watch": "concurrently \"tailwindcss -i ./src/main.css -o ./dist/css/styles.css --watch\" \"npx webpack --config webpack.config.js --watch\"",
-    "build": "NODE_ENV=production tailwindcss -i ./src/main.css -o ./dist/css/styles.css --minify && npx webpack --config webpack.config.js --mode production",
+    "watch": "npx webpack --config webpack.config.js --watch --mode development --stats-error-details",
+    "build": "NODE_ENV=production npx webpack --config webpack.config.js --mode production",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
@@ -18,14 +18,20 @@
     "@storybook/server": "^8.5.8",
     "@storybook/server-webpack5": "^8.5.8",
     "@storybook/test": "^8.5.8",
+    "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "concurrently": "^9.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
     "storybook": "^8.5.8",
     "tailwindcss": "^3.4.17",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "flowbite": "^3.1.2"
+    "flowbite": "^3.1.2",
+    "swiper": "^11.2.1"
   }
 }

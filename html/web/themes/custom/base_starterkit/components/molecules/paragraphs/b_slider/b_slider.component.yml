@@ -10,3 +10,6 @@ props:
       type: array
       title: Slides
       description: Slides in the slider
+libraryOverrides:
+  dependencies:
+    - base_starterkit/swiper
