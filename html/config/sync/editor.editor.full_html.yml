@@ -99,6 +99,14 @@ settings:
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags: {  }
+    ckeditor_link_styles_linkStyles:
+      styles:
+        -
+          label: 'Button style: Blue'
+          element: '<a class="text-white bg-blue-700">'
+        -
+          label: 'Button style: Black'
+          element: '<a class="text-white bg-black">'
     editor_advanced_link_link:
       enabled_attributes:
         - target
