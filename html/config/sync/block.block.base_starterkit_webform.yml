@@ -1,0 +1,26 @@
+uuid: 28cc3dde-8972-4a32-ad1d-ae0968671f58
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.subscribe
+  module:
+    - webform
+  theme:
+    - base_starterkit
+id: base_starterkit_webform
+theme: base_starterkit
+region: footer
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Subscribe
+  label_display: visible
+  provider: webform
+  webform_id: subscribe
+  default_data: ''
+  redirect: false
+  lazy: false
+visibility: {  }
