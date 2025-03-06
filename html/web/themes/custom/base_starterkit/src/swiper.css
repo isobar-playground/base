@@ -1,0 +1,7 @@
+/*SWIPER STYLES*/
+@import "swiper/swiper-bundle.css";
+
+:root {
+  --swiper-theme-color: #000000;
+  --swiper-pagination-bullet-size: 0.75rem;
+}

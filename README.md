@@ -42,7 +42,7 @@ To set up the local development environment, follow these steps:
 The `Makefile` includes several commands to manage the Docker environment:
 
 | Command    | Description                                                                                                          |
-|------------|----------------------------------------------------------------------------------------------------------------------|
+| ---------- | -------------------------------------------------------------------------------------------------------------------- |
 | `help`     | Prints the help for available commands.                                                                              |
 | `up`       | Starts up the containers, builds them if necessary, and installs Composer dependencies.                              |
 | `down`     | Stops the containers.                                                                                                |
@@ -82,6 +82,7 @@ The project also includes a Docker image with a Supervisor service based on `wod
 ### Build Order
 
 The images should be built in the following order:
+
 1. Node image
 2. PHP image
 3. Apache image
@@ -103,14 +104,16 @@ The base starterkit theme is developed using Single Directory Components and Tai
 make theme
 ```
 
-You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file. 
+You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file.
 
 **Important: Once you have created a new theme from the starterkit, please apply the changes to the Docker configuration.**
 
 ### Creating new Single Directory Component
 
 To create a new Single Directory Component please follow steps below:
+
 1. Create a new Story file in the respective directory within the `stories` directory using the following template:
+
    ```twig
    {% stories accordion with { title: 'Organisms' } %}
 
@@ -127,6 +130,7 @@ To create a new Single Directory Component please follow steps below:
 3. Optionally, create a new `*.component.yml` file next to the Twig file to define component properties using the following guide: [Annotated Example Component YAML](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components/annotated-example-componentyml)
 4. Preview component in the Storybook on your browser at http://storybook.base.localhost.
 5. When developing a new component, remember to flush the Drupal cache with the `make drush cr` command if problems occur.
+
 ## RabbitMQ Integration 🐰
 
 The project integrates with a RabbitMQ service, which is available at http://rabbitmq.base.localhost. The default login credentials are:
@@ -151,22 +155,26 @@ make drush sql:dump -- --gzip
 ### Reverting project to initial stage
 
 To revert project to initial stage and purge all data stored in volumes, use the following command:
+
 ```bash
 make prune
 ```
 
 After pruning all data rebuild project with
+
 ```bash
 make
 ```
 
 Optionally, you can reset the current state of the Git repository with
+
 ```bash
 git reset --hard
 git clean -fd
 ```
 
 and then rebuild and lunch local images so that the environment is up to date with the HEAD state:
+
 ```bash
 make build up
 ```

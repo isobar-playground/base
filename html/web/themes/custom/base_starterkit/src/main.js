@@ -1,3 +1,2 @@
 /* main.js */
-import 'flowbite';
-
+import "flowbite";

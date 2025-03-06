@@ -1,6 +1,11 @@
 global:
   css:
     theme:
-      dist/css/styles.css: {}
+      dist/css/main.css: {}
   js:
-    dist/js/scripts.js: {}
+    dist/js/main.js: {}
+
+swiper:
+  css:
+    theme:
+      dist/css/swiper.css: {}
