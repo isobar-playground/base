@@ -4,15 +4,67 @@ status: true
 dependencies:
   config:
     - filter.format.full_html
+    - node.type.page
+    - taxonomy.vocabulary.media_directories
   module:
+    - content_translation
+    - contextual
+    - editoria11y
+    - file
     - filter
     - frontend_editing
+    - media
+    - media_directories_ui
+    - media_entity_download
+    - menu_admin_per_menu
+    - node
+    - path
+    - quick_node_clone
+    - system
+    - taxonomy
+    - toolbar
+    - yoast_seo
 id: editor
 label: Editor
 weight: 3
 is_admin: null
 permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
   - 'access frontend editing'
+  - 'access media directories ui browser'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
   - 'add paragraphs'
+  - 'administer footer menu items'
+  - 'administer main menu items'
+  - 'bypass node access'
+  - 'clone page content'
+  - 'create content translations'
+  - 'create media'
+  - 'create terms in media_directories'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any file'
+  - 'delete any media'
+  - 'delete content translations'
+  - 'delete terms in media_directories'
+  - 'download media'
+  - 'edit terms in media_directories'
+  - 'manage editoria11y results'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
   - 'move paragraphs'
+  - 'revert all revisions'
+  - 'translate any entity'
+  - 'translate editable entities'
+  - 'update any media'
+  - 'update content translations'
   - 'use text format full_html'
+  - 'use yoast seo'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view editoria11y checker'

@@ -1,0 +1,25 @@
+uuid: 9c88174e-d0ad-4158-9013-6598feac9326
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.b_form.field_f_form
+    - paragraphs.paragraphs_type.b_form
+  module:
+    - webform
+id: paragraph.b_form.default
+targetEntityType: paragraph
+bundle: b_form
+mode: default
+content:
+  field_f_form:
+    type: webform_entity_reference_entity_view
+    label: hidden
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

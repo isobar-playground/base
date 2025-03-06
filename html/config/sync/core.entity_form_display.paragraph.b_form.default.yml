@@ -1,0 +1,25 @@
+uuid: f4b7723a-bc04-4a8c-a00b-3515c0ff548a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.b_form.field_f_form
+    - paragraphs.paragraphs_type.b_form
+  module:
+    - webform
+id: paragraph.b_form.default
+targetEntityType: paragraph
+bundle: b_form
+mode: default
+content:
+  field_f_form:
+    type: webform_entity_reference_select
+    weight: 0
+    region: content
+    settings:
+      default_data: true
+      webforms: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

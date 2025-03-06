@@ -1,10 +1,12 @@
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
+  anchor_link: 0
   base_test: 0
   block: 0
   breakpoint: 0
   ckeditor5: 0
+  ckeditor_link_styles: 0
   config: 0
   config_split: 0
   config_translation: 0
@@ -13,13 +15,17 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  diff: 0
   dynamic_page_cache: 0
   editor: 0
+  editor_advanced_link: 0
   editoria11y: 0
   embed: 0
   entity_browser: 0
   entity_embed: 0
   entity_reference_revisions: 0
+  extra_field: 0
+  extra_field_plus: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -82,7 +88,12 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_attachment: 0
+  webform_extra_field: 0
+  webform_ui: 0
   yoast_seo: 0
+  menu_admin_per_menu: 1
   pathauto: 1
   content_translation: 10
   views: 10

@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_component
     - node.type.page
+    - paragraphs.paragraphs_type.b_accordion
+    - paragraphs.paragraphs_type.b_form
     - paragraphs.paragraphs_type.b_slider
     - paragraphs.paragraphs_type.b_text
     - paragraphs.paragraphs_type.b_video
@@ -27,8 +29,16 @@ settings:
       b_video: b_video
       b_text: b_text
       b_slider: b_slider
+      b_accordion: b_accordion
+      b_form: b_form
     negate: 0
     target_bundles_drag_drop:
+      b_accordion:
+        weight: 7
+        enabled: true
+      b_form:
+        weight: 9
+        enabled: true
       b_slider:
         weight: 5
         enabled: true
@@ -38,6 +48,9 @@ settings:
       b_video:
         weight: 2
         enabled: true
+      i_accordion:
+        weight: 11
+        enabled: false
       i_slide:
         weight: 8
         enabled: false

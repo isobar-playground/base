@@ -4,6 +4,9 @@ entity_types:
   node:
     - page
   paragraph:
+    - b_accordion
+    - b_form
+    - b_slider
     - b_text
     - b_video
 sidebar_width: 30
