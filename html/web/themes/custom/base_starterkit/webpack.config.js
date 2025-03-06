@@ -24,7 +24,7 @@ module.exports = {
           // Remove ".source" from the output name and keep the same directory structure
           const outputName = fullPath
             ?.replace(`${path.resolve(__dirname)}/`, "")
-            ?.replace(".source.css", ".tmpCss");
+            ?.replace(".source.css", ".css");
 
           entries[outputName] = fullPath;
         }
@@ -60,7 +60,7 @@ module.exports = {
     filename: (pathData) => {
       // Disable generate tmp js file from css
       if (pathData.chunk.name.endsWith(".css")) {
-        //return false;
+        return pathData.chunk.name.replace(".css", ".tmp");
       }
 
       // For components: output name already includes the original directory structure
@@ -93,8 +93,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: (pathData) =>
-        `${pathData.chunk.name.replace(".cssTmp", ".css")}`,
+      filename: "[name]",
     }),
   ],
   mode: "development", // Set mode to development for easier debugging

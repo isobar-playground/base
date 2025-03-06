@@ -7,6 +7,7 @@ dist/*
 # Exclude all compiled .js and .css files in the templates directory
 /components/**/*.js
 /components/**/*.css
+/components/**/*.tmp
 
 # Allow .source.js files in templates (override the previous rule)
 !/components/**/*.source.js

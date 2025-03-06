@@ -1,9 +1,18 @@
 <!-- Slider main container -->
-<div class="swiper">
+<div class="b_slider swiper container mx-auto">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     {% for slide in slides | children(true) %}
     <div class="swiper-slide">{{ slide.content }}</div>
     {% endfor %}
   </div>
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- Scrollbar -->
+  <div class="swiper-scrollbar"></div>
 </div>

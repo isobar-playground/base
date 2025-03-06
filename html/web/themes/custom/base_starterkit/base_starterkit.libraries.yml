@@ -1,13 +1,11 @@
 global:
   css:
     theme:
-      dist/css/main.cssBundle.css: {}
+      dist/css/main.css: {}
   js:
     dist/js/main.js: {}
 
 swiper:
-  js:
-    dist/js/swiper.js: {}
   css:
     theme:
-      dist/css/swiper.cssBundle.css: {}
+      dist/css/swiper.css: {}
