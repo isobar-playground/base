@@ -1,15 +1,16 @@
-uuid: 1b5fa482-41d9-437c-88bb-568f522196ed
+uuid: 702d3ca9-7e93-433d-88d3-1d298ed9a301
 langcode: en
 status: true
 dependencies:
   module:
     - layout_paragraphs
-id: i_accordion
-label: 'Accordion item'
+id: b_layout
+label: Layout
 icon_uuid: null
 icon_default: null
 description: ''
 behavior_plugins:
   layout_paragraphs:
-    enabled: false
-    available_layouts: {  }
+    enabled: true
+    available_layouts:
+      two_column: 'Two column'
