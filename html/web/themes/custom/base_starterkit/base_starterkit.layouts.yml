@@ -1,0 +1,13 @@
+two_column:
+  label: 'Two column'
+  path: templates/layout
+  template: two_column
+  category: 'Columns: 2'
+  default_region: left
+  icon_map:
+    - [left, right]
+  regions:
+    left:
+      label: Left
+    right:
+      label: Right
