@@ -190,7 +190,7 @@ $settings['skip_permissions_hardening'] = TRUE;
  */
 $settings['trusted_host_patterns'] = [
   '^localhost$',
-  '^base\.localhost$',
+  '^'.preg_quote(getenv('PROJECT_BASE_URL')).'$',
   '.+\.app\.github\.dev$',
 ];
 

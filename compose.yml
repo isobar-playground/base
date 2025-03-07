@@ -26,6 +26,7 @@ services:
       - node
     environment:
       ENVIRONMENT: local
+      PROJECT_BASE_URL: $PROJECT_BASE_URL
       # PHP 8.2+ supports "PHP_MAIL_MIXED_LF_AND_CRLF=On" and does not need dos2unix workaround.
       PHP_MAIL_MIXED_LF_AND_CRLF: On
       PHP_SENDMAIL_PATH: '/usr/bin/msmtp -t'
