@@ -1,71 +1,10 @@
-{% set menu_link_classes = 'justify-between w-full lg:w-auto flex items-center text-white/80 hover:text-white bg-transparent lg:hover:bg-white/10 transition-colors p-2 rounded-lg' %}
-{% set submenu_classes = 'max-lg:bg-white/10 pl-2 lg:pl-0 max-lg:!static max-lg:!transform-none z-10 hidden bg-black lg:bg-white text-white/70 lg:text-black lg:border border-black divide-y divide-black lg:rounded-lg shadow w-full lg:w-44' %}
-{% set submenu_link_classes = 'flex lg:text-black items-center justify-between w-full px-4 py-2 text-current hover:bg-black/10 rounded-lg' %}
-
 <nav class="flex justify-between items-center flex-wrap bg-black p-4 lg:p-6 gap-2 lg:gap-6 justify-center lg:justify-start">
   <div class="flex items-center flex-shrink-0 text-white gap-2">
     <svg class="fill-current h-8 w-8" viewbox="0 0 159 102" xmlns="http://www.w3.org/2000/svg">
       <path d="M25.243 0H0v21.61h25.298c15.986 0 28.992 13.078 28.992 29.152S41.284 79.913 25.298 79.913H0v21.611h25.243c27.838 0 50.485-22.771 50.485-50.762C75.728 22.772 53.08 0 25.243 0ZM133.706 79.113c-15.546 0-28.196-12.716-28.196-28.348 0-15.63 12.647-28.35 28.196-28.35h25.295V0h-25.242c-27.838 0-50.486 22.771-50.486 50.762 0 27.99 22.648 50.762 50.486 50.762h25.242V79.11h-25.295v.003Z"></path>
     </svg>
-    <span class="font-semibold text-xl tracking-tight">Base</span>
+    <span class="font-semibold text-xl tracking-tight">{{ site_name }}</span>
   </div>
 
-  <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-    <span class="sr-only">{{ "Open main menu"|t }}</span>
-    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 17 14">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-    </svg>
-  </button>
-
-  <!-- Menu (1st level) -->
-  <ul class="hidden w-full text-sm items-center lg:w-auto gap-x-4 ml-auto lg:flex" id="navbar-default">
-    {% for item in items %}
-      <li class="relative">
-        {% if item.below|length > 0 %}
-          <!-- Menu (2nd level) trigger button -->
-          <button id="menuButton-{{ loop.index }}" data-dropdown-toggle="menu-{{ loop.index }}" data-dropdown-placement="bottom-start" class="{{ menu_link_classes }}">
-            {{ item.title }}
-            <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <!-- Menu (2nd level) -->
-          <div id="menu-{{ loop.index }}" class="{{ submenu_classes }}">
-            <ul class="text-sm text-white" aria-labelledby="menuButton-{{ loop.index }}">
-              {% for subitem in item.below %}
-                <li class="relative">
-                  {% if subitem.below|length > 0 %}
-                    <!-- Menu (3rd level) trigger button -->
-                    <button id="submenuButton-{{ loop.index }}" data-dropdown-toggle="submenu-{{ loop.index }}" data-dropdown-placement="right-start" type="button" class="{{ submenu_link_classes }}">
-                      {{ subitem.title }}
-                      <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </button>
-                    <!-- Menu (3rd level) -->
-                    <div id="submenu-{{ loop.index }}" class="{{ submenu_classes }}">
-                      <ul class="text-sm text-white" aria-labelledby="submenuButton-{{ loop.index }}">
-                        {% for subsubitem in subitem.below %}
-                          <li>
-                            <!-- Menu (3rd level) link -->
-                            {{ link(subsubitem.title, subsubitem.url, {'class': submenu_link_classes}) }}
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                  {% else %}
-                    <!-- Menu (2nd level) link -->
-                    {{ link(subitem.title, subitem.url, {'class': submenu_link_classes}) }}
-                  {% endif %}
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% else %}
-          <!-- Menu (1st level) link -->
-          {{ link(item.title, item.url, {'class': menu_link_classes}) }}
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {{ content}}
 </nav>
