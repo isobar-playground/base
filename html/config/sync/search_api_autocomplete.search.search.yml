@@ -1,0 +1,28 @@
+uuid: d9126b7b-e77f-4834-8eda-63022fa7cbc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.page
+    - views.view.search
+  module:
+    - views
+id: search
+label: Search
+index_id: page
+suggester_settings:
+  live_results:
+    fields: {  }
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: false
+    view_modes: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:search':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

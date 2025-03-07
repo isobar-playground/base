@@ -1,0 +1,23 @@
+uuid: c9dae7f3-5eee-4f8f-9d13-03888895b2ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - views
+  theme:
+    - base_starterkit
+id: base_starterkit_exposedformsearchpage
+theme: base_starterkit
+region: header
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-page'
+settings:
+  id: 'views_exposed_filter_block:search-page'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }
