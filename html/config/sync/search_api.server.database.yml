@@ -1,12 +1,12 @@
-uuid: 6ad84a07-d8d6-477b-ac03-53a97ebf6835
+uuid: b1548fbe-5da4-4ece-8411-4f778c63ed06
 langcode: en
 status: true
 dependencies:
   module:
     - search_api_db
-id: database_server
-name: 'Database Server'
-description: 'Default database server'
+id: database
+name: Database
+description: ''
 backend: search_api_db
 backend_config:
   database: 'default:default'
