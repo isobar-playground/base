@@ -198,7 +198,7 @@ display:
         options:
           view_modes:
             'entity:node':
-              ':default': default
+              ':default': search_result
               page: ':default'
       query:
         type: search_api_query
