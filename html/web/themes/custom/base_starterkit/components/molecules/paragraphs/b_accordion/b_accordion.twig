@@ -1,4 +1,4 @@
-<div id="{{ 'b-accordion'|clean_unique_id }}" class="b-accordion main-container" data-accordion="collapse">
+<div id="{{ 'b-accordion'|clean_unique_id }}" class="b-accordion container" data-accordion="collapse">
   {% for item in items | children(true) %}
     <div class="b-accordion-item">
       {{ item.content }}
