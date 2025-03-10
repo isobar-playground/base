@@ -39,6 +39,14 @@ field_settings:
     dependencies:
       module:
         - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
   uid:
     label: 'Entity reference'
     datasource_id: 'entity:node'
