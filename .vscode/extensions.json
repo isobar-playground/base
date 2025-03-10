@@ -1,0 +1,21 @@
+{
+    "recommendations": [
+      "bmewburn.vscode-intelephense-client",
+      "dbaeumer.vscode-eslint",
+      "duboiss.sf-pack",
+      "eduardgenzora.symfony-service-locator",
+      "george-alisson.html-preview-vscode",
+      "marcostazi.vs-code-drupal",
+      "mblode.twig-language-2",
+      "mehedidracula.php-namespace-resolver",
+      "mohd-akram.vscode-html-format",
+      "nadim-vscode.symfony-code-snippets",
+      "nadim-vscode.twig-code-snippets",
+      "phproberto.vscode-php-getters-setters",
+      "redhat.vscode-yaml",
+      "stanislav.vscode-drupal",
+      "thenouillet.symfony-vscode",
+    "xdebug.php-debug",
+    "mikestead.dotenv",
+    ]
+  }
