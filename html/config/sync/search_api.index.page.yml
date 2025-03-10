@@ -95,10 +95,12 @@ processor_settings:
     highlight_partial: true
   html_filter:
     weights:
-      preprocess_index: -3
+      preprocess_index: -47
       preprocess_query: -6
-    all_fields: false
-    fields: {  }
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
     title: true
     alt: true
     tags:
@@ -109,10 +111,12 @@ processor_settings:
       string: 2
   ignorecase:
     weights:
-      preprocess_index: -5
+      preprocess_index: -49
       preprocess_query: -8
-    all_fields: false
-    fields: {  }
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
   language_with_fallback: {  }
   rendered_item:
     weights:
@@ -120,10 +124,11 @@ processor_settings:
       pre_index_save: -10
   stopwords:
     weights:
-      preprocess_index: -5
+      preprocess_index: -45
       preprocess_query: -10
-    all_fields: false
-    fields: {  }
+    all_fields: true
+    fields:
+      - rendered_item
     stopwords:
       - a
       - an
@@ -162,20 +167,23 @@ processor_settings:
       - with
   tokenizer:
     weights:
-      preprocess_index: -2
+      preprocess_index: -46
       preprocess_query: -5
-    all_fields: false
-    fields: {  }
+    all_fields: true
+    fields:
+      - rendered_item
     spaces: ''
     ignored: ._-
     overlap_cjk: 1
     minimum_word_size: '3'
   transliteration:
     weights:
-      preprocess_index: -4
+      preprocess_index: -48
       preprocess_query: -7
-    all_fields: false
-    fields: {  }
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
 tracker_settings:
   default:
     indexing_order: fifo
