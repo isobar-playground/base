@@ -1,0 +1,94 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Form element
+description: A reusable form element component that wraps an input field additional attributes.
+group: Form
+props:
+  type: object
+  required:
+    - attributes
+    - classes
+    - description_classes
+    - required
+    - type
+    - name
+    - label
+    - label_display
+    - description_display
+    - disabled
+    - title_display
+  properties:
+    content:
+      type: string
+      title: Content
+      description: (optional) Additional rendered elements
+    attributes:
+      type: string
+      title: Attributes
+      description: HTML attributes for the containing element
+    classes:
+      type: array
+      title: Element wrapper css classes
+      description: Provides default css classes for form element wrapper
+    description_classes:
+      type: array
+      title: Description wrapper css classes
+      description: Provides default css classes for form description wrapper
+    errors:
+      type: array
+      title: Errors
+      description: (optional) Any errors for this form element, may not be set
+    prefix:
+      type: string
+      title: Prefix
+      description: (optional) The form element prefix, may not be set
+    suffix:
+      type: string
+      title: Suffix
+      description: (optional) The form element suffix, may not be set
+    required:
+      type: string
+      title: Required
+      description: The required marker, or empty if the associated form element is not required
+    type:
+      type: string
+      title: Type
+      description: The type of the element
+    name:
+      type: string
+      title: Name
+      description: The name of the element
+    label:
+      type: array
+      title: Label
+      description: A rendered label element
+    label_display:
+      type: string
+      title: Label display
+      description: Label display setting. It can have these values
+      enum:
+        - none
+        - before
+        - after
+        - invisible
+        - attribute
+    description:
+      type: array
+      title: Description
+      description: (optional) A list of description properties containing `content` and `attributes`
+    description_display:
+      type: string
+      title: Description display
+      description: Description display setting. It can have these values
+      enum:
+        - none
+        - before
+        - after
+        - invisible
+    disabled:
+      type: string
+      title: Disabled
+      description: True if the element is disabled
+    title_display:
+      type: string
+      title: Title display
+      description: Title display setting
