@@ -125,6 +125,7 @@ yolo:
 	@make up --no-print-directory
 	@make drush deploy --no-print-directory
 	@make drush if --no-print-directory
+	@make drush search-api:index --no-print-directory
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
