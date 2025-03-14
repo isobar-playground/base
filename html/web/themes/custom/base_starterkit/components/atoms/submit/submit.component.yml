@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Submit
+description: Submit button
+group: Form
+props:
+  type: object
+  required:
+    - attributes
+    - text
+  properties:
+    content:
+      type: string
+      title: Content
+      description: (optional) Additional rendered elements
+    attributes:
+      type: string
+      title: Attributes
+      description: A list of HTML attributes for the input element
+    text:
+      type: string
+      title: Attributes value
+      description: Text that will be displayed in button

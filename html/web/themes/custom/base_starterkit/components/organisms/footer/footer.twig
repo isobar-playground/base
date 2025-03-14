@@ -1,6 +1,6 @@
-<footer class="bg-black tetx-white">
-  <div class="mx-auto w-full p-4 py-6 lg:p-6">
-    <div class="md:flex md:justify-between">
+<footer class="bg-black text-white">
+  <div class="container mx-auto w-full p-4 py-6 lg:p-6">
+    <div class="md:flex md:justify-between mb-4">
       <div class="mb-6 md:mb-0">
         <div class="flex items-center flex-shrink-0 text-white gap-2">
           <svg class="fill-current h-10 w-10" viewbox="0 0 159 102" xmlns="http://www.w3.org/2000/svg">
@@ -10,10 +10,12 @@
         </div>
       </div>
     </div>
-    {% if content %} {{ content }} {% endif %}
+    <div class="grid grid-cols-4 gap-8">
+      {% if content %} {{ content }} {% endif %}
+    </div>
   </div>
   <hr class="my-4 border-gray-200 sm:mx-auto lg:my-6">
-  <div class="sm:flex sm:items-center sm:justify-between">
+  <div class="container mx-auto sm:flex sm:items-center sm:justify-between pb-2">
       <span class="text-xs text-white/70 text-center">&copy;
         {{ "now"|date("Y") }}
         <a href="https://dentsu.com/" class="underline hover:text-white">{{ site_name}} by Dentsu</a>.
