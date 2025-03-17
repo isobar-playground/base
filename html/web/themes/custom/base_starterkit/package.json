@@ -18,7 +18,7 @@
     "@storybook/server": "^8.6.0",
     "@storybook/server-webpack5": "^8.6.0",
     "@storybook/test": "^8.6.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "babel-loader": "^9.2.1",
     "concurrently": "^9.1.2",
     "mini-css-extract-plugin": "^2.9.2",
