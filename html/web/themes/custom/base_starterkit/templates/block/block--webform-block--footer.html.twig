@@ -28,8 +28,10 @@
  * @ingroup themeable
  */
 #}
-<div class="w-full max-w-[500px] mx-auto col-span-4 lg:col-span-1 lg:max-w-full">
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+<div class="col-span-6 md:col-span-2">
+  <div class="w-full mx-auto col-span-4 lg:col-span-1 lg:max-w-full">
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
 </div>

@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file
+ * Functions to support theming in the base_starterkit theme.
+ */
+
+
+/**
+ * Implements hook_theme_suggestions_form_element_label_alter().
+ */
+function base_starterkit_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['element']['#id'])) {
+    $element_id = $variables['element']['#id'];
+
+    if (str_contains($element_id, 'edit-search') && preg_match('/(--\d+)$/', $element_id, $matches)) {
+      $base_id = str_replace($matches[0], '', $element_id);
+      $suggestions[] = 'form_element_label__' . str_replace('-', '_', $base_id);
+    }
+    $suggestions[] = 'form_element_label__' . str_replace('-', '_', $element_id);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_alter().
+ */
+function base_starterkit_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['element']['#id'])) {
+    $element_id = $variables['element']['#id'];
+
+    if (str_contains($element_id, 'edit-search') && preg_match('/(--\d+)$/', $element_id, $matches)) {
+      $base_id = str_replace($matches[0], '', $element_id);
+      $suggestions[] = 'form_element__' . str_replace('-', '_', $base_id);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_input_alter().
+ */
+function base_starterkit_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['element']['#id'])) {
+    $element_id = $variables['element']['#id'];
+
+    if (str_contains($element_id, 'edit-search') && preg_match('/(--\d+)$/', $element_id, $matches)) {
+      $base_id = str_replace($matches[0], '', $element_id);
+      $suggestions[] = 'input__' . str_replace('-', '_', $base_id);
+    }
+  }
+}
