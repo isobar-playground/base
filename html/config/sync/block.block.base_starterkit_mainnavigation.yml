@@ -11,7 +11,7 @@ dependencies:
 id: base_starterkit_mainnavigation
 theme: base_starterkit
 region: header
-weight: 0
+weight: -2
 provider: null
 plugin: 'system_menu_block:main'
 settings:

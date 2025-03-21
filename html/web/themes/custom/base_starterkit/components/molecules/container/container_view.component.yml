@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Views container
+description: Views container
+group: Form
+props:
+  type: object
+  required:
+    - attributes
+    - has_parent
+  properties:
+    content:
+      type: string
+      title: Content
+      description: (optional) The rendered child elements of the container
+    attributes:
+      type: string
+      title: Attributes
+      description: HTML attributes for the containing element
+    has_parent:
+      type: boolean
+      title: has_parent
+      description: A flag to indicate that the container has one or more parent container

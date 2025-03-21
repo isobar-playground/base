@@ -1,7 +1,7 @@
-<div{{ attributes.addClass(classes).addClass('mb-4') }}>
-  {% if label_display in ['before', 'invisible'] %}
-    {{ label }}
-  {% endif %}
+<div{{ attributes.addClass(classes) }}>
+{% if label_display in ['before', 'invisible'] %}
+  {{ label }}
+{% endif %}
   {% if prefix is not empty %}
     <div class="field-prefix my-2">{{ prefix }}</div>
   {% endif %}

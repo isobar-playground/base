@@ -51,7 +51,6 @@
   set classes = [
   'js-form-item',
   'form-item',
-  'form-type-' ~ type|clean_class,
   'js-form-type-' ~ type|clean_class,
   'form-item-' ~ name|clean_class,
   'js-form-item-' ~ name|clean_class,
@@ -68,7 +67,7 @@
 ]
 %}
 
-{% embed 'base_starterkit:form_element' with {
+{% embed 'base_starterkit:form_element_search' with {
   errors: errors|default([]),
   prefix: prefix|default(''),
   suffix: suffix|default(''),

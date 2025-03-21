@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
-name: Form element
-description: A reusable form element component that wraps an input field additional attributes.
+name: Form search element
+description: A reusable form search element component that wraps an input field additional attributes.
 group: Form
 props:
   type: object

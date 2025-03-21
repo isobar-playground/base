@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Input label search
+description: Input label for main search input
+group: Form
+props:
+  type: object
+  required:
+    - attributes
+    - required
+  properties:
+    title:
+      type: string
+      title: Label text
+      description: (optional) The label's text
+    attributes:
+      type: string
+      title: Attributes
+      description: A list of HTML attributes for the label
+    required:
+      type: boolean
+      title: Attributes
+      description: An indicator for whether the associated form element is required

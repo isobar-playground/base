@@ -76,6 +76,34 @@
   .text-render table caption {
     @apply text-xs italic text-black/50 py-2;
   }
+
+  .btn-primary {
+    @apply border border-solid border-transparent bg-black text-white px-5 py-2.5 me-2 mb-2 hover:border-black hover:bg-white hover:text-black transition-all;
+  }
+
+  .btn-secondary {
+    @apply border border-solid border-black bg-white text-black px-5 py-2.5 me-2 mb-2 hover:border-transparent hover:bg-black hover:text-white transition-all;
+  }
+
+  .webform-submission-subscribe-form {
+    @apply flex flex-wrap
+  }
+
+  .webform-submission-subscribe-form > * {
+    @aplly grow;
+  }
+
+  .webform-submission-subscribe-form .form-type-email {
+    @apply mb-0 xs:mb-4 md:mb-0 lg:mb-4 xs:flex-1;
+  }
+
+  .webform-submission-subscribe-form .form-email {
+    @apply w-full py-2.5 px-5 border border-solid border-white;
+  }
+
+  .webform-submission-subscribe-form .form-actions {
+    @apply mb-4 w-full xs:w-auto xs:self-end md:w-full lg:w-auto;
+  }
 }
 @layer utilities {
 }
