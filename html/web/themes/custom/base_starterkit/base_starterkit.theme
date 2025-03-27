@@ -9,21 +9,21 @@
  * Implements hook_theme_suggestions_form_element_label_alter().
  */
 function base_starterkit_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables): void {
-  addNewSuggestions($suggestions, $variables, '#id', 'form_element_label__');
+  _add_new_suggestions($suggestions, $variables, '#id', 'form_element_label__');
 }
 
 /**
  * Implements hook_theme_suggestions_form_element_alter().
  */
 function base_starterkit_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
-  addNewSuggestions($suggestions, $variables, '#name', 'form_element__');
+  _add_new_suggestions($suggestions, $variables, '#name', 'form_element__');
 }
 
 /**
  * Implements hook_theme_suggestions_input_alter().
  */
 function base_starterkit_theme_suggestions_input_alter(array &$suggestions, array $variables): void {
-  addNewSuggestions($suggestions, $variables, '#name', 'input__');
+  _add_new_suggestions($suggestions, $variables, '#name', 'input__');
 }
 
 /**
@@ -45,8 +45,9 @@ function base_starterkit_theme_suggestions_input_alter(array &$suggestions, arra
  *
  * @return void
  */
-function addNewSuggestions(array &$suggestions, array $variables, string $property, string $prefix): void {
+function _add_new_suggestions(array &$suggestions, array $variables, string $property, string $prefix): void {
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $parents_theme = $active_theme->getBaseThemeExtensions();
   $element = $variables['element'] ?? NULL;
 
   if (empty($element[$property])) {
@@ -55,18 +56,24 @@ function addNewSuggestions(array &$suggestions, array $variables, string $proper
 
   $element_name = $element[$property];
   $base_name = str_replace('-', '_', $element_name);
-  $suggestion = $prefix . $active_theme->getName() .'__' . $base_name;
 
-  if (!in_array($suggestion, $suggestions)) {
-    $suggestions[] = $suggestion;
-  }
+  $themes = !empty($parents_theme) ? array_reverse(array_keys($parents_theme)) : [];
+  $themes[] = $active_theme->getName();
 
-  if (preg_match('/(--\d+)$/', $element_name, $matches)) {
-    $base_id = str_replace($matches[0], '', $element_name);
-    $suggestion = $prefix . str_replace('-', '_', $base_id);
+  foreach ($themes as $theme_name) {
+    $suggestion = $prefix . $theme_name .'__' . $base_name;
 
     if (!in_array($suggestion, $suggestions)) {
       $suggestions[] = $suggestion;
+    }
+
+    if (preg_match('/(--\d+)$/', $element_name, $matches)) {
+      $base_id = str_replace($matches[0], '', $element_name);
+      $suggestion = $prefix . str_replace('-', '_', $base_id);
+
+      if (!in_array($suggestion, $suggestions)) {
+        $suggestions[] = $suggestion;
+      }
     }
   }
 }

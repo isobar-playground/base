@@ -16,11 +16,30 @@ rm -r html/web/themes/custom/base_starterkit/node_modules
 # Generate the theme using Drupal CLI
 docker compose --progress quiet --env-file .env --env-file .env.local run --rm php php web/core/scripts/drupal generate-theme "$THEME_NAME" --path themes/custom --starterkit base_starterkit
 
+# Convert underscores to dashes for twig files based on THEME_NAME
+THEME_NAME_TWIG=$(echo "$THEME_NAME" | sed 's/_/-/g')
+
+# Rename files in the templates directory (including nested directories)
+find html/web/themes/custom/$THEME_NAME/templates -type f -name "*base-starterkit*" | while read file; do
+    # For twig files, replace "base-starterkit" with THEME_NAME_TWIG.
+    # For other files, replace "base-starterkit" with THEME_NAME as is.
+    if [[ "$file" == *.twig ]]; then
+        newfile=$(echo "$file" | sed "s/base-starterkit/$THEME_NAME_TWIG/g")
+    else
+        newfile=$(echo "$file" | sed "s/base-starterkit/$THEME_NAME/g")
+    fi
+    # Ensure that the target directory exists before renaming
+    newdir=$(dirname "$newfile")
+    mkdir -p "$newdir"
+    echo "Renaming: $file -> $newfile"
+    mv "$file" "$newfile"
+done
+
 # Replace occurrences in files
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/node/Dockerfile
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" compose.yml
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/php/Dockerfile
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" .github/dependabot.yml
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/node/Dockerfile
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" compose.yml
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/php/Dockerfile
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" .github/dependabot.yml
 
 # Recreate node container
 echo "Recreating node container..."

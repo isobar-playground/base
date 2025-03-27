@@ -1,0 +1,3 @@
+{% for item in items %}
+  {% embed 'base_starterkit:b_form' with { content: item.content, attributes: attributes } %}{% endembed %}
+{% endfor %}

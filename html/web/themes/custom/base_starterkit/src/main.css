@@ -104,6 +104,86 @@
   .webform-submission-subscribe-form .form-actions {
     @apply mb-4 w-full xs:w-auto xs:self-end md:w-full lg:w-auto;
   }
+
+  .paragraph .form-wrapper legend {
+    @apply mb-4;
+  }
+
+  .paragraph .fieldset-wrapper {
+    @apply block w-full;
+  }
+
+  .paragraph .form-item label {
+    @apply block max-w-screen-sm mb-2 text-sm font-medium text-gray-900;
+  }
+
+  .paragraph .form-item label.option {
+    @apply inline-block;
+  }
+
+  .paragraph .form-item input[type="checkbox"],
+  .paragraph .form-item input[type="radio"],
+  .paragraph .form-item input[type="date"],
+  .paragraph .form-item input[type="datetime-local"],
+  .paragraph .form-item input[type="month"],
+  .paragraph .form-item input[type="time"],
+  .paragraph .form-item input[type="weeek"],
+  .paragraph .form-item input[type="file"],
+  .paragraph .form-item select,
+  .paragraph .form-item label {
+    @apply cursor-pointer;
+  }
+
+  .paragraph .form-item input[type="text"],
+  .paragraph .form-item input[type="password"],
+  .paragraph .form-item input[type="date"],
+  .paragraph .form-item input[type="datetime-local"],
+  .paragraph .form-item input[type="email"],
+  .paragraph .form-item input[type="month"],
+  .paragraph .form-item input[type="number"],
+  .paragraph .form-item input[type="tel"],
+  .paragraph .form-item input[type="time"],
+  .paragraph .form-item input[type="search"],
+  .paragraph .form-item input[type="url"],
+  .paragraph .form-item input[type="week"],
+  .paragraph .form-item input[type="file"],
+  .paragraph .form-item select,
+  .paragraph .form-item textarea {
+    @apply block max-w-screen-sm p-2.5 w-full text-sm text-black border border-black focus:ring-blue-500 focus:border-blue-500;
+  }
+
+  .paragraph .form-item input[type="file"] {
+    @apply block w-full text-sm p-0 border border-black file:text-sm file:font-semibold file:text-white file:bg-black file:border-r file:border-black;
+  }
+
+  .paragraph .form-item input[type="checkbox"],
+  .paragraph .form-item input[type="radio"] {
+    @apply focus:ring-slate-800;
+  }
+
+  .paragraph .form-actions button,
+  .paragraph .form-actions input[type="submit"] {
+    @apply inline-block w-auto py-2.5 px-5 border border-transparent bg-black text-white text-sm font-semibold hover:border-black hover:bg-white hover:text-black;
+  }
+
+  .paragraph .form-item.fieldgroup {
+    @apply flex;
+  }
+
+  .paragraph input.error,
+  .paragraph textarea.error,
+  .paragraph select.error,
+  .paragraph .form-item--errors input,
+  .paragraph .form-item--errors textarea,
+  .paragraph .form-item--errors select {
+    @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm focus:ring-red-500 focus:border-red-500 block w-full p-2.5;
+  }
+
+  .paragraph label.error,
+  .paragraph .form-item--errors label {
+    @apply mt-2 text-sm text-red-600 font-medium;
+  }
+
 }
 @layer utilities {
 }

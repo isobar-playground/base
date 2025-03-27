@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Form confirmation
+description: Configuration for displaying a confirmation message after form submission
+group: Form
+props:
+  type: object
+  properties:
+    progress:
+      type: string
+      title: Progress bar
+      description: Text or markup displayed in the progress bar to indicate the current step in a multi-step form process
+    message:
+      type: string
+      title: Confirmation message
+      description: The primary message shown to users after they have successfully submitted the form
+    back:
+      type: boolean
+      title: Display Back Link
+      description: A flag that determines whether a back link should be displayed on the confirmation page
+    back_url:
+      type: string
+      title: Back URL
+      description: The full URL to be used for the back link, typically directing users to the previous page or webform submission
+    back_path:
+      type: string
+      title: Back Path
+      description: The internal path used as an alternative for generating the back link if a full URL is not provided
+    back_label:
+      type: string
+      title: Back Label
+      description: The text label for the back button, providing clear guidance for users wishing to return.
+    back_attributes:
+      type: string
+      title: Back Attributes
+      description: A string of additional HTML attributes (such as classes or data attributes) to be applied to the back element for further customization
