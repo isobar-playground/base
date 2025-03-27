@@ -9,21 +9,21 @@
  * Implements hook_theme_suggestions_form_element_label_alter().
  */
 function base_starterkit_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables): void {
-  _add_new_suggestions($suggestions, $variables, '#id', 'form_element_label__');
+  _add_new_suggestions($suggestions, $variables, '#id', 'form_element_label');
 }
 
 /**
  * Implements hook_theme_suggestions_form_element_alter().
  */
 function base_starterkit_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
-  _add_new_suggestions($suggestions, $variables, '#name', 'form_element__');
+  _add_new_suggestions($suggestions, $variables, '#name', 'form_element');
 }
 
 /**
  * Implements hook_theme_suggestions_input_alter().
  */
 function base_starterkit_theme_suggestions_input_alter(array &$suggestions, array $variables): void {
-  _add_new_suggestions($suggestions, $variables, '#name', 'input__');
+  _add_new_suggestions($suggestions, $variables, '#name', 'input');
 }
 
 /**
@@ -46,8 +46,6 @@ function base_starterkit_theme_suggestions_input_alter(array &$suggestions, arra
  * @return void
  */
 function _add_new_suggestions(array &$suggestions, array $variables, string $property, string $prefix): void {
-  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
-  $parents_theme = $active_theme->getBaseThemeExtensions();
   $element = $variables['element'] ?? NULL;
 
   if (empty($element[$property])) {
@@ -56,24 +54,23 @@ function _add_new_suggestions(array &$suggestions, array $variables, string $pro
 
   $element_name = $element[$property];
   $base_name = str_replace('-', '_', $element_name);
+  $suggestion = $prefix .'__' . $base_name;
 
-  $themes = !empty($parents_theme) ? array_reverse(array_keys($parents_theme)) : [];
-  $themes[] = $active_theme->getName();
+  if (!in_array($suggestion, $suggestions)) {
+    $new_suggestions[] = $suggestion;
+  }
 
-  foreach ($themes as $theme_name) {
-    $suggestion = $prefix . $theme_name .'__' . $base_name;
+  if (preg_match('/(--\d+)$/', $element_name, $matches)) {
+    $base_id = str_replace($matches[0], '', $element_name);
+    $suggestion = $prefix . '__'. str_replace('-', '_', $base_id);
 
     if (!in_array($suggestion, $suggestions)) {
-      $suggestions[] = $suggestion;
-    }
-
-    if (preg_match('/(--\d+)$/', $element_name, $matches)) {
-      $base_id = str_replace($matches[0], '', $element_name);
-      $suggestion = $prefix . str_replace('-', '_', $base_id);
-
-      if (!in_array($suggestion, $suggestions)) {
-        $suggestions[] = $suggestion;
-      }
+      $new_suggestions[] = $suggestion;
     }
   }
+
+  if (!empty($new_suggestions)) {
+    $suggestions = [...$suggestions, ...array_reverse($new_suggestions)];
+  }
+
 }

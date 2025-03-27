@@ -8,4 +8,4 @@ WORKDIR /var/www/html/web/themes/custom/base_starterkit
 
 RUN npm ci \
     && npm run build \
-    && rm -rf node_modules
+    && rm -rf node_modules \
