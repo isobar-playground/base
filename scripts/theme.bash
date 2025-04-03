@@ -15,12 +15,11 @@ rm -r html/web/themes/custom/base_starterkit/node_modules
 
 # Generate the theme using Drupal CLI
 docker compose --progress quiet --env-file .env --env-file .env.local run --rm php php web/core/scripts/drupal generate-theme "$THEME_NAME" --path themes/custom --starterkit base_starterkit
-
 # Replace occurrences in files
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/node/Dockerfile
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" compose.yml
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/php/Dockerfile
-sed -i "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" .github/dependabot.yml
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/node/Dockerfile
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" compose.yml
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" docker/php/Dockerfile
+sed -i '' "s|themes/custom/base_starterkit|themes/custom/$THEME_NAME|g" .github/dependabot.yml
 
 # Recreate node container
 echo "Recreating node container..."

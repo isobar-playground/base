@@ -102,11 +102,11 @@ settings:
     ckeditor_link_styles_linkStyles:
       styles:
         -
-          label: 'Button style: Blue'
-          element: '<a class="text-white bg-blue-700">'
+          label: 'Button style: Primary'
+          element: '<a class="btn-primary">'
         -
-          label: 'Button style: Black'
-          element: '<a class="text-white bg-black">'
+          label: 'Button style: Secondary'
+          element: '<a class="btn-secondary">'
     editor_advanced_link_link:
       enabled_attributes:
         - target

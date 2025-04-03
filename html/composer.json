@@ -17,6 +17,7 @@
         "drupal/better_exposed_filters": "^7.0",
         "drupal/block_field": "^1.0@RC",
         "drupal/ckeditor_link_styles": "^1.1",
+        "drupal/clientside_validation": "^4.1",
         "drupal/config_split": "^2.0",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-recommended": "^10.3",
@@ -63,6 +64,7 @@
         "drupal/webform_extra_field": "^2.0@RC",
         "drupal/yoast_seo": "^2.1",
         "drush/drush": "^13.3",
+        "npm-asset/jquery-validation": "^1.21",
         "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.5.0",
         "oomphinc/composer-installers-extender": "^2.0"
     },

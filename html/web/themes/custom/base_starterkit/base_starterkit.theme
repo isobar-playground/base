@@ -1,0 +1,76 @@
+<?php
+/**
+ * @file
+ * Functions to support theming in the base_starterkit theme.
+ */
+
+
+/**
+ * Implements hook_theme_suggestions_form_element_label_alter().
+ */
+function base_starterkit_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables): void {
+  _add_new_suggestions($suggestions, $variables, '#id', 'form_element_label');
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_alter().
+ */
+function base_starterkit_theme_suggestions_form_element_alter(array &$suggestions, array $variables): void {
+  _add_new_suggestions($suggestions, $variables, '#name', 'form_element');
+}
+
+/**
+ * Implements hook_theme_suggestions_input_alter().
+ */
+function base_starterkit_theme_suggestions_input_alter(array &$suggestions, array $variables): void {
+  _add_new_suggestions($suggestions, $variables, '#name', 'input');
+}
+
+/**
+ * Adds theme suggestion(s) based on a specified element property and prefix.
+ *
+ * This function generates additional theme suggestions using a given property
+ * (e.g. '#name', '#type') from a renderable form element. It appends suggestions
+ * that are unique and optionally includes a version with a numeric suffix removed.
+ * Suggestions are namespaced with the active theme's name for specificity.
+ *
+ * @param array &$suggestions
+ *   The existing array of theme suggestions, passed by reference.
+ * @param array $variables
+ *   The array of variables passed to the theme hook suggestion alter.
+ * @param string $property
+ *   The element property to base the suggestion on (e.g. '#name').
+ * @param string $prefix
+ *   A string to prefix the suggestion with (e.g. 'form_element__').
+ *
+ * @return void
+ */
+function _add_new_suggestions(array &$suggestions, array $variables, string $property, string $prefix): void {
+  $element = $variables['element'] ?? NULL;
+
+  if (empty($element[$property])) {
+    return;
+  }
+
+  $element_name = $element[$property];
+  $base_name = str_replace('-', '_', $element_name);
+  $suggestion = $prefix .'__' . $base_name;
+
+  if (!in_array($suggestion, $suggestions)) {
+    $new_suggestions[] = $suggestion;
+  }
+
+  if (preg_match('/(--\d+)$/', $element_name, $matches)) {
+    $base_id = str_replace($matches[0], '', $element_name);
+    $suggestion = $prefix . '__'. str_replace('-', '_', $base_id);
+
+    if (!in_array($suggestion, $suggestions)) {
+      $new_suggestions[] = $suggestion;
+    }
+  }
+
+  if (!empty($new_suggestions)) {
+    $suggestions = [...$suggestions, ...array_reverse($new_suggestions)];
+  }
+
+}

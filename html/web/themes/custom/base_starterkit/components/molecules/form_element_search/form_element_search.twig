@@ -1,12 +1,7 @@
-{% set classes = [
-  'mb-4',
-  element['#errors'] ? 'form-item--errors'
-] %}
-
 <div{{ attributes.addClass(classes) }}>
-  {% if label_display in ['before', 'invisible'] %}
-    {{ label }}
-  {% endif %}
+{% if label_display in ['before', 'invisible'] %}
+  {{ label }}
+{% endif %}
   {% if prefix is not empty %}
     <div class="field-prefix my-2">{{ prefix }}</div>
   {% endif %}

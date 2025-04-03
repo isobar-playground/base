@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to webform confirmation.
+ *
+ * Available variables:
+ * - progress: Progress bar.
+ * - message: Confirmation message.
+ * - back_url: URL to the previous webform submission.
+ *
+ * @see template_preprocess_webform_confirmation()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed 'base_starterkit:form_confirmation' with {
+  progress: progress,
+  attributes: attributes.addClass('webform-confirmation'),
+  message:message,
+  back: back,
+  back_url: back_url,
+  back_label: back_label,
+  back_attributes: back_attributes,
+} %}{% endembed %}

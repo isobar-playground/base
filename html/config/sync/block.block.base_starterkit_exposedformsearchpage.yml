@@ -11,7 +11,7 @@ dependencies:
 id: base_starterkit_exposedformsearchpage
 theme: base_starterkit
 region: header
-weight: 0
+weight: -1
 provider: null
 plugin: 'views_exposed_filter_block:search-page'
 settings:
