@@ -63,7 +63,7 @@
         "drupal/webform": "^6.2",
         "drupal/webform_extra_field": "^2.0@RC",
         "drupal/yoast_seo": "^2.1",
-        "drush/drush": "^13.3",
+        "drush/drush": "^13.4",
         "npm-asset/jquery-validation": "^1.21",
         "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.5.0",
         "oomphinc/composer-installers-extender": "^2.0"
