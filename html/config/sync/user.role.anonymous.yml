@@ -5,6 +5,7 @@ dependencies:
   config:
     - search_api_autocomplete.search.search
   module:
+    - klaro
     - media
     - search_api_autocomplete
     - system
@@ -16,6 +17,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'use klaro'
   - 'use search_api_autocomplete for search'
   - 'view media'
   - 'view the administration theme'
