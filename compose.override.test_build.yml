@@ -1,0 +1,19 @@
+services:
+  base:
+    image: ghcr.io/${GITHUB_REPOSITORY}/base
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: app_php
+      args: [ ]
+
+  php:
+    depends_on:
+      - base
+    image: ghcr.io/${GITHUB_REPOSITORY}/php
+    build:
+      args:
+        APP_BASE: ghcr.io/${GITHUB_REPOSITORY}/base
+
+  apache:
+    image: ghcr.io/${GITHUB_REPOSITORY}/apache

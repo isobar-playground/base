@@ -1,0 +1,18 @@
+[global]
+daemonize = no
+process_control_timeout = 20
+
+[www]
+listen = 0.0.0.0:9000
+ping.path = /ping
+
+pm.max_children = ${FPM_PM_MAX_CHILDREN}
+pm.start_servers = ${FPM_PM_START_SERVERS}
+pm.min_spare_servers = ${FPM_PM_MIN_SPARE_SERVERS}
+pm.max_spare_servers = ${FPM_PM_MAX_SPARE_SERVERS}
+pm.max_requests = ${FPM_PM_MAX_REQUESTS}
+
+pm.status_path = /status
+
+; This option required PHP 8.0
+;pm.status_listen = 127.0.0.1:9001
