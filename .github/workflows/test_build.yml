@@ -14,8 +14,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set production ENV
-        run:  ./scripts/prod-env.bash
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build images
-        run: make build
+      - name: Install taskfile
+        run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
+      - name: Create empty .env files
+        run: |
+          touch ./env/.common.env
+          touch ./env/.php.env
+          touch ./env/.apache.env
+          cp compose.override.test_build.yml compose.override.yml
+
+#      - name: Build base image
+#        run: |
+#          docker pull ghcr.io/${{ github.repository }}/base || true
+#          docker compose --env-file ./env/.common.env build base
+#          docker push ghcr.io/${{ github.repository }}/base
+
+      - name: Build PHP and Apache image
+        run: task build
+
+      - name: Push cache images
+        run: |
+          docker push ghcr.io/${{ github.repository }}/apache
+          docker push ghcr.io/${{ github.repository }}/php

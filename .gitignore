@@ -1,14 +1,19 @@
 # IntelliJ IDE
 /.idea
 
-#System
+# System
 .DS_Store
+
+# Database dump
+/docker/mysql/
 
 # Local Docker Compose overrides
 /compose.override.yml
 
 # Local ENV overrides
-/.env.local
+/env/.common.env
+/env/.apache.env
+/env/.php.env
 
 # Private file system
 /html/private

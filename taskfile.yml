@@ -1,0 +1,131 @@
+version: '3'
+
+dotenv:
+  - env/.common.env
+
+vars:
+  DOCKER_COMPOSE: docker compose --env-file ./env/.common.env
+  COMPOSER_ROOT: '{{.COMPOSER_ROOT | default "/var/www/html"}}'
+  DRUPAL_ROOT: '{{.DRUPAL_ROOT | default "/var/www/html/web"}}'
+
+tasks:
+  default:
+    deps: [help]
+
+  help:
+    desc: Print commands help
+    silent: true
+    cmds:
+      - task --list
+
+  init:local:
+    desc: Initialize local environment
+    cmds:
+      - cp compose.override.local.yml compose.override.yml
+      - cp env/.local.common.env env/.common.env
+      - cp env/.local.apache.env env/.apache.env
+      - cp env/.local.php.env env/.php.env
+      - task build
+      - task up
+      - task drush -- cim -y
+
+  init:workflows:
+    desc: Initialize environment for Github Workflows
+    cmds:
+      - cp compose.override.local.yml compose.override.yml
+      - cp env/.local.common.env env/.common.env
+      - cp env/.local.apache.env env/.apache.env
+      - cp env/.local.php.env env/.php.env
+      - task build
+
+  init:codespaces:
+    desc: Initialize codespaces environment
+    cmds:
+      - cp compose.override.codespaces.yml compose.override.yml
+      - cp env/.local.common.env env/.common.env
+      - cp env/.local.apache.env env/.apache.env
+      - cp env/.local.php.env env/.php.env
+      - sed -i "s/^PROJECT_BASE_URL=.*/PROJECT_BASE_URL=${CODESPACE_NAME}-80.app.github.dev/" env/.common.env
+      - task build
+      - task up
+      - task drush -- cim -y
+      - gh codespace ports visibility 80:public -c $CODESPACE_NAME
+      - echo "Access Drupal at https://${CODESPACE_NAME}-80.app.github.dev"
+
+  build:
+    desc: Build containers
+    cmds:
+      - '{{.DOCKER_COMPOSE}} build'
+
+  up:
+    desc: Start up containers
+    run: when_changed
+    status:
+      - '{{.DOCKER_COMPOSE}} up -d --dry-run 2>&1 | grep Started | wc -l | xargs test 0 -eq'
+    cmds:
+      - '{{.DOCKER_COMPOSE}} run --rm node sh -c "npm ci"'
+      - '{{.DOCKER_COMPOSE}} up -d --remove-orphans'
+      - cmd: '{{.DOCKER_COMPOSE}} run --rm grumphp sh -c "cd html && composer install && cd web/core && npm i"'
+        silent: true
+      - cmd: echo -n "Waiting for database to be ready"
+        silent: true
+      - cmd: |
+          until {{.DOCKER_COMPOSE}} exec mysql mysql -u {{.MYSQL_USER}} -p{{.MYSQL_PASSWORD}} {{.MYSQL_DATABASE}} -e "SELECT COUNT(*) FROM watchdog" > /dev/null 2>&1; do
+            echo -n "."
+            sleep 5
+          done
+        silent: true
+      - cmd: echo ""
+        silent: true
+      - cmd: echo "Database is ready!"
+        silent: true
+
+  down:
+    desc: Stop containers
+    status:
+      - '{{.DOCKER_COMPOSE}} ps -q --status=running | grep . | wc -l | xargs test 0 -eq'
+    cmds:
+      - '{{.DOCKER_COMPOSE}} down --remove-orphans'
+
+  restart:
+    desc: 'Restart application (using docker compose up + down instead of docker compose restart).'
+    method: none
+    cmds:
+      - task: down
+      - task: up
+
+  prune:
+    desc: Remove containers and their volumes
+    cmds:
+      - echo "Removing containers..."
+      - '{{.DOCKER_COMPOSE}} rm -svf'
+
+  shell:
+    desc: |
+      Access container via shell (php by default)
+      Examples:
+        task shell            # Access php container
+        task shell -- mysql   # Access mysql container
+        task shell -- apache  # Access apache container
+    cmds:
+      - '{{ .DOCKER_COMPOSE }} exec {{if .CLI_ARGS}}{{.CLI_ARGS}}{{else}}php{{end}} bash'
+
+  drush:
+    desc: Run drush with arguments like `task drush -- cr`
+    cmds:
+      - cmd: '{{ .DOCKER_COMPOSE }} exec php drush {{.CLI_ARGS}}'
+        silent: true
+
+  yolo:
+    desc: Recreate environment
+    cmds:
+      - task: prune
+        silent: true
+      - task: build
+        silent: true
+      - task: up
+        silent: true
+      - cmd: '{{.DOCKER_COMPOSE}} exec php drush cim -y'
+        silent: true
+      - cmd: '{{.DOCKER_COMPOSE}} exec php drush search-api:index'
+        silent: true

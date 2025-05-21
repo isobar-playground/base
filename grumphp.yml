@@ -1,9 +1,9 @@
 grumphp:
   environment:
     variables:
-      GRUMPHP_COMPOSER_DIR: /home/wodby/app/html
+      GRUMPHP_COMPOSER_DIR: /home/php/app/html
   git_hook_variables:
-    EXEC_GRUMPHP_COMMAND: [ 'docker-compose', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
+    EXEC_GRUMPHP_COMMAND: [ 'docker-compose', '--env-file ./env/.common.env', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
   tasks:
     composer:
       file: html/composer.json
@@ -12,7 +12,8 @@ grumphp:
       standard:
         - Drupal
         - DrupalPractice
-    yamllint: null
+    yamllint:
+      parse_custom_tags: true
 
   testsuites:
     coding_standards:
