@@ -137,8 +137,8 @@
             }
         },
         "grumphp": {
-            "config-default-path": "/home/wodby/app",
-            "project-path": "/home/wodby/app"
+            "config-default-path": "/home/php/app",
+            "project-path": "/home/php/app"
         },
         "installer-types": [
             "bower-asset",

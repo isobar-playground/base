@@ -246,12 +246,12 @@ $databases = [];
  */
 
 $databases['default']['default'] = array (
-  'database' => getenv('DB_NAME'),
-  'username' => getenv('DB_USER'),
-  'password' => getenv('DB_PASSWORD'),
+  'database' => getenv('MYSQL_DATABASE'),
+  'username' => getenv('MYSQL_USER'),
+  'password' => getenv('MYSQL_PASSWORD'),
   'prefix' => '',
-  'host' => getenv('DB_HOST'),
-  'port' => getenv('DB_PORT'),
+  'host' => getenv('MYSQL_HOST'),
+  'port' => getenv('MYSQL_PORT'),
   'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
@@ -900,6 +900,6 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.'.getenv('ENVIRONMENT').'.php')) {
-  include $app_root . '/' . $site_path . '/settings.'.getenv('ENVIRONMENT').'.php';
+if (file_exists($app_root . '/' . $site_path . '/settings.'.getenv('APP_ENV').'.php')) {
+  include $app_root . '/' . $site_path . '/settings.'.getenv('APP_ENV').'.php';
 }

@@ -1,0 +1,65 @@
+services:
+  apache:
+    volumes:
+      - ./html/web:/srv/app/web:ro,cached
+
+  php:
+    build:
+      args:
+        USE_XDEBUG: 1
+    volumes:
+      - ./html:/srv/app:rw,cached
+      - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
+    environment:
+      - ${APP_ENV:-prod}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  grumphp:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: grumphp
+    working_dir: /home/php/app
+    volumes:
+      - ./:/home/php/app
+      - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
+
+  node:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: node
+    restart: on-failure
+    volumes:
+      - ./html:/srv/app:rw,cached
+    working_dir: ${FRONTEND_WORKING_DIR:-/srv/app/web/themes/custom/base_starterkit}
+    command: ['npm', 'run', 'watch']
+
+  mysql:
+    image: mysql:${MYSQL_VERSION:-8.0}
+    env_file:
+      - ./env/.common.env
+    command: >
+      --max-allowed-packet=16M
+      --sql-mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO"
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    hostname: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_rabbitmq.loadbalancer.server.port=15672"
+      - "traefik.http.routers.${PROJECT_NAME}_rabbitmq.rule=Host(`rabbitmq.${PROJECT_BASE_URL}`)"
+
+  mailpit:
+    image: axllent/mailpit
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.${PROJECT_NAME}_mailpit.loadbalancer.server.port=8025"
+      - "traefik.http.routers.${PROJECT_NAME}_mailpit.rule=Host(`mailpit.${PROJECT_BASE_URL}`)"

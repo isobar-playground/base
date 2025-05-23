@@ -7,7 +7,7 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/isobar-playground/base?quickstart=1)
 
-This project is a base for web applications built with Drupal. It leverages Docker images `wodby/drupal-php` and `wodby/apache` for containerization. For local environments, it utilizes `docker-compose` along with `mariadb` and `wodby/node` images.
+This project is a base for web applications built with Drupal. It leverages custom Docker images for PHP, Apache, and Node.js for containerization. For local environments, it utilizes `docker-compose` along with `mysql` for database services.
 
 ## Features ✨
 
@@ -31,31 +31,31 @@ To set up the local development environment, follow these steps:
    ```sh
    cd base
    ```
-3. Run the Make command to start the environment:
+3. Run the Task command to start the environment:
    ```sh
-   make
+   task up
    ```
 4. Access the local environment at http://base.localhost
 
-## Makefile Commands 📜
+## Taskfile Commands 📜
 
-The `Makefile` includes several commands to manage the Docker environment:
+The `taskfile.yml` includes several commands to manage the Docker environment:
 
-| Command    | Description                                                                                                          |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| `help`     | Prints the help for available commands.                                                                              |
-| `up`       | Starts up the containers, builds them if necessary, and installs Composer dependencies.                              |
-| `down`     | Stops the containers.                                                                                                |
-| `start`    | Starts the containers without updating.                                                                              |
-| `stop`     | Stops the containers.                                                                                                |
-| `prune`    | Removes containers and their volumes. Optionally, specify a service name to prune a single container.                |
-| `ps`       | Lists running containers.                                                                                            |
-| `shell`    | Accesses the `php` container via shell. Optionally, specify a service name to open a shell on a different container. |
-| `composer` | Executes `composer` commands in the specified `COMPOSER_ROOT` directory.                                             |
-| `drush`    | Executes `drush` commands in the specified `DRUPAL_ROOT` directory.                                                  |
-| `logs`     | Views container logs. Optionally, specify a service name to limit logs.                                              |
-| `build`    | Builds containers for production.                                                                                    |
-| `theme`    | Generate theme from custom theme starterkit.                                                                         |
+| Command           | Description                                                                                                    |
+|-------------------|----------------------------------------------------------------------------------------------------------------|
+| `help`            | Prints the help for available commands.                                                                        |
+| `init:local`      | Initializes local environment.                                                                                 |
+| `init:workflows`  | Initializes environment for Github Workflows.                                                                  |
+| `init:codespaces` | Initializes codespaces environment.                                                                            |
+| `build`           | Builds containers.                                                                                             |
+| `up`              | Starts up the containers, installs Composer dependencies, and waits for the database to be ready.              |
+| `down`            | Stops the containers and removes networks.                                                                     |
+| `restart`         | Restarts the application (runs down and up tasks in sequence).                                                 |
+| `prune`           | Removes containers and their volumes.                                                                          |
+| `shell`           | Accesses a container via shell. By default, enters the PHP container, but can be used with any container name. |
+| `drush`           | Run drush with arguments like `task drush -- cr`.                                                              |
+| `yolo`            | Recreates the environment, imports configuration, and indexes search.                                          |
+| `theme`           | Generates a theme from the custom theme starterkit.                                                            |
 
 ## Docker Compose Configuration 🐳
 
@@ -65,28 +65,23 @@ The project uses `docker-compose` for managing the local development environment
 
 #### Node Image
 
-The Node image is based on `wodby/node` and requires the `NODE_TAG` argument, which specifies the version of the image. This can be a development version with `-dev-` or a production version. The version information is located in the `.env` or `.env.local` file.
+The Node image is a custom image built from the official Node.js image and requires the `NODE_TAG` argument, which specifies the version of Node.js to use. The version information is located in the `.env` or `.env.local` file.
 
 #### PHP Image
 
-The PHP image is based on `wodby/drupal-php` and requires the `PHP_TAG` argument for the image version, which is specified in the `.env` or `.env.local` file. In the `.env` file, it will be a development version (e.g., `8.3-dev-4.60.1`), while in the `.env.local` file, after running the `./scripts/prod-env.bash` script, it will be a production version without the `-dev-` part. The image also requires the `NODE_IMAGE` argument, which copies built assets from the Node image.
+The PHP image is a custom image built specifically for this project. It includes all the PHP extensions and configurations needed for Drupal. The image requires the `PHP_TAG` argument for the PHP version, which is specified in the `.env` or `.env.local` file. The image also requires the `NODE_IMAGE` argument, which copies built assets from the Node image.
 
 #### Apache Image
 
-The Apache image is based on `wodby/apache` and requires the built PHP image passed via the `PHP_IMAGE` argument. It also requires the `APACHE_TAG` argument. The versions for Apache images are specified in the `.env` file as they do not have development releases.
-
-#### Supervisor Image
-
-The project also includes a Docker image with a Supervisor service based on `wodby/php` image. This service manages background processes, and currently, it is configured to run a rabbitmq-worker. The Supervisor configuration files are located in the `docker/supervisor/conf.d` directory.
+The Apache image is a custom image that uses the built PHP image passed via the `PHP_IMAGE` argument. It also requires the `APACHE_TAG` argument to specify the Apache version. The configuration for Apache is included in the Docker image.
 
 ### Build Order
 
-The images should be built in the following order:
+The images are built in the following order:
 
-1. Node image
-2. PHP image
-3. Apache image
-4. Supervisor image
+1. PHP image
+2. Node image (uses files from PHP image)
+3. Apache image (uses files from both PHP and Node images)
 
 ## Static Code Analysis and Coding Standards 🧹
 
@@ -101,7 +96,7 @@ Unit tests are written using PHPUnit and run on every pull request and commit to
 The base starterkit theme is developed using Single Directory Components and TailwindCSS, providing a modern and efficient approach to theming in Drupal. In order to use it run following command:
 
 ```bash
-make theme
+task theme
 ```
 
 You will be prompted for a new topic name. By default this will be the PROJECT_NAME from the .env file.
@@ -112,24 +107,9 @@ You will be prompted for a new topic name. By default this will be the PROJECT_N
 
 To create a new Single Directory Component please follow steps below:
 
-1. Create a new Story file in the respective directory within the `stories` directory using the following template:
-
-   ```twig
-   {% stories accordion with { title: 'Organisms' } %}
-
-     {% story default with {
-       name: 'Accordion',
-     } %}
-       {% embed 'base_starterkit:accordion' %}{% endembed %}
-     {% endstory %}
-
-   {% endstories %}
-   ```
-
-2. Create a new Twig file in the respective directory within the `components` directory with the component template.
-3. Optionally, create a new `*.component.yml` file next to the Twig file to define component properties using the following guide: [Annotated Example Component YAML](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components/annotated-example-componentyml)
-4. Preview component in the Storybook on your browser at http://storybook.base.localhost.
-5. When developing a new component, remember to flush the Drupal cache with the `make drush cr` command if problems occur.
+1. Create a new Twig file in the respective directory within the `components` directory with the component template.
+2. Optionally, create a new `*.component.yml` file next to the Twig file to define component properties using the following guide: [Annotated Example Component YAML](https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components/annotated-example-componentyml)
+3. When developing a new component, remember to flush the Drupal cache with the `task drush -- cr` command if problems occur.
 
 ## RabbitMQ Integration 🐰
 
@@ -149,7 +129,7 @@ Feel free to contribute to this project by creating issues or submitting pull re
 To update the initial database dump stored in `docker/mariadb/base.sql.gz`, use the following command:
 
 ```bash
-make drush sql:dump -- --gzip
+task drush -- "sql:dump --gzip"
 ```
 
 ### Reverting project to initial stage
@@ -157,15 +137,8 @@ make drush sql:dump -- --gzip
 To revert project to initial stage and purge all data stored in volumes, use the following command:
 
 ```bash
-make prune
+task yolo
 ```
-
-After pruning all data rebuild project with
-
-```bash
-make
-```
-
 Optionally, you can reset the current state of the Git repository with
 
 ```bash
@@ -176,7 +149,7 @@ git clean -fd
 and then rebuild and lunch local images so that the environment is up to date with the HEAD state:
 
 ```bash
-make build up
+task yolo
 ```
 
 ## License 📄
