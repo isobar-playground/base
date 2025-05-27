@@ -14,18 +14,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install taskfile
+        run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
       - name: Update permissions
         run: sudo chmod -R 777 .
 
       - name: Spin up environment
-        run: make
+        run: task init:local
 
       - name: Run GrumPHP
         run: |
-          docker compose run --rm --no-deps grumphp sh -c 'cd html && composer install'
-          docker compose run --rm --no-deps grumphp html/vendor/bin/grumphp run --testsuite coding_standards
+          docker compose --env-file ./env/.common.env run --rm --no-deps grumphp grumphp run --testsuite coding_standards
 
       - name: Cleanup
         if: always()
         run: |
-          docker compose down
+          docker compose --env-file ./env/.common.env down

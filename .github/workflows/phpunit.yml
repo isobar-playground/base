@@ -14,17 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install taskfile
+        run: sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+
       - name: Update permissions
         run: sudo chmod -R 777 .
 
-      - name: Copy PHPUnit docker compose override
-        run: cp phpunit.compose.override.yml compose.override.yml
-
       - name: Spin up environment
-        run: make
+        run: |
+          task init:local
+          task up
 
       - name: Run PHPUnit
-        run: docker compose exec php phpunit --coverage-clover clover.xml --coverage-text
+        run: docker compose --env-file ./env/.common.env exec php phpunit --coverage-clover clover.xml --coverage-text
 
       - name: Code Coverage Summary Report
         uses: saschanowak/CloverCodeCoverageSummary@1.0.1
@@ -64,4 +66,4 @@ jobs:
       - name: Cleanup
         if: always()
         run: | 
-          docker compose down
+          docker compose --env-file ./env/.common.env down
