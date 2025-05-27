@@ -21,7 +21,7 @@
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "concurrently": "^9.1.2",
-    "eslint": "^8.53.0",
+    "eslint": "^9.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-formatter-gitlab": "^5.0.0",
     "eslint-plugin-import": "^2.25.4",
