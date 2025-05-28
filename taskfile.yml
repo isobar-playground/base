@@ -63,21 +63,27 @@ tasks:
     status:
       - '{{.DOCKER_COMPOSE}} up -d --dry-run 2>&1 | grep Started | wc -l | xargs test 0 -eq'
     cmds:
-      - '{{.DOCKER_COMPOSE}} run --rm node sh -c "npm ci"'
-      - '{{.DOCKER_COMPOSE}} up -d --remove-orphans'
-      - cmd: '{{.DOCKER_COMPOSE}} run --rm grumphp sh -c "cd html && composer install && cd web/core && npm i"'
+      - cmd: |
+          if {{.DOCKER_COMPOSE}} config --services | grep -q "^node$"; then
+            {{.DOCKER_COMPOSE}} run --rm node sh -c "npm ci"
+          fi
         silent: true
-      - cmd: echo -n "Waiting for database to be ready"
+      - '{{.DOCKER_COMPOSE}} up -d --remove-orphans'
+      - cmd: |
+          if {{.DOCKER_COMPOSE}} config --services | grep -q "^grumphp$"; then
+            {{.DOCKER_COMPOSE}} run --rm grumphp sh -c "cd html && composer install && cd web/core && npm i"
+          fi
         silent: true
       - cmd: |
-          until {{.DOCKER_COMPOSE}} exec mysql mysql -u {{.MYSQL_USER}} -p{{.MYSQL_PASSWORD}} {{.MYSQL_DATABASE}} -e "SELECT COUNT(*) FROM watchdog" > /dev/null 2>&1; do
-            echo -n "."
-            sleep 5
-          done
-        silent: true
-      - cmd: echo ""
-        silent: true
-      - cmd: echo "Database is ready!"
+          if {{.DOCKER_COMPOSE}} config --services | grep -q "^mysql$"; then
+            echo -n "Waiting for database to be ready"
+            until {{.DOCKER_COMPOSE}} exec mysql mysql -u {{.MYSQL_USER}} -p{{.MYSQL_PASSWORD}} {{.MYSQL_DATABASE}} -e "SELECT COUNT(*) FROM watchdog" > /dev/null 2>&1; do
+              echo -n "."
+              sleep 5
+            done
+            echo ""
+            echo "Database is ready!"
+          fi
         silent: true
 
   down:
