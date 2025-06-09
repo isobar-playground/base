@@ -3225,17 +3225,17 @@
         },
         {
             "name": "drupal/frontend_editing",
-            "version": "1.8.11",
+            "version": "1.8.13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/frontend_editing.git",
-                "reference": "1.8.11"
+                "reference": "1.8.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/frontend_editing-1.8.11.zip",
-                "reference": "1.8.11",
-                "shasum": "d373172d2ccf32df1536cc1c5bf535185d95414b"
+                "url": "https://ftp.drupal.org/files/projects/frontend_editing-1.8.13.zip",
+                "reference": "1.8.13",
+                "shasum": "575ef53b04af4055b7b2fd5100a14f6832a72c8e"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10 || ^11",
@@ -3250,8 +3250,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.8.11",
-                    "datestamp": "1740386390",
+                    "version": "1.8.13",
+                    "datestamp": "1745423522",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
