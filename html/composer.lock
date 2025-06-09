@@ -3094,17 +3094,17 @@
         },
         {
             "name": "drupal/field_group",
-            "version": "4.0.0-alpha1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/field_group.git",
-                "reference": "4.0.0-alpha1"
+                "reference": "4.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_group-4.0.0-alpha1.zip",
-                "reference": "4.0.0-alpha1",
-                "shasum": "0f1fbc8043a654af5b055f1b95ad9597c474ce83"
+                "url": "https://ftp.drupal.org/files/projects/field_group-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "d3ff81d8a64b6ac392989b668cfa417be5101642"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -3115,11 +3115,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.0-alpha1",
-                    "datestamp": "1725972443",
+                    "version": "4.0.0",
+                    "datestamp": "1745478894",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -19828,7 +19828,6 @@
         "drupal/all_entity_preview": 15,
         "drupal/block_field": 5,
         "drupal/diff": 10,
-        "drupal/field_group": 15,
         "drupal/m4032404": 15,
         "drupal/media_directories": 10,
         "drupal/mimemail": 15,
