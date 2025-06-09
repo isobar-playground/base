@@ -43,7 +43,7 @@
         "drupal/menu_admin_per_menu": "^1.6",
         "drupal/metatag": "^2.1",
         "drupal/mimemail": "^1.0@alpha",
-        "drupal/paragraphs": "^1.18",
+        "drupal/paragraphs": "^1.19",
         "drupal/pathauto": "^1.13",
         "drupal/plyr": "^1.0@alpha",
         "drupal/queue_mail": "^1.7",
