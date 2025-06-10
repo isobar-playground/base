@@ -14,6 +14,7 @@ services:
         USE_XDEBUG: 1
     volumes:
       - ./html:/srv/app:rw,cached
+      - ./docker/mysql:/srv/mysql:rw,cached
       - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
     environment:
       - ${APP_ENV:-prod}

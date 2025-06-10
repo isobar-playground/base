@@ -103,6 +103,7 @@ RUN set -eux; \
     apt-get install -y \
       acl \
       bash \
+      default-mysql-client \
       gettext-base \
       git \
       libfbclient2 \
