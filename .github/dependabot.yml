@@ -15,8 +15,4 @@ updates:
     directory: /html/web/themes/custom/base_starterkit
     schedule:
       interval: daily
-    groups:
-      storybook:
-        patterns:
-          - "*storybook*"
     open-pull-requests-limit: 10
