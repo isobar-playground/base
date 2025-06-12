@@ -51,7 +51,6 @@ RUN set -eux; \
       libfreetype6-dev \
       libicu-dev \
       libjpeg62-turbo-dev \
-      libldap2-dev \
       libmemcached-dev \
       libpng-dev \
       libssl-dev \
@@ -65,7 +64,6 @@ RUN set -eux; \
     docker-php-ext-configure gd --with-freetype --with-jpeg; \
     pecl install memcached-${MEMCACHED_VERSION} xlswriter-${XLSWRITER_VERSION} sqlsrv-${SQLSRV_VERSION} pdo_sqlsrv-${SQLSRV_VERSION}; \
     docker-php-ext-configure intl; \
-    docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/; \
     docker-php-ext-configure pcntl --enable-pcntl;
 
 ## Compile PHP Extensions
@@ -73,7 +71,6 @@ RUN set -eux; \
     docker-php-ext-install -j$(nproc) \
     gd \
     intl \
-    ldap \
     pcntl \
     pdo \
     pdo_firebird \
@@ -127,7 +124,6 @@ RUN set -eux; \
     docker-php-ext-enable \
     gd \
     intl \
-    ldap \
     memcached \
     pcntl \
     pdo \
