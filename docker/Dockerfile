@@ -90,6 +90,9 @@ RUN set -eux; \
 
 FROM php AS base
 
+# PHP user and gid
+ARG UID=1000
+
 RUN set -eux; \
     curl https://packages.microsoft.com/keys/microsoft.asc > /usr/share/keyrings/microsoft.asc; \
     curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list \
@@ -137,8 +140,8 @@ RUN set -eux; \
     zip
 
 # Create non-root user with UID and GID 1000
-RUN addgroup --gid 1000 php; \
-    adduser --uid 1000 --gid 1000 --disabled-password --gecos "" php
+RUN addgroup --gid ${UID} php; \
+    adduser --uid ${UID} --gid ${UID} --disabled-password --gecos "" php
 
 RUN chown -R php:php $PHP_INI_DIR && \
     chown -R php:php ${PHP_INI_DIR}-fpm.d
