@@ -249,13 +249,10 @@ $databases['default']['default'] = array (
   'database' => getenv('MYSQL_DATABASE'),
   'username' => getenv('MYSQL_USER'),
   'password' => getenv('MYSQL_PASSWORD'),
-  'prefix' => '',
   'host' => getenv('MYSQL_HOST'),
   'port' => getenv('MYSQL_PORT'),
-  'isolation_level' => 'READ COMMITTED',
   'driver' => 'mysql',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 
 /**
