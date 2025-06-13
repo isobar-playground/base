@@ -55,7 +55,7 @@ tasks:
   build:
     desc: Build containers
     cmds:
-      - '{{.DOCKER_COMPOSE}} build'
+      - '{{.DOCKER_COMPOSE}} build {{.CLI_ARGS}}'
 
   up:
     desc: Start up containers
