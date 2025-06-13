@@ -197,8 +197,7 @@ WORKDIR /srv/app
 
 RUN SET -eux; \
     mkdir -p var/cache var/logs; \
-    composer install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction; \
-    composer dump-autoload --classmap-authoritative --no-dev; \
+    composer install --prefer-dist --no-dev --optimize-autoloader --no-ansi --no-progress --no-scripts --no-interaction; \
     sync; \
     setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var; \
     setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var;
