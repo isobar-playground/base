@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb8ddfc4494a9cfcf3750c9824acff90",
+    "content-hash": "1502a848e1ff39453b539a208fe2284e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3638,29 +3638,29 @@
         },
         {
             "name": "drupal/m4032404",
-            "version": "1.0.0-alpha6",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/m4032404.git",
-                "reference": "8.x-1.0-alpha6"
+                "reference": "2.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/m4032404-8.x-1.0-alpha6.zip",
-                "reference": "8.x-1.0-alpha6",
-                "shasum": "4d856b9c9e121e1966fa487bf6c18bbd07dbb21f"
+                "url": "https://ftp.drupal.org/files/projects/m4032404-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "b581d5b9991b8f2c66ea0c331462106c6114616c"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9 || ^10"
+                "drupal/core": "^10.3 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha6",
-                    "datestamp": "1679918065",
+                    "version": "2.0.1",
+                    "datestamp": "1749831634",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3669,6 +3669,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "elc",
+                    "homepage": "https://www.drupal.org/user/784944"
+                },
                 {
                     "name": "skwashd",
                     "homepage": "https://www.drupal.org/user/116305"
@@ -19740,7 +19744,6 @@
         "drupal/block_field": 5,
         "drupal/diff": 10,
         "drupal/field_group": 15,
-        "drupal/m4032404": 15,
         "drupal/media_directories": 10,
         "drupal/mimemail": 15,
         "drupal/plyr": 15,
