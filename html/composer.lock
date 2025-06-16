@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22bd4e186fef186efdfcde7bebdaacc4",
+    "content-hash": "be202c1b308291d69ab89413e9d8d097",
     "packages": [
         {
             "name": "algolia/places",
@@ -7125,11 +7125,38 @@
             "time": "2025-05-31T08:24:38+00:00"
         },
         {
+            "name": "npm-asset/jquery",
+            "version": "3.7.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "npm-asset/jquery-validation",
             "version": "1.21.0",
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.21.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jstree",
+            "version": "3.3.17",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jstree/-/jstree-3.3.17.tgz"
+            },
+            "require": {
+                "npm-asset/jquery": ">=3.5.0,<4.0.0"
             },
             "type": "npm-asset",
             "license": [
