@@ -82,7 +82,6 @@ module:
   serialization: 0
   simple_sitemap: 0
   smtp: 0
-  storybook: 0
   system: 0
   taxonomy: 0
   telephone: 0

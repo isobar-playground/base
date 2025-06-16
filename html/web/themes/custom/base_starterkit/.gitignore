@@ -16,6 +16,3 @@ dist/*
 
 # Generated stories files
 stories/**/*.json
-
-# Storybook logs
-*storybook.log
