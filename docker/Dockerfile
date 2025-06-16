@@ -53,6 +53,7 @@ RUN set -eux; \
       libjpeg62-turbo-dev \
       libmemcached-dev \
       libpng-dev \
+      libwebp-dev \
       libssl-dev \
       libxml2-dev \
       libzip-dev \
@@ -61,7 +62,7 @@ RUN set -eux; \
 
 ## Configure PHP Extensions
 RUN set -eux; \
-    docker-php-ext-configure gd --with-freetype --with-jpeg; \
+    docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp; \
     pecl install memcached-${MEMCACHED_VERSION} xlswriter-${XLSWRITER_VERSION} sqlsrv-${SQLSRV_VERSION} pdo_sqlsrv-${SQLSRV_VERSION}; \
     docker-php-ext-configure intl; \
     docker-php-ext-configure pcntl --enable-pcntl;
