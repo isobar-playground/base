@@ -18,6 +18,10 @@ tasks:
     cmds:
       - task --list
 
+  logs:
+    desc: Print logs
+    cmd: '{{.DOCKER_COMPOSE}} logs -f'
+
   init:local:
     desc: Initialize local environment
     cmds:
