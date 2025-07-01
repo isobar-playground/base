@@ -1,0 +1,6 @@
+services:
+  php:
+    image: ${REGISTRY}/${PROJECT_PATH}/php:${IMAGE_TAG}
+
+  apache:
+    image: ${REGISTRY}/${PROJECT_PATH}/apache:${IMAGE_TAG}

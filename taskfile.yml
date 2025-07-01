@@ -56,6 +56,13 @@ tasks:
       - gh codespace ports visibility 80:public -c $CODESPACE_NAME
       - echo "Access Drupal at https://${CODESPACE_NAME}-80.app.github.dev"
 
+  init:ec2:
+    desc: Initialize EC2 environment
+    cmds:
+      - envsubst < compose.override.ec2.yml > compose.override.yml
+      - '{{.DOCKER_COMPOSE}} pull'
+      - task up
+
   build:
     desc: Build containers
     cmds:

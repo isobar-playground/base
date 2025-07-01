@@ -1,0 +1,76 @@
+default:
+  tags:
+    - starterkit
+
+stages:
+  - build
+  - deploy
+
+build:
+  image: docker:24.0.5
+  stage: build
+  services:
+    - docker:24.0.5-dind
+  variables:
+    DOCKER_HOST: "tcp://docker:2375"
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+  script:
+    - docker pull "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" || true
+    - docker pull "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" || true
+    - docker build -f docker/Dockerfile --target app_php -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:$CI_COMMIT_SHA" -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" --progress=plain .
+    - docker build -f docker/Dockerfile --target apache -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:$CI_COMMIT_SHA" -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" --progress=plain .
+    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:$CI_COMMIT_SHA"
+    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest"
+    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:$CI_COMMIT_SHA"
+    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_MERGE_REQUEST_IID
+
+.deploy_template:
+  stage: deploy
+  image: ubuntu
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - chmod 400 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - |
+      ssh ${EC2_USER}@${EC2_HOST} << EOF
+        cd $CI_PROJECT_NAME
+        git fetch
+        git checkout $CI_COMMIT_SHA
+
+        export REGISTRY=$CI_REGISTRY
+        export PROJECT_PATH=$CI_PROJECT_PATH
+        export IMAGE_TAG=$CI_COMMIT_SHA
+
+        echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+
+        task init:ec2
+
+        docker image prune -f
+      EOF
+  needs:
+    - build
+
+deploy:
+  extends: .deploy_template
+  variables:
+    ENV_NAME: main
+    EC2_HOST: 63.178.51.193
+    EC2_USER: ec2-user
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_MERGE_REQUEST_IID
+  environment:
+    name: main
+    url: http://$EC2_MAIN_HOST
