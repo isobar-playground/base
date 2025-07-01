@@ -151,9 +151,3 @@ and then rebuild and lunch local images so that the environment is up to date wi
 ```bash
 task yolo
 ```
-
-## License 📄
-
-This project is licensed under the MIT License.
-
-For more details, visit the [repository](https://github.com/isobar-playground/base).
