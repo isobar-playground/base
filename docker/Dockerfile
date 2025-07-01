@@ -227,6 +227,7 @@ COPY --from=app_php /srv/app .
 COPY --from=node /srv/app/web/ ./web/
 
 COPY ./docker/apache/templates/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./docker/apache/templates/common.conf /usr/local/apache2/conf/conf.d/common.conf
 COPY ./docker/apache/templates/vhosts.conf /usr/local/apache2/conf/conf.d/vhosts.conf
 
 EXPOSE 80
