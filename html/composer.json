@@ -30,7 +30,7 @@
         "drupal/field_group": "^4.0@alpha",
         "drupal/focal_point": "^2.1",
         "drupal/frontend_editing": "^1.8",
-        "drupal/gin": "^4.0",
+        "drupal/gin": "^4.1",
         "drupal/gin_login": "^2.1",
         "drupal/klaro": "^3.0",
         "drupal/linkit": "^7.0",
