@@ -184,11 +184,6 @@
             "include": [
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
-        },
-        "patches": {
-            "drupal/gin": {
-                "Fix breadcrumb issue": "patches/gin/handle_php_errors_on_breadcrumbs.patch"
-            }
         }
     }
 }
