@@ -4,10 +4,8 @@ services:
 
   apache:
     image: ${REGISTRY}/${PROJECT_PATH}/apache:${IMAGE_TAG}
+    ports: !override []
 
-# Enable for environment with Traefik
-#    ports: !override []
-#
-#networks:
-#  traefik_default:
-#    external: true
+networks:
+  traefik_default:
+    external: true
