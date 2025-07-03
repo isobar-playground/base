@@ -1,10 +1,21 @@
 services:
   php:
     image: ${REGISTRY}/${PROJECT_PATH}/php:${IMAGE_TAG}
+    restart: unless-stopped
 
   apache:
     image: ${REGISTRY}/${PROJECT_PATH}/apache:${IMAGE_TAG}
+    restart: unless-stopped
     ports: !override []
+    networks:
+      - default
+      - traefik_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_default"
+      - "traefik.http.routers.apache.rule=Host(`starterkit.hyperlab`)"
+      - "traefik.http.routers.apache.entrypoints=web"
+      - "traefik.http.services.apache.loadbalancer.server.port=80"
 
 networks:
   traefik_default:
