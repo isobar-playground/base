@@ -2,10 +2,14 @@ services:
   php:
     image: ${REGISTRY}/${PROJECT_PATH}/php:${IMAGE_TAG}
     restart: unless-stopped
+    volumes:
+      - ./html/web/sites/default/files:/srv/app/web/sites/default/files
 
   apache:
     image: ${REGISTRY}/${PROJECT_PATH}/apache:${IMAGE_TAG}
     restart: unless-stopped
+    volumes:
+      - ./html/web/sites/default/files:/srv/app/web/sites/default/files
     ports: !override []
     networks:
       - default
