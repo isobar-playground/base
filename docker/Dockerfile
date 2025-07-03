@@ -164,6 +164,20 @@ RUN chmod +x /usr/local/bin/docker-healthcheck
 
 HEALTHCHECK --interval=10s --timeout=3s --retries=3 --start-period=30s CMD ["docker-healthcheck"]
 
+### Theme builder
+FROM node:${NODE_VERSION} AS node
+
+# Switch to non-root user for remaining operations
+USER node
+
+COPY --chown=node:node html/web/themes/custom/base_starterkit /srv/app/web/themes/custom/base_starterkit
+
+WORKDIR /srv/app/web/themes/custom/base_starterkit
+
+## Specific build steps required for theme, e.g. npm modules install, gulp tasks etc.
+RUN npm ci; \
+    npm run build;
+
 FROM ${APP_BASE} AS app_php
 ## FPM config variables
 ENV FPM_PM_MAX_CHILDREN="${FPM_PM_MAX_CHILDREN:-50}"
@@ -194,6 +208,7 @@ USER php
 
 # Copy HTML directory with user and group ownership set to 1000
 COPY --chown=php:php ./html /srv/app
+COPY --from=node /srv/app/web/themes/custom/base_starterkit /srv/app/web/themes/custom/base_starterkit
 WORKDIR /srv/app
 
 RUN SET -eux; \
@@ -203,21 +218,7 @@ RUN SET -eux; \
     setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var; \
     setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var;
 
-## FRONTEND AND NGINX section ###
-
-### Frontend builder
-FROM node:${NODE_VERSION} AS node
-
-# Switch to non-root user for remaining operations
-USER node
-
-COPY --from=app_php /srv/app/web /srv/app/web
-
-WORKDIR /srv/app/web/themes/custom/base_starterkit
-
-## Specific build steps required for frontend application, e.g. npm modules install, gulp tasks etc.
-RUN npm ci; \
-    npm run build;
+## Webserver ###
 
 FROM httpd:2.4 AS apache
 
