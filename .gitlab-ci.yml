@@ -26,7 +26,7 @@ build:
     - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:$CI_COMMIT_SHA"
     - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest"
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
     - if: $CI_COMMIT_BRANCH == "develop"
     - if: $CI_MERGE_REQUEST_IID
 
@@ -69,8 +69,7 @@ deploy:
     EC2_HOST: 63.178.51.193
     EC2_USER: ec2-user
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-    - if: $CI_MERGE_REQUEST_IID
+    - if: $CI_COMMIT_BRANCH == "master"
   environment:
     name: main
     url: http://$EC2_MAIN_HOST
