@@ -4,23 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f625167ed2c296b256a1b8cd75cfd6e5",
+    "content-hash": "9ab444fc99d89dd16f805b681edb1bd0",
     "packages": [
-        {
-            "name": "algolia/places",
-            "version": "1.19.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/places.js/-/places.js-1.19.0.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "algolia.places"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.2.0",
@@ -348,36 +333,6 @@
                 "source": "https://github.com/Chi-teck/drupal-code-generator/tree/3.6.1"
             },
             "time": "2024-06-06T17:36:37+00:00"
-        },
-        {
-            "name": "choices/choices",
-            "version": "9.0.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/Choices-js/Choices/archive/refs/tags/v9.0.1.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "choices"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "codemirror/codemirror",
-            "version": "5.65.12",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/components/codemirror/archive/refs/tags/5.65.12.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "codemirror"
-            },
-            "license": [
-                "MIT"
-            ]
         },
         {
             "name": "composer/installers",
@@ -6516,186 +6471,6 @@
             "time": "2025-03-27T12:30:47+00:00"
         },
         {
-            "name": "jquery/chosen",
-            "version": "1.8.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.chosen"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/geocomplete",
-            "version": "1.7.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ubilabs/geocomplete/archive/refs/tags/1.7.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.geocomplete"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/hotkeys",
-            "version": "0.2.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jeresig/jquery.hotkeys/archive/refs/tags/0.2.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.hotkeys"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/icheck",
-            "version": "1.0.2 ",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drgullin/icheck/zipball/8a6eb37bd7dab1e843c1b630c91c6398ff409d05"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.icheck"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/image-picker",
-            "version": "0.3.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/rvera/image-picker/archive/refs/tags/0.3.1.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.image-picker"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/inputmask",
-            "version": "5.0.8",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask/archive/refs/tags/5.0.8.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.inputmask"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/intl-tel-input",
-            "version": "17.0.19",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jackocnr/intl-tel-input/archive/refs/tags/v17.0.19.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.intl-tel-input"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/rateit",
-            "version": "1.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/gjunge/rateit.js/archive/refs/tags/1.1.5.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.rateit"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/select2",
-            "version": "4.0.13",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/select2/select2/archive/refs/tags/4.0.13.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.select2"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/textcounter",
-            "version": "0.9.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ractoon/jQuery-Text-Counter/archive/refs/tags/0.9.1.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.textcounter"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/timepicker",
-            "version": "1.14.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/refs/tags/1.14.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.timepicker"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "jquery/toggles",
-            "version": "4.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/simontabor/jquery-toggles/archive/refs/tags/v4.0.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery.toggles"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "laravel/prompts",
             "version": "v0.3.5",
             "source": {
@@ -8000,36 +7775,6 @@
             "time": "2024-09-16T03:06:04+00:00"
         },
         {
-            "name": "popperjs/popperjs",
-            "version": "2.11.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "popperjs"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "progress-tracker/progress-tracker",
-            "version": "2.0.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/NigelOToole/progress-tracker/archive/refs/tags/2.0.7.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "progress-tracker"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "psr/cache",
             "version": "3.0.0",
             "source": {
@@ -8579,36 +8324,6 @@
                 }
             ],
             "time": "2024-03-02T06:30:58+00:00"
-        },
-        {
-            "name": "signature_pad/signature_pad",
-            "version": "2.3.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/szimek/signature_pad/archive/refs/tags/v2.3.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "signature_pad"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "svg-pan-zoom/svg-pan-zoom",
-            "version": "3.6.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ariutta/svg-pan-zoom/archive/refs/tags/3.6.1.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "svg-pan-zoom"
-            },
-            "license": [
-                "BSD-2-Clause"
-            ]
         },
         {
             "name": "symfony/console",
@@ -11106,36 +10821,6 @@
             "time": "2025-06-03T06:46:12+00:00"
         },
         {
-            "name": "tabby/tabby",
-            "version": "12.0.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/cferdinandi/tabby/archive/refs/tags/v12.0.3.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "tabby"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "tippyjs/tippyjs",
-            "version": "6.3.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/tippy.js/-/tippy.js-6.3.7.tgz"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "tippyjs"
-            },
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "twig/twig",
             "version": "v3.19.0",
             "source": {
@@ -13614,17 +13299,17 @@
         },
         {
             "name": "drupal/devel",
-            "version": "5.3.1",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/devel.git",
-                "reference": "5.3.1"
+                "reference": "5.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/devel-5.3.1.zip",
-                "reference": "5.3.1",
-                "shasum": "6a5f13bdf93dc5f7f194b6af847589ae15e37b63"
+                "url": "https://ftp.drupal.org/files/projects/devel-5.4.0.zip",
+                "reference": "5.4.0",
+                "shasum": "fc14fe1c396dbff661f9d13e6e3171d9ab781a46"
             },
             "require": {
                 "doctrine/common": "^2.7 || ^3.4",
@@ -13634,22 +13319,21 @@
             },
             "conflict": {
                 "drupal/core": "<10.3",
-                "drush/drush": "<12.5.1",
-                "kint-php/kint": "<3"
+                "drush/drush": "<12.5.1"
             },
             "require-dev": {
+                "drupal/navigation_extra_tools": "1.0.x-dev",
                 "drush/drush": "^13",
-                "firephp/firephp-core": "^0.5.3",
-                "kint-php/kint": "^5.1"
+                "firephp/firephp-core": "^0.5.3"
             },
             "suggest": {
-                "kint-php/kint": "Kint provides an informative display of arrays/objects. Useful for debugging and developing."
+                "drupal/kint": "Kint provides an informative display of arrays/objects. Useful for debugging and developing."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.3.1",
-                    "datestamp": "1723258446",
+                    "version": "5.4.0",
+                    "datestamp": "1751916158",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15083,16 +14767,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.1",
+            "version": "1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/faed855a7b5f4d4637717c2b3863e277116beb36",
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36",
                 "shasum": ""
             },
             "require": {
@@ -15131,7 +14815,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.3"
             },
             "funding": [
                 {
@@ -15139,7 +14823,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-29T12:36:36+00:00"
+            "time": "2025-07-05T12:25:42+00:00"
         },
         {
             "name": "nyholm/psr7-server",
@@ -20079,6 +19763,6 @@
     "platform": {
         "php": "^8.3"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
