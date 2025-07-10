@@ -1455,27 +1455,27 @@
         },
         {
             "name": "drupal/anchor_link",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/anchor_link.git",
-                "reference": "3.0.2"
+                "reference": "3.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/anchor_link-3.0.2.zip",
-                "reference": "3.0.2",
-                "shasum": "fe822cc3f902386c7b3b51d429bee39c44a833da"
+                "url": "https://ftp.drupal.org/files/projects/anchor_link-3.0.3.zip",
+                "reference": "3.0.3",
+                "shasum": "5c88ff3167894808158eb707107e93f5aa554254"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
-                "vardot/ckeditor5-anchor-drupal": "~1 || ~2"
+                "vardot/ckeditor5-anchor-drupal": "^1.0.3 || ^2.0.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.2",
-                    "datestamp": "1751560072",
+                    "version": "3.0.3",
+                    "datestamp": "1751670353",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10902,17 +10902,20 @@
         },
         {
             "name": "vardot/ckeditor5-anchor-drupal",
-            "version": "2.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Vardot/ckeditor5-anchor-drupal.git",
-                "reference": "0dad1a3aef0de18ef0ab4782a4350b6de6f23e53"
+                "reference": "6853b37ba98f04cc313537ef616e989c09ada92d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Vardot/ckeditor5-anchor-drupal/zipball/0dad1a3aef0de18ef0ab4782a4350b6de6f23e53",
-                "reference": "0dad1a3aef0de18ef0ab4782a4350b6de6f23e53",
+                "url": "https://api.github.com/repos/Vardot/ckeditor5-anchor-drupal/zipball/6853b37ba98f04cc313537ef616e989c09ada92d",
+                "reference": "6853b37ba98f04cc313537ef616e989c09ada92d",
                 "shasum": ""
+            },
+            "require": {
+                "drupal/core": "^9 || <=10.4 || <=11.1"
             },
             "type": "drupal-library",
             "notification-url": "https://packagist.org/downloads/",
@@ -10937,7 +10940,7 @@
                 "issues": "http://drupal.org/project/issues/anchor_link",
                 "source": "http://cgit.drupalcode.org/anchor_link"
             },
-            "time": "2025-06-30T08:48:08+00:00"
+            "time": "2025-07-04T22:14:17+00:00"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
