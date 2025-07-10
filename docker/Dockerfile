@@ -3,24 +3,19 @@
 # Name of app
 ARG APP_BASE="base"
 
-# PHP 7.4
-#ARG PHP_VERSION=7.4
-#ARG XDEBUG_VERSION=3.1.6
-
-# PHP 8.3
-ARG PHP_VERSION=8.3.20
-ARG XDEBUG_VERSION=3.4.2
-
-# Node 22.x
-ARG NODE_VERSION=22
-
 # Additional packages
 ARG XLSWRITER_VERSION=1.5.2
 ARG MEMCACHED_VERSION=3.3.0
 ARG SQLSRV_VERSION=5.10.1
 ARG USE_XDEBUG=0
 
-FROM php:${PHP_VERSION}-fpm AS php
+# PHP 7.4
+#ARG XDEBUG_VERSION=3.1.6
+#FROM php:7.4-fpm AS php
+
+# PHP 8.3
+ARG XDEBUG_VERSION=3.4.2
+FROM php:8.3.20-fpm AS php
 
 FROM php AS php-extensions
 
@@ -165,7 +160,7 @@ RUN chmod +x /usr/local/bin/docker-healthcheck
 HEALTHCHECK --interval=10s --timeout=3s --retries=3 --start-period=30s CMD ["docker-healthcheck"]
 
 ### Theme builder
-FROM node:${NODE_VERSION} AS node
+FROM node:22.16.0 AS node
 
 # Switch to non-root user for remaining operations
 USER node
@@ -237,16 +232,7 @@ CMD ["httpd-foreground"]
 
 FROM app_php AS grumphp
 
-# Install Node.js based on NODE_VERSION argument
-ARG NODE_VERSION
-USER root
-RUN set -eux; \
-    curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -; \
-    apt-get install -y nodejs; \
-    groupadd npm-users; \
-    usermod -a -G npm-users php; \
-    chown -R root:npm-users /usr/lib/node_modules; \
-    chmod -R g+w /usr/lib/node_modules
+COPY --from=node /usr/local /usr/local
 
 ENV PATH=$PATH:/home/php/app/html/web/core/node_modules/.bin
 
