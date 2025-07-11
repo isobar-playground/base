@@ -160,7 +160,7 @@ RUN chmod +x /usr/local/bin/docker-healthcheck
 HEALTHCHECK --interval=10s --timeout=3s --retries=3 --start-period=30s CMD ["docker-healthcheck"]
 
 ### Theme builder
-FROM node:22.16.0 AS node
+FROM node:24.4.0 AS node
 
 # Switch to non-root user for remaining operations
 USER node
