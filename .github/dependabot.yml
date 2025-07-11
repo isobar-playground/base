@@ -24,3 +24,10 @@ updates:
     directory: /docker
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: "php"
+        versions:
+          - ">= 8.4"
+      - dependency-name: "node"
+        versions:
+          - ">= 23"
