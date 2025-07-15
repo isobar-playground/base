@@ -181,7 +181,7 @@
             ]
         },
         "merge-plugin": {
-            "include": [
+            "require": [
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
         }
