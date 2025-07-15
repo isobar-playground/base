@@ -56,7 +56,7 @@ build:
         echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
 
         task init:ec2
-
+        task drush -- deploy
         docker image prune -f
       EOF
   needs:
