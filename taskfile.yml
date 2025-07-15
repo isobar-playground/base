@@ -30,6 +30,16 @@ tasks:
       - cp env/.local.apache.env env/.apache.env
       - cp env/.local.php.env env/.php.env
       - task build
+      - cmd: |
+          if {{.DOCKER_COMPOSE}} config --services | grep -q "^node$"; then
+            {{.DOCKER_COMPOSE}} run --rm node sh -c "npm ci"
+          fi
+        silent: true
+      - cmd: |
+          if {{.DOCKER_COMPOSE}} config --services | grep -q "^grumphp$"; then
+            {{.DOCKER_COMPOSE}} run --rm grumphp sh -c "cd html && composer install && cd web/core && npm i"
+          fi
+        silent: true
       - task up
       - task drush -- cim -y
 
@@ -74,17 +84,7 @@ tasks:
     status:
       - '{{.DOCKER_COMPOSE}} up -d --dry-run 2>&1 | grep Started | wc -l | xargs test 0 -eq'
     cmds:
-      - cmd: |
-          if {{.DOCKER_COMPOSE}} config --services | grep -q "^node$"; then
-            {{.DOCKER_COMPOSE}} run --rm node sh -c "npm ci"
-          fi
-        silent: true
       - '{{.DOCKER_COMPOSE}} up -d --remove-orphans'
-      - cmd: |
-          if {{.DOCKER_COMPOSE}} config --services | grep -q "^grumphp$"; then
-            {{.DOCKER_COMPOSE}} run --rm grumphp sh -c "cd html && composer install && cd web/core && npm i"
-          fi
-        silent: true
       - cmd: |
           if {{.DOCKER_COMPOSE}} config --services | grep -q "^mysql$"; then
             echo -n "Waiting for database to be ready"
