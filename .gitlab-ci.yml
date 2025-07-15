@@ -15,16 +15,17 @@ build:
     DOCKER_HOST: "tcp://docker:2375"
     DOCKER_TLS_CERTDIR: ""
   before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+    - apk add aws-cli git
+    - aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $CI_REGISTRY
   script:
-    - docker pull "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" || true
-    - docker pull "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" || true
-    - docker build -f docker/Dockerfile --target app_php -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:$CI_COMMIT_SHA" -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest" --progress=plain .
-    - docker build -f docker/Dockerfile --target apache -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:$CI_COMMIT_SHA" -t "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest" --progress=plain .
-    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:$CI_COMMIT_SHA"
-    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/php:latest"
-    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:$CI_COMMIT_SHA"
-    - docker push "${CI_REGISTRY:+$CI_REGISTRY/}$CI_PROJECT_PATH/apache:latest"
+    - docker pull "$CI_REGISTRY/$CI_REPOSITORY_PHP:latest" || true
+    - docker pull "$CI_REGISTRY/$CI_REPOSITORY_APACHE:latest" || true
+    - docker build -f docker/Dockerfile --target app_php -t "$CI_REGISTRY/$CI_REPOSITORY_PHP:$CI_COMMIT_SHA" -t "$CI_REGISTRY/$CI_REPOSITORY_PHP:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "$CI_REGISTRY/$CI_REPOSITORY_PHP:latest" --progress=plain .
+    - docker build -f docker/Dockerfile --target apache -t "$CI_REGISTRY/$CI_REPOSITORY_APACHE:$CI_COMMIT_SHA" -t "$CI_REGISTRY/$CI_REPOSITORY_APACHE:latest" --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from "$CI_REGISTRY/$CI_REPOSITORY_APACHE:latest" --progress=plain .
+    - docker push "$CI_REGISTRY/$CI_REPOSITORY_PHP:$CI_COMMIT_SHA"
+    - docker push "$CI_REGISTRY/$CI_REPOSITORY_PHP:latest"
+    - docker push "$CI_REGISTRY/$CI_REPOSITORY_APACHE:$CI_COMMIT_SHA"
+    - docker push "$CI_REGISTRY/$CI_REPOSITORY_APACHE:latest"
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
     - if: $CI_COMMIT_BRANCH == "develop"
@@ -49,14 +50,17 @@ build:
         git fetch
         git checkout $CI_COMMIT_SHA
 
-        export REGISTRY=$CI_REGISTRY
-        export PROJECT_PATH=$CI_PROJECT_PATH
-        export IMAGE_TAG=$CI_COMMIT_SHA
+        export CI_REGISTRY=$CI_REGISTRY
+        export CI_REPOSITORY_PHP=$CI_REPOSITORY_PHP
+        export CI_REPOSITORY_APACHE=$CI_REPOSITORY_APACHE
+        export CI_COMMIT_SHA=$CI_COMMIT_SHA
 
-        echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+        aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $CI_REGISTRY
 
         task init:ec2
+
         task drush -- deploy
+
         docker image prune -f
       EOF
   needs:
@@ -72,4 +76,4 @@ deploy:
     - if: $CI_COMMIT_BRANCH == "master"
   environment:
     name: main
-    url: http://$EC2_MAIN_HOST
+    url: https://$EC2_MAIN_HOST

@@ -1,12 +1,12 @@
 services:
   php:
-    image: ${REGISTRY}/${PROJECT_PATH}/php:${IMAGE_TAG}
+    image: ${CI_REGISTRY}/${CI_REPOSITORY_PHP}:${CI_COMMIT_SHA}
     restart: unless-stopped
     volumes:
       - ./html/web/sites/default/files:/srv/app/web/sites/default/files
 
   apache:
-    image: ${REGISTRY}/${PROJECT_PATH}/apache:${IMAGE_TAG}
+    image: ${CI_REGISTRY}/${CI_REPOSITORY_APACHE}:${CI_COMMIT_SHA}
     restart: unless-stopped
     volumes:
       - ./html/web/sites/default/files:/srv/app/web/sites/default/files
