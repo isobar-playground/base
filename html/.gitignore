@@ -4,17 +4,6 @@
 # remove rules.
 
 
-# Ignore configuration files that may contain sensitive information.
-#
-# Typically, settings.php and related files are not committed to the
-# repository because they contain information such as the database
-# credentials that could be used to compromise a site. Sometimes,
-# a settings.php might be committed to the repository if it reads
-# sensitive information from environment variables or other sources.
-# ------------------------------------------------------------------
-/web/sites/*/settings*.php
-/web/sites/*/services*.yml
-
 # Ignore paths that contain user-generated content.
 /web/sites/*/files
 /web/sites/*/private

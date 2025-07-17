@@ -205,6 +205,11 @@ $settings['trusted_host_patterns'] = [
 $settings['deployment_identifier'] = time();
 
 /**
+ * Additional local development services.
+ */
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/services.local.yml';
+
+/**
  * Development Configuration Split settings.
  */
 $config['config_split.config_split.development']['status'] = TRUE;
