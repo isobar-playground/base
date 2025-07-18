@@ -62,7 +62,7 @@
         "drupal/ultimate_cron": "^2.0@beta",
         "drupal/webform": "^6.2",
         "drupal/webform_extra_field": "^2.1@RC",
-        "drupal/yoast_seo": "^2.1",
+        "drupal/yoast_seo": "^2.2",
         "drush/drush": "^13.6",
         "npm-asset/jquery-validation": "^1.21",
         "npm-asset/jstree": "^3.3",
