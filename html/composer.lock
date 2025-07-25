@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25e4412396228e0b56393096190b70ae",
+    "content-hash": "99991ce19d7df8fe3ecb2c81ced9be58",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -15905,16 +15905,16 @@
         },
         {
             "name": "phpro/grumphp",
-            "version": "v2.13.0",
+            "version": "v2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpro/grumphp.git",
-                "reference": "ea281293328f0ae951abfed22a1f0d22bde9cda1"
+                "reference": "cb139d7c3ed1aa1c8acbdc527f11d80a3d5a27a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpro/grumphp/zipball/ea281293328f0ae951abfed22a1f0d22bde9cda1",
-                "reference": "ea281293328f0ae951abfed22a1f0d22bde9cda1",
+                "url": "https://api.github.com/repos/phpro/grumphp/zipball/cb139d7c3ed1aa1c8acbdc527f11d80a3d5a27a8",
+                "reference": "cb139d7c3ed1aa1c8acbdc527f11d80a3d5a27a8",
                 "shasum": ""
             },
             "require": {
@@ -16017,9 +16017,9 @@
             "description": "A composer plugin that enables source code quality checks.",
             "support": {
                 "issues": "https://github.com/phpro/grumphp/issues",
-                "source": "https://github.com/phpro/grumphp/tree/v2.13.0"
+                "source": "https://github.com/phpro/grumphp/tree/v2.14.0"
             },
-            "time": "2025-06-04T13:45:13+00:00"
+            "time": "2025-07-25T08:35:57+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -18474,16 +18474,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v7.3.0",
+            "version": "v7.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "c4b217b578c11ec764867aa0c73e602c602965de"
+                "reference": "a7c6caa9d6113cebfb3020b427bcb021ebfdfc9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/c4b217b578c11ec764867aa0c73e602c602965de",
-                "reference": "c4b217b578c11ec764867aa0c73e602c602965de",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/a7c6caa9d6113cebfb3020b427bcb021ebfdfc9e",
+                "reference": "a7c6caa9d6113cebfb3020b427bcb021ebfdfc9e",
                 "shasum": ""
             },
             "require": {
@@ -18552,7 +18552,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v7.3.0"
+                "source": "https://github.com/symfony/cache/tree/v7.3.1"
             },
             "funding": [
                 {
@@ -18568,7 +18568,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-06T19:00:13+00:00"
+            "time": "2025-06-27T19:55:54+00:00"
         },
         {
             "name": "symfony/cache-contracts",
