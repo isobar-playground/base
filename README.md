@@ -31,9 +31,9 @@ To set up the local development environment, follow these steps:
    ```sh
    cd base
    ```
-3. Run the Task command to start the environment:
+3. Run the Task command to start the local environment:
    ```sh
-   task up
+   task init:local
    ```
 4. Access the local environment at http://base.localhost
 
