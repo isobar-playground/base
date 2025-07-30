@@ -179,11 +179,6 @@
                 "type:bower-asset",
                 "type:npm-asset"
             ]
-        },
-        "merge-plugin": {
-            "require": [
-                "web/modules/contrib/webform/composer.libraries.json"
-            ]
         }
     }
 }
