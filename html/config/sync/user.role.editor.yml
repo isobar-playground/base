@@ -20,6 +20,7 @@ dependencies:
     - node
     - path
     - quick_node_clone
+    - scheduler
     - system
     - taxonomy
     - toolbar
@@ -59,6 +60,9 @@ permissions:
   - 'mark as ok in editoria11y'
   - 'move paragraphs'
   - 'revert all revisions'
+  - 'schedule publishing of media'
+  - 'schedule publishing of nodes'
+  - 'schedule publishing of taxonomy_term'
   - 'translate any entity'
   - 'translate editable entities'
   - 'update any media'
@@ -68,3 +72,6 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view editoria11y checker'
+  - 'view scheduled content'
+  - 'view scheduled media'
+  - 'view scheduled taxonomy_term'
