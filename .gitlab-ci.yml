@@ -61,7 +61,7 @@ build:
 
         task drush -- deploy
 
-        docker image prune -f
+        docker image prune -af
       EOF
   needs:
     - build
