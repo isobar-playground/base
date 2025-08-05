@@ -1,0 +1,1 @@
+* * * * * bash --login -c "/srv/app/vendor/bin/drush cron -v >> /srv/app/logs/drush.log 2>&1"

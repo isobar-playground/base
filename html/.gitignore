@@ -73,3 +73,6 @@
 
 # Ignore .env files as they are personal
 .env
+
+# Ignore application logs
+logs

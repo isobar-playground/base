@@ -99,6 +99,7 @@ RUN set -eux; \
     apt-get install -y \
       acl \
       bash \
+      cron \
       default-mysql-client \
       gettext-base \
       git \
@@ -111,6 +112,7 @@ RUN set -eux; \
       libpng16-16 \
       libzip4 \
       msodbcsql18 \
+      nano \
       wkhtmltopdf \
       zip \
       ; \
@@ -141,6 +143,10 @@ RUN addgroup --gid ${UID} php; \
 
 RUN chown -R php:php $PHP_INI_DIR && \
     chown -R php:php ${PHP_INI_DIR}-fpm.d
+
+COPY docker/php/crontab /home/php/crontab
+COPY ./docker/php/cron-entrypoint.sh /usr/local/bin/cron-entrypoint
+RUN chmod +x /usr/local/bin/cron-entrypoint
 
 RUN ln -s $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 

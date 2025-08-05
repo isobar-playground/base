@@ -22,6 +22,29 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
 
+  cron:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: app_php
+      args:
+        USE_XDEBUG: 0
+    restart: unless-stopped
+    user: 'root'
+    entrypoint: ["cron-entrypoint"]
+    environment:
+      # Empty value, so it is just taken from environment if exists and ignored otherwise.
+      # This is so you can disable whole application using e.g. ".common.env", but enable specific task in console.
+      APP_DISABLE:
+    env_file:
+      - ./env/.common.env
+      - ./env/.php.env
+    volumes:
+      - ./html:/srv/app:rw,cached
+      - ./docker/mysql:/srv/mysql:rw,cached
+      - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
+      - ./docker/php/crontab:/home/php/crontab
+
   grumphp:
     build:
       context: .

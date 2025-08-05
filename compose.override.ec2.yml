@@ -5,6 +5,18 @@ services:
     volumes:
       - ./html/web/sites/default/files:/srv/app/web/sites/default/files
 
+  cron:
+    image: ${CI_REGISTRY}/${CI_REPOSITORY_PHP}:${CI_COMMIT_SHA}
+    restart: unless-stopped
+    user: 'root'
+    entrypoint: ["cron-entrypoint"]
+    volumes:
+      - ./html/web/sites/default/files:/srv/app/web/sites/default/files
+      - ./html/logs:/srv/app/logs
+    env_file:
+      - ./env/.common.env
+      - ./env/.php.env
+
   apache:
     image: ${CI_REGISTRY}/${CI_REPOSITORY_APACHE}:${CI_COMMIT_SHA}
     restart: unless-stopped
