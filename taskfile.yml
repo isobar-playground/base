@@ -97,18 +97,18 @@ tasks:
           fi
         silent: true
 
-  down:
+  stop:
     desc: Stop containers
     status:
       - '{{.DOCKER_COMPOSE}} ps -q --status=running | grep . | wc -l | xargs test 0 -eq'
     cmds:
-      - '{{.DOCKER_COMPOSE}} down --remove-orphans'
+      - '{{.DOCKER_COMPOSE}} stop'
 
   restart:
-    desc: 'Restart application (using docker compose up + down instead of docker compose restart).'
+    desc: 'Restart application (using docker compose stop + up instead of docker compose restart).'
     method: none
     cmds:
-      - task: down
+      - task: stop
       - task: up
 
   prune:
