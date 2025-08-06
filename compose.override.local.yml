@@ -60,7 +60,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
       target: node
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - ./html:/srv/app:rw,cached
     working_dir: ${FRONTEND_WORKING_DIR:-/srv/app/web/themes/custom/base_starterkit}
