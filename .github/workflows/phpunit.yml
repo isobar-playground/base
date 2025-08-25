@@ -26,7 +26,7 @@ jobs:
           task up
 
       - name: Run PHPUnit
-        run: docker compose --env-file ./env/.common.env exec php phpunit --coverage-clover clover.xml --coverage-text
+        run: docker compose --env-file ./env/.common.env exec --env XDEBUG_MODE=coverage php phpunit --coverage-clover clover.xml --coverage-text
 
       - name: Code Coverage Summary Report
         uses: saschanowak/CloverCodeCoverageSummary@1.0.1
@@ -65,5 +65,5 @@ jobs:
 
       - name: Cleanup
         if: always()
-        run: | 
+        run: |
           docker compose --env-file ./env/.common.env down
