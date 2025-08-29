@@ -50,7 +50,7 @@
         "drupal/queue_ui": "^3.2",
         "drupal/quick_node_clone": "^1.22",
         "drupal/rabbitmq": "^3.1",
-        "drupal/redirect": "^1.11",
+        "drupal/redirect": "^1.12",
         "drupal/s3fs": "^3.9",
         "drupal/scheduler": "^2.2",
         "drupal/search_api": "^1.38",
