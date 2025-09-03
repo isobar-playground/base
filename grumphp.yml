@@ -3,7 +3,7 @@ grumphp:
     variables:
       GRUMPHP_COMPOSER_DIR: /home/php/app/html
   git_hook_variables:
-    EXEC_GRUMPHP_COMMAND: [ 'docker-compose', '--env-file', './env/.common.env', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
+    EXEC_GRUMPHP_COMMAND: [ 'docker', 'compose', '--env-file', './env/.common.env', 'run', '-T', '--rm', '--no-deps', 'grumphp' ]
   tasks:
     composer:
       file: html/composer.json
