@@ -14,8 +14,8 @@ services:
       args:
         USE_XDEBUG: 1
     volumes:
-      - ./html:/srv/app:rw,cached
-      - ./docker/mysql:/srv/mysql:rw,cached
+      - ./html:/srv/app
+      - ./docker/mysql:/srv/mysql
       - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
     environment:
       - ${APP_ENV:-prod}
@@ -40,8 +40,8 @@ services:
       - ./env/.common.env
       - ./env/.php.env
     volumes:
-      - ./html:/srv/app:rw,cached
-      - ./docker/mysql:/srv/mysql:rw,cached
+      - ./html:/srv/app
+      - ./docker/mysql:/srv/mysql
       - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
       - ./docker/php/crontab:/home/php/crontab
 
@@ -62,7 +62,7 @@ services:
       target: node
     restart: unless-stopped
     volumes:
-      - ./html:/srv/app:rw,cached
+      - ./html:/srv/app
     working_dir: ${FRONTEND_WORKING_DIR:-/srv/app/web/themes/custom/base_starterkit}
     command: ['npm', 'run', 'watch']
 

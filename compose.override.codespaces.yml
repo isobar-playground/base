@@ -8,7 +8,7 @@ services:
       args:
         USE_XDEBUG: 1
     volumes:
-      - ./html:/srv/app:rw,cached
+      - ./html:/srv/app
       - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
     environment:
       - ${APP_ENV:-prod}
@@ -32,7 +32,7 @@ services:
       target: node
     restart: on-failure
     volumes:
-      - ./html:/srv/app:rw,cached
+      - ./html:/srv/app
     working_dir: ${FRONTEND_WORKING_DIR:-/srv/app/web/themes/custom/base_starterkit}
     command: ['npm', 'run', 'watch']
 
