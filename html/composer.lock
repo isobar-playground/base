@@ -2432,17 +2432,17 @@
         },
         {
             "name": "drupal/editor_advanced_link",
-            "version": "2.2.8",
+            "version": "2.2.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editor_advanced_link.git",
-                "reference": "2.2.8"
+                "reference": "2.2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.2.8.zip",
-                "reference": "2.2.8",
-                "shasum": "18b0a8674da278086ca6a3f854aa91214d43a1b8"
+                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.2.9.zip",
+                "reference": "2.2.9",
+                "shasum": "fc1a4c6ad69a4bfc820ecfd0df47fbc7f5d6a885"
             },
             "require": {
                 "drupal/core": "^10.2 <10.5 || ^11 <11.2"
@@ -2456,8 +2456,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.8",
-                    "datestamp": "1751979990",
+                    "version": "2.2.9",
+                    "datestamp": "1758044012",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
