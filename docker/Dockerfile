@@ -15,7 +15,7 @@ ARG USE_XDEBUG=0
 
 # PHP 8.3
 ARG XDEBUG_VERSION=3.4.2
-FROM php:8.3.27-fpm-bookworm AS php
+FROM php:8.3.29-fpm-bookworm AS php
 
 FROM php AS php-extensions
 
