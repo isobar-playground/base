@@ -50,7 +50,6 @@
         "drupal/queue_mail": "^1.7",
         "drupal/queue_ui": "^3.2",
         "drupal/quick_node_clone": "^1.22",
-        "drupal/rabbitmq": "^3.1",
         "drupal/redirect": "^1.12",
         "drupal/s3fs": "^3.9",
         "drupal/scheduler": "^2.2",
@@ -73,7 +72,6 @@
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
-        "drupal/core-dev": "10.4.9",
         "drupal/devel": "^5.4",
         "ergebnis/composer-normalize": "^2.48",
         "mglaman/phpstan-drupal": "^1.3",

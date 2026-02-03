@@ -266,12 +266,12 @@ $config['smtp.settings']['smtp_port'] = '1025';
 /**
  * RabbitMQ configuration.
  */
-$settings['rabbitmq_credentials']['default'] = [
-  'host' => 'rabbitmq',
-  'port' => 5672,
-  'vhost' => '/',
-  'username' => 'admin',
-  'password' => 'admin',
-];
+// $settings['rabbitmq_credentials']['default'] = [
+//   'host' => 'rabbitmq',
+//   'port' => 5672,
+//   'vhost' => '/',
+//   'username' => 'admin',
+//   'password' => 'admin',
+// ];
 
-$settings['queue_default'] = 'queue.rabbitmq.default';
+// $settings['queue_default'] = 'queue.rabbitmq.default';
