@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.3",
         "composer/installers": "^2.3",
-        "cweagans/composer-patches": "~1.0",
+        "cweagans/composer-patches": "~2.0",
         "drupal/all_entity_preview": "^1.0@alpha",
         "drupal/anchor_link": "~3.0",
         "drupal/better_exposed_filters": "^7.1",
