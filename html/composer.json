@@ -19,8 +19,8 @@
         "drupal/ckeditor_link_styles": "^1.1",
         "drupal/clientside_validation": "^4.1",
         "drupal/config_split": "^2.0",
-        "drupal/core-composer-scaffold": "^10.4",
-        "drupal/core-recommended": "^10.4",
+        "drupal/core-composer-scaffold": "10.4.9",
+        "drupal/core-recommended": "10.4.9",
         "drupal/crop": "^2.5",
         "drupal/diff": "^2.0@beta",
         "drupal/easy_breadcrumb": "^2.0",
@@ -72,7 +72,7 @@
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.4",
+        "drupal/core-dev": "10.4.9",
         "drupal/devel": "^5.4",
         "ergebnis/composer-normalize": "^2.48",
         "mglaman/phpstan-drupal": "^1.3",
