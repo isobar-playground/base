@@ -28,6 +28,7 @@
         "drupal/editoria11y": "^2.2",
         "drupal/embed": "^1.10",
         "drupal/events_log_track": "^4.0",
+        "drupal/extra_field": "^3.0",
         "drupal/field_group": "^4.0@alpha",
         "drupal/focal_point": "^2.1",
         "drupal/frontend_editing": "^1.9",
