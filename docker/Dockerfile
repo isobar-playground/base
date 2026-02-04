@@ -13,9 +13,9 @@ ARG USE_XDEBUG=0
 #ARG XDEBUG_VERSION=3.1.6
 #FROM php:7.4-fpm AS php
 
-# PHP 8.3
+# PHP 8.4
 ARG XDEBUG_VERSION=3.4.2
-FROM php:8.3.30-fpm-bookworm AS php
+FROM php:8.4.17-fpm-bookworm AS php
 
 FROM php AS php-extensions
 
@@ -48,6 +48,7 @@ RUN set -eux; \
       libjpeg62-turbo-dev \
       libmemcached-dev \
       libpng-dev \
+      libavif-dev \
       libwebp-dev \
       libssl-dev \
       libxml2-dev \
@@ -57,7 +58,7 @@ RUN set -eux; \
 
 ## Configure PHP Extensions
 RUN set -eux; \
-    docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp; \
+    docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-avif; \
     pecl install memcached-${MEMCACHED_VERSION} xlswriter-${XLSWRITER_VERSION} sqlsrv-${SQLSRV_VERSION} pdo_sqlsrv-${SQLSRV_VERSION}; \
     docker-php-ext-configure intl; \
     docker-php-ext-configure pcntl --enable-pcntl;
@@ -103,6 +104,7 @@ RUN set -eux; \
       default-mysql-client \
       gettext-base \
       git \
+      libavif15 \
       libfbclient2 \
       libfcgi-bin \
       libfreetype6 \
