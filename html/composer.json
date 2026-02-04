@@ -74,6 +74,7 @@
         "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
+        "drupal/core-dev": "11.3.*",
         "drupal/devel": "^5.5",
         "ergebnis/composer-normalize": "^2.48",
         "mglaman/phpstan-drupal": "^1.3",
