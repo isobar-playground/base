@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1d54f0d433480f4b5c89b0d1a365916",
+    "content-hash": "e2ee4d71ca13552986f5daf401e6f937",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6937,10 +6937,10 @@
         },
         {
             "name": "npm-asset/jquery-validation",
-            "version": "1.21.0",
+            "version": "1.22.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.21.0.tgz"
+                "url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.22.1.tgz"
             },
             "type": "npm-asset",
             "license": [
