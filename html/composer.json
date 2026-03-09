@@ -21,7 +21,7 @@
         "drupal/config_split": "^2.0",
         "drupal/core-composer-scaffold": "11.3.*",
         "drupal/core-recommended": "11.3.*",
-        "drupal/crop": "^2.5",
+        "drupal/crop": "^2.6",
         "drupal/diff": "^2.0@beta",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/editor_advanced_link": "^2.3",
